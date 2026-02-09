@@ -8,7 +8,10 @@ type Group = {
   subtitle: string;
   items: string[];
   accent: "matcha" | "coffee" | "ink" | "latte";
-  imageLabel: string; // placeholder until add png
+  imageSrc: string;
+  imageSize?: number;
+  imageX?: number;
+  imageY?: number;
 };
 
 function Chip({ text }: { text: string }) {
@@ -30,7 +33,10 @@ export default function SkillsSection() {
       subtitle: "Foundations I reach for daily",
       items: ["Python", "TypeScript", "JavaScript", "Java", "SQL", "C"],
       accent: "ink",
-      imageLabel: "coffee.png",
+      imageSrc: "/coffee.png",
+      imageSize: 120,
+      imageX: -20,
+      imageY: 10,
     },
     {
       title: "Frameworks & Libraries",
@@ -44,7 +50,10 @@ export default function SkillsSection() {
         "Three.js",
       ],
       accent: "matcha",
-      imageLabel: "matcha.png",
+      imageSrc: "/matcha.png",
+      imageSize: 120,
+      imageX: -20,
+      imageY: -4,
     },
     {
       title: "Tools & Databases",
@@ -59,7 +68,10 @@ export default function SkillsSection() {
         "CI/CD",
       ],
       accent: "coffee",
-      imageLabel: "latte.png",
+      imageSrc: "/latte.png",
+      imageSize: 80,
+      imageX: -20,
+      imageY: 20,
     },
     {
       title: "Product / Systems",
@@ -72,7 +84,10 @@ export default function SkillsSection() {
         "Data thinking",
       ],
       accent: "latte",
-      imageLabel: "pastry.png",
+      imageSrc: "/pastry.png",
+      imageSize: 115,
+      imageX: -15,
+      imageY: 20,
     },
   ];
 
@@ -83,7 +98,7 @@ export default function SkillsSection() {
           <div className={styles.kicker}>Today’s</div>
           <div className={styles.menuTitle}>Skills Menu</div>
           <div className={styles.menuSub}>
-            A calm toolbox — served warm. Click/hover ingredients.
+            A calm toolbox — served warm. Hover over the ingredients.
           </div>
         </div>
 
@@ -123,10 +138,15 @@ export default function SkillsSection() {
             </div>
 
             <div className={styles.media}>
-              <div className={styles.mediaPlaceholder}>
-                <div className={styles.mediaLabel}>Add PNG</div>
-                <div className={styles.mediaHint}>{g.imageLabel}</div>
-              </div>
+              <img
+                src={g.imageSrc}
+                alt={`${g.title} illustration`}
+                className={styles.mediaImg}
+                style={{
+                  width: g.imageSize ? `${g.imageSize}px` : "110px",
+                  transform: `translate(${g.imageX ?? 0}px, ${g.imageY ?? 0}px)`,
+                }}
+              />
             </div>
           </motion.article>
         ))}

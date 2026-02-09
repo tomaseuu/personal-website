@@ -61,7 +61,7 @@
 
 .iconBtn {
   border: 1px solid rgba(15, 23, 42, 0.16);
-  background: rgba(255, 255, 255, 0.35);
+  background: transparent;
   color: rgba(15, 23, 42, 0.75);
   border-radius: 999px;
   padding: 10px 14px;
@@ -126,4 +126,24 @@
 .resumeBtn:hover {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.35);
+}
+
+.animWrap {
+  margin-top: -120px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.anim {
+  width: 200px;
+  opacity: 0.85;
+  pointer-events: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.crop {
+  width: 200px;
+  height: 215px;
+  overflow: hidden;
 }

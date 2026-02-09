@@ -34,7 +34,7 @@ export default function AboutSection() {
             target="_blank"
             rel="noreferrer"
           >
-            linkedin
+            Linkedin
           </a>
           <a
             className={styles.iconBtn}
@@ -79,6 +79,11 @@ export default function AboutSection() {
           >
             DOWNLOAD RESUME
           </a>
+        </div>
+        <div className={styles.animWrap}>
+          <div className={styles.crop}>
+            <img src="/coffee.gif" alt="coffee" className={styles.anim} />
+          </div>
         </div>
       </div>
     </div>

@@ -100,12 +100,20 @@
   animation: floatB 8.4s ease-in-out infinite;
 }
 
-.polaroid:hover {
+.polaroidFloatA:hover,
+.polaroidFloatB:hover {
   animation-play-state: paused;
   z-index: 10;
   transform: translateY(-10px) rotate(1deg) scale(1.03);
   box-shadow: 0 40px 110px rgba(15, 23, 42, 0.18);
   filter: saturate(1.05);
+}
+
+.polaroidMain:hover {
+  animation-play-state: running;
+  transform: none;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+  filter: none;
 }
 
 /* motion */

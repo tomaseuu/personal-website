@@ -51,6 +51,36 @@
   margin-top: 26px;
 }
 
+.header {
+  position: relative;
+}
+
+.headerRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.headerAnim {
+  position: relative;
+  top: 59px;
+  right: 10px;
+}
+
+.crop {
+  width: 90px;
+  height: 72px;
+  overflow: hidden;
+}
+
+.anim {
+  width: 90px;
+  display: block;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
 @media (max-width: 640px) {
   .section {
     padding: 76px 0;
