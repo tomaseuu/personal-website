@@ -74,4 +74,95 @@ export const PROJECTS: Project[] = [
     // image: { src: "/projects/cancer-network.png", alt: "Graph analysis visualization" },
     // links: [{ label: "GitHub", href: "" }, { label: "Write-up", href: "" }],
   },
+  {
+    id: "repnote",
+    title: "RepNote",
+    subtitle:
+      "Mobile-only workout planner designed for fast daily logging without accounts or setup.",
+    tags: ["React Native", "Expo", "TypeScript", "Mobile UX"],
+    bullets: [
+      "Shipped a mobile workout planner in React Native (Expo) optimized for quick, daily use.",
+      "Implemented weekly workout planning (Mon–Sun) with exercises tracking sets, reps, weights, and notes.",
+      "Persisted workout data locally on-device to enable instant load times and offline access.",
+      "Auto-detected the current day to surface today’s workout with fast in-place edits.",
+    ],
+    tech: ["React Native", "Expo", "TypeScript", "Local Storage"],
+    metrics: ["Offline-first", "Mobile-only UX", "Instant load"],
+  },
+
+  {
+    id: "babesia-hmm",
+    title: "Modeling Babesia Life Cycles",
+    subtitle:
+      "Probabilistic modeling of parasite life-cycle stages using Hidden Markov Models.",
+    tags: ["Python", "HMM", "Bioinformatics", "Statistics"],
+    bullets: [
+      "Built Hidden Markov Models to predict parasite life-cycle stages from gene expression data.",
+      "Implemented the Viterbi algorithm to infer the most probable sequence of biological states.",
+      "Constructed transition and emission matrices linking observations to hidden stages.",
+      "Applied probabilistic modeling to interpret pathogen regulation and disease progression.",
+    ],
+    tech: ["Python", "NumPy", "pandas", "Statistical Modeling"],
+    metrics: ["HMMs", "Viterbi decoding", "Biological inference"],
+  },
+  {
+    id: "pomodoro-productivity",
+    title: "Pomodoro Productivity App",
+    subtitle:
+      "Web-based Pomodoro timer with task tracking, persistence, and automated deployment.",
+    tags: ["React", "JavaScript", "APIs", "CI/CD"],
+    bullets: [
+      "Built a Pomodoro productivity web app with task tracking and timer-based workflows.",
+      "Designed interactive React components to support smooth task and session transitions.",
+      "Integrated APIs to persist user sessions and task state across refreshes.",
+      "Set up Azure CI/CD pipelines with GitHub workflows for automated testing and deployment.",
+    ],
+    tech: ["React", "JavaScript", "REST APIs", "Azure CI/CD", "GitHub Actions"],
+    metrics: ["Persistent sessions", "Automated deploys", "Responsive UI"],
+  },
+  {
+    id: "boomerang-refund-tracker",
+    title: "Boomerang Refund Tracker",
+    subtitle:
+      "Mobile app that tracks refunds directly from Gmail and surfaces purchase details in one place.",
+    tags: ["React Native", "Expo", "TypeScript", "Gmail API"],
+    bullets: [
+      "Collaborated with a small team to build a mobile refund tracking app using Google’s official Gmail API.",
+      "Designed and implemented the Refunds and Item Info pages based on Figma prototypes.",
+      "Improved cross-platform UI consistency by refining typography, spacing, and layout across devices.",
+      "Contributed to dashboard integration, Git branching workflows, and version-controlled releases.",
+    ],
+    tech: ["React Native", "Expo", "TypeScript", "Gmail API", "Figma"],
+    metrics: ["Mobile UI", "Gmail integration", "Cross-platform consistency"],
+  },
+  {
+    id: "2d-open-world-game",
+    title: "2D Open-World Game",
+    subtitle:
+      "Java-based 2D game featuring tile movement, NPC behavior, and pathfinding AI.",
+    tags: ["Java", "Game Dev", "Pathfinding", "OOP"],
+    bullets: [
+      "Engineered a 2D open-world game with tile-based movement for players and NPCs.",
+      "Refactored game logic into modular classes to improve maintainability and reuse.",
+      "Implemented A* pathfinding and collision detection for smooth NPC navigation.",
+      "Designed AI movement systems to handle obstacles and dynamic environments.",
+    ],
+    tech: ["Java", "A* Pathfinding", "Object-Oriented Design"],
+    metrics: ["A* navigation", "Modular engine", "NPC AI"],
+  },
+  {
+    id: "table-checkin-sensor",
+    title: "Table Check-In Sensor System",
+    subtitle:
+      "Embedded system for real-time seat occupancy detection using motion and light sensors.",
+    tags: ["Java", "Sensors", "Embedded Systems"],
+    bullets: [
+      "Built a real-time seat occupancy system using Adafruit light and motion sensors.",
+      "Designed a noise-filtering algorithm to reduce false positives from environmental interference.",
+      "Tuned sensor parameters to improve stability and detection accuracy in dynamic settings.",
+      "Implemented a timer-based filter to ignore brief movements and prevent false detections.",
+    ],
+    tech: ["Java", "Adafruit Sensors", "Signal Filtering"],
+    metrics: ["Noise reduction", "Real-time sensing", "Improved accuracy"],
+  },
 ];

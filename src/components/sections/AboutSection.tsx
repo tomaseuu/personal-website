@@ -10,7 +10,7 @@ export default function AboutSection() {
     { label: "PRONOUNS", value: "He/Him/His" },
     { label: "SCHOOL", value: "Cal Poly San Luis Obispo" },
     { label: "Age", value: "21" },
-    { label: "MAJOR", value: "Computer Science (B.S.) • Bioinformatics minor" },
+    { label: "MAJOR", value: "Computer Science (B.S.) Bioinformatics minor" },
     { label: "HOMETOWN", value: "West Covina, CA" },
   ];
 
@@ -30,7 +30,7 @@ export default function AboutSection() {
         <div className={styles.socials} aria-label="Social links">
           <a
             className={styles.iconBtn}
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/thomasle998/"
             target="_blank"
             rel="noreferrer"
           >
@@ -38,7 +38,7 @@ export default function AboutSection() {
           </a>
           <a
             className={styles.iconBtn}
-            href="https://github.com"
+            href="https://github.com/tomaseuu"
             target="_blank"
             rel="noreferrer"
           >
@@ -46,7 +46,7 @@ export default function AboutSection() {
           </a>
           <a
             className={styles.iconBtn}
-            href="https://youtube.com"
+            href="https://www.youtube.com/@tomaseuu"
             target="_blank"
             rel="noreferrer"
           >
@@ -55,20 +55,19 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* RIGHT: story */}
+      {/* right: story */}
       <div className={styles.right}>
         <p className={styles.p}>
-          I am a rising CS senior at Cal Poly SLO. I love learning, creating,
-          and bringing ideas to life through code — especially when engineering
-          meets product polish.
+          I am a CS senior at Cal Poly SLO who enjoys building things and seeing
+          them actually work. I like taking ideas from rough sketches to real,
+          usable products.
         </p>
 
         <p className={styles.p}>
-          Recently I have been building across web + mobile: shipping UI from
-          Figma, tightening onboarding flows, and designing reusable systems
-          that help teams move faster without getting messy. Outside of code, I
-          am into video editing + YouTube — creativity keeps my work
-          intentional.
+          These days, I work full-stack - wiring up backends, databases, and
+          frontends, and making sure everything feels smooth end to end. Outside
+          of code, I am into video editing and YouTube, which keeps me thinking
+          about creativity and user experience.
         </p>
 
         <div className={styles.actions}>

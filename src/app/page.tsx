@@ -45,7 +45,7 @@ export default function Page() {
           <Section
             id="projects"
             title="Projects"
-            subtitle="Case studies — click to expand."
+            subtitle="Click on the arrows to view more projects"
             tone="tint"
           >
             <ProjectsSection />
@@ -71,11 +71,13 @@ export default function Page() {
 
           <div id="connect" style={{ height: 1 }} />
           <ContactReveal
-            email="thomasle@example.com"
+            email="lethomas998@gmail.com"
             links={[
-              { label: "GitHub", href: "https://github.com/yourname" },
-              { label: "LinkedIn", href: "https://linkedin.com/in/yourname" },
-              { label: "Resume", href: "/resume.pdf" },
+              { label: "GitHub", href: "https://github.com/tomaseuu" },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/thomasle998/",
+              },
             ]}
           />
         </>
