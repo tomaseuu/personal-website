@@ -90,6 +90,15 @@ export default function ProjectsSection() {
 
   return (
     <div className={styles.stage}>
+      <div className={styles.topline} aria-hidden="true">
+        <span className={styles.line} />
+        <img
+          src="/totoro.gif"
+          alt=""
+          className={styles.totoro}
+          draggable={false}
+        />
+      </div>
       {/* arrows */}
       <button
         className={`${styles.arrow} ${styles.left}`}

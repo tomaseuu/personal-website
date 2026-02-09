@@ -10,7 +10,12 @@ type Hobby = {
   subtitle: string;
   note: string;
   tag: string;
-  image?: { src: string; alt: string };
+  image?: {
+    src: string;
+    alt: string;
+    zoom?: number;
+    pos?: string;
+  };
 };
 
 function randomTilt(id: string) {
@@ -25,37 +30,76 @@ export default function HobbiesSection() {
       {
         id: "pickleball",
         title: "Pickleball",
-        subtitle: "court time + friends",
-        tag: "movement",
-        note: "It’s my favorite way to get competitive without taking life too seriously. Fast rallies, good laughs, instant reset.",
+        subtitle: "a fun new sport I just got into",
+        tag: "PICKLE",
+        note: "Pickleball has been my stress reliever lately. I have so much fun playing and it lowkey brings out my competitive side. I am not that good yet since this is literally my first racket sport and I still am learning the ropes, but i wanna keep getting better. ",
+        image: {
+          src: "/pickleball.gif",
+          alt: "Playing pickleball",
+          zoom: 1.0,
+          pos: "45% 35%",
+        },
       },
       {
         id: "running",
         title: "Running",
-        subtitle: "head clear / heart steady",
-        tag: "reset",
-        note: "When I run, my brain organizes itself. I come back calmer, more focused, and weirdly more creative.",
+        subtitle: "I really can not believe i enjoy running now",
+        tag: "5k!",
+        note: "Not really sure how I got into running, but ever since I signed up for a couple 5ks, I have just been training. I had to start somewhere, and it is kind of crazy seeing myself hit new PRs and slowly build real endurance.",
+        image: {
+          src: "/running.gif",
+          alt: "Running outdoors",
+          fit: "contain",
+          zoom: 1.0,
+          pos: "45% 35%",
+        },
       },
       {
         id: "kdrama",
-        title: "K-dramas",
-        subtitle: "cozy stories at night",
-        tag: "comfort",
-        note: "I love good storytelling and character growth. It’s honestly how I recharge after long days.",
+        title: "K-dramas | Studio Ghibli | Anime",
+        subtitle: "an escape from reality does hit different sometimes",
+        tag: "<3",
+        note: "Something about k-dramas, anime, and studio ghibli just hits. The visuals, the storytelling, the peaceful moemnts (and yes, the dramas). I love the slice of life parts and the little messages that stick with you after.",
+        image: {
+          src: "/tv.gif",
+          alt: "Watching TV",
+          zoom: 1.0,
+          pos: "45% 35%",
+        },
       },
+
       {
         id: "youtube",
         title: "YouTube / Editing",
-        subtitle: "turn moments into memories",
-        tag: "creative",
-        note: "I like shaping a vibe — music, pacing, little details. It feels like building a product, but emotional.",
+        subtitle: "my creative passion",
+        tag: "new vid",
+        note: "Shaping moments through a lens and turning them into something worth rewatching. Music, pacing, and little details all come together. Posting on youtube lets my friends see it too, and it is kind of like journaling life in a creative way.",
+        image: {
+          src: "/video-edit.gif",
+          alt: "Video editing timeline",
+        },
       },
       {
         id: "reading",
         title: "Reading",
-        subtitle: "slow dopamine",
-        tag: "curiosity",
-        note: "It’s the quiet version of learning. A small habit that stacks over time and changes how I think.",
+        subtitle: "def getting lost in these pages",
+        tag: "flow",
+        note: "Reading has always been a thing since I was young. I love picking up a book and getting lost in a new world, whether it is learning something new or going on an adventure. It is a calm escape from everything else in life :)",
+        image: {
+          src: "/read.gif",
+          alt: "Reading a book",
+        },
+      },
+      {
+        id: "exploring",
+        title: "Exploring",
+        subtitle: "seeing more of life",
+        tag: "open",
+        note: "Love exploring, whether it is with frineds or on my own. There is so much out there and being young means trying new places, doing fun things, and just seeing where life goes.",
+        image: {
+          src: "/explore.gif",
+          alt: "exploring the world",
+        },
       },
     ],
     [],
@@ -109,6 +153,10 @@ export default function HobbiesSection() {
                     className={styles.img}
                     src={h.image.src}
                     alt={h.image.alt}
+                    style={{
+                      objectPosition: h.image.pos ?? "50% 50%",
+                      transform: `scale(${h.image.zoom ?? 1})`,
+                    }}
                   />
                 ) : (
                   <div className={styles.photoPlaceholder}>

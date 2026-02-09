@@ -56,7 +56,7 @@ export default function Page() {
           <Section
             id="skills"
             title="Skills"
-            subtitle="The Skills I know"
+            subtitle="The skills I have been cooking with"
             tone="tint"
           >
             <SkillsSection />
@@ -65,7 +65,8 @@ export default function Page() {
           <Section
             id="hobbies"
             title="Hobbies"
-            subtitle="Postcards from my life lately."
+            subtitle="Postcards about my passions! Here are things I enjoy besides
+            Computer Science. "
             tone="tint"
           >
             <HobbiesSection />

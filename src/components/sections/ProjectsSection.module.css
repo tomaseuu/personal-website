@@ -7,6 +7,28 @@
   padding: 48px 0 64px;
 }
 
+.topline {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.totoro {
+  position: relative;
+  height: 170px;
+  width: auto;
+  transform: translateY(-195px);
+  left: 400px;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
+  opacity: 0.95;
+}
+
 /* ===== Arrows ===== */
 
 .arrow {

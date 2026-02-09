@@ -120,6 +120,7 @@
   width: 100%;
   background: rgba(15, 23, 42, 0.03);
   border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+  overflow: hidden;
 }
 
 .img {
@@ -127,6 +128,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transform-origin: center;
 }
 
 .photoPlaceholder {
