@@ -1,0 +1,66 @@
+/* components/ui/Section.module.css */
+
+.section {
+  padding: 96px 0;
+}
+
+.inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.55);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--text);
+}
+
+.subtitle {
+  margin-top: 10px;
+  max-width: 68ch;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.rule {
+  margin-top: 18px;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.body {
+  margin-top: 26px;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 76px 0;
+  }
+
+  .inner {
+    padding: 0 18px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+}

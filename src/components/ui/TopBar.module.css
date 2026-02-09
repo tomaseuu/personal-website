@@ -1,0 +1,59 @@
+/* components/ui/TopBar.module.css */
+
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+
+  backdrop-filter: blur(8px);
+  background: rgba(251, 245, 234, 0.75);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(15, 23, 42, 0.85);
+}
+
+.menuBtn {
+  border-radius: 999px;
+  padding: 10px 20px;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  background: transparent;
+  color: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.18);
+
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+.menuBtn:hover {
+  background: rgba(15, 23, 42, 0.04);
+  transform: translateY(-1px);
+}
+
+.menuBtn:active {
+  transform: translateY(0);
+  opacity: 0.85;
+}

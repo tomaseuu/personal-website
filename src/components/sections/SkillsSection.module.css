@@ -1,0 +1,249 @@
+/* ===== wrapper ===== */
+
+.wrap {
+  position: relative;
+  border-radius: 26px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  padding: 22px 22px 18px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.08);
+}
+
+.menuTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.menuTitle {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.menuSub {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.62);
+  max-width: 52ch;
+}
+
+.stamp {
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  border: 1px solid rgba(122, 143, 106, 0.3);
+  background: rgba(122, 143, 106, 0.08);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  transform: rotate(6deg);
+  flex: 0 0 auto;
+}
+
+.stampTop {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.7);
+}
+
+.stampMid {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: rgba(79, 111, 67, 0.92);
+}
+
+.stampBot {
+  margin-top: 2px;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.rule {
+  height: 1px;
+  background: rgba(15, 23, 42, 0.1);
+  margin: 16px 0 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(251, 245, 234, 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 16px 55px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 132px;
+  gap: 14px;
+  overflow: hidden;
+}
+
+@media (max-width: 520px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rowTop {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.groupTitle {
+  font-size: 14px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.78);
+}
+
+.dots {
+  height: 2px;
+  transform: translateY(-2px);
+  background-image: radial-gradient(
+    rgba(15, 23, 42, 0.22) 1px,
+    transparent 1px
+  );
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  opacity: 0.8;
+}
+
+.price {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.52);
+}
+
+.groupSub {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.62);
+  max-width: 48ch;
+}
+
+.ingredients {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 12.5px;
+  font-weight: 650;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.45);
+  color: rgba(15, 23, 42, 0.78);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+  user-select: none;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(122, 143, 106, 0.28);
+  background: rgba(122, 143, 106, 0.1);
+}
+
+.media {
+  display: grid;
+  place-items: center;
+}
+
+.mediaPlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 110px;
+  border-radius: 18px;
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.35);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.mediaLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.62);
+}
+
+.mediaHint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.5);
+}
+
+.matcha {
+  border-color: rgba(122, 143, 106, 0.25);
+}
+
+.matcha .chip:hover {
+  background: rgba(122, 143, 106, 0.12);
+}
+
+.coffee {
+  border-color: rgba(107, 79, 59, 0.22);
+}
+
+.coffee .chip:hover {
+  background: rgba(107, 79, 59, 0.1);
+  border-color: rgba(107, 79, 59, 0.22);
+}
+
+.latte {
+  border-color: rgba(216, 184, 146, 0.32);
+}
+
+.ink {
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.footerNote {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+  color: rgba(15, 23, 42, 0.56);
+  font-size: 13px;
+}

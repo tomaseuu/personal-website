@@ -1,0 +1,352 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.52);
+  font-weight: 800;
+}
+
+.title {
+  margin: 6px 0 0;
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.sub {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.62);
+  max-width: 60ch;
+}
+
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(122, 143, 106, 0.45);
+  border: 1px solid rgba(122, 143, 106, 0.55);
+}
+
+.legendText {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.58);
+  font-weight: 750;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card (postcard) */
+.card {
+  cursor: pointer;
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(251, 245, 234, 0.78);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transform-origin: center;
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.card:hover {
+  border-color: rgba(15, 23, 42, 0.18);
+  box-shadow: 0 26px 86px rgba(0, 0, 0, 0.12);
+}
+
+.cardOpen {
+  border-color: rgba(122, 143, 106, 0.28);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.14);
+}
+
+.tall .photo {
+  height: 190px;
+}
+.short .photo {
+  height: 160px;
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.03);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoPlaceholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 14px;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.phTop {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 850;
+}
+
+.phHint {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.stamp {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(10px);
+  transform: rotate(6deg);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stampInner {
+  text-align: center;
+}
+
+.stampTop {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: rgba(15, 23, 42, 0.7);
+}
+
+.stampMid {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(122, 143, 106, 0.9);
+}
+
+.stampBot {
+  margin-top: 2px;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+/* Body */
+.body {
+  padding: 14px 14px 12px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hTitle {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.hSub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.62);
+  line-height: 1.4;
+}
+
+.tap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.55);
+  padding-top: 2px;
+}
+
+.tapDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.preview {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+  opacity: 0.7;
+}
+
+.previewLine {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.previewLineShort {
+  height: 8px;
+  width: 70%;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+/* Open note */
+.noteWrap {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.noteTitle {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 850;
+  color: rgba(15, 23, 42, 0.55);
+  margin-bottom: 8px;
+}
+
+.note {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(15, 23, 42, 0.7);
+}
+
+.footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(15, 23, 42, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(15, 23, 42, 0.5);
+  font-size: 12px;
+}
+
+.footerLeft {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+
+.footerRight {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+
+.scrollCue {
+  margin-top: 18px;
+  padding: 16px 0 4px;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  opacity: 0.9;
+}
+
+.scrollText {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 850;
+  color: rgba(15, 23, 42, 0.5);
+}
+
+.scrollArrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(251, 245, 234, 0.62);
+  display: grid;
+  place-items: center;
+  color: rgba(122, 143, 106, 0.95);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+
+  animation: bob 1.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollArrow {
+    animation: none;
+  }
+}
