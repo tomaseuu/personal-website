@@ -37,12 +37,14 @@ export const PROJECTS: Project[] = [
       "Supabase Auth",
     ],
     metrics: ["Relational schema", "Access control", "Append-only history"],
-    // image: { src: "/projects/decision-ledger.png", alt: "Decision Ledger UI" },
-    // links: [{ label: "Live Demo", href: "" }, { label: "GitHub", href: "" }],
+    image: { src: "/ghibli1.jpg", alt: "decision-ledger" },
+    links: [
+      { label: "GitHub", href: "https://github.com/tomaseuu/decision-ledger" },
+    ],
   },
   {
     id: "online-photobooth",
-    title: "Online Photobooth",
+    title: "Luma Leaf - Online Photobooth",
     subtitle:
       "Browser-based photobooth with camera capture, live previews, and shareable photo-strip output.",
     tags: ["Next.js", "React", "Camera", "UX"],
@@ -54,8 +56,10 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["React", "TypeScript", "Next.js", "CSS"],
     metrics: ["Client-side media", "QR sharing", "Performance tuned"],
-    // image: { src: "/projects/photobooth.png", alt: "Online Photobooth preview" },
-    // links: [{ label: "Live Demo", href: "" }, { label: "GitHub", href: "" }],
+    image: { src: "/luma-leaf.png", alt: "photobooth" },
+    links: [
+      { label: "Website", href: "https://luma-leaf-photobooth.vercel.app/" },
+    ],
   },
   {
     id: "cancer-network-analysis",
@@ -71,12 +75,17 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Python", "NetworkX", "NumPy", "SciPy"],
     metrics: ["30 candidate genes", "Thousands of sims", "Graph diffusion"],
-    // image: { src: "/projects/cancer-network.png", alt: "Graph analysis visualization" },
-    // links: [{ label: "GitHub", href: "" }, { label: "Write-up", href: "" }],
+    image: { src: "/ghibli2.png", alt: "cancer" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/cancer-graph-theory?tab=readme-ov-file",
+      },
+    ],
   },
   {
     id: "repnote",
-    title: "RepNote",
+    title: "RepNote - Gym Tracker",
     subtitle:
       "Mobile-only workout planner designed for fast daily logging without accounts or setup.",
     tags: ["React Native", "Expo", "TypeScript", "Mobile UX"],
@@ -88,6 +97,13 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["React Native", "Expo", "TypeScript", "Local Storage"],
     metrics: ["Offline-first", "Mobile-only UX", "Instant load"],
+    image: { src: "/ghibli4.jpg", alt: "gym" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/repnote",
+      },
+    ],
   },
 
   {
@@ -104,10 +120,17 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Python", "NumPy", "pandas", "Statistical Modeling"],
     metrics: ["HMMs", "Viterbi decoding", "Biological inference"],
+    image: { src: "/ghibli5.jpg", alt: "babesia" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/babesia-hmm-life-cycle?tab=readme-ov-file",
+      },
+    ],
   },
   {
     id: "pomodoro-productivity",
-    title: "Pomodoro Productivity App",
+    title: "FocusFruit: Pomodoro Productivity App",
     subtitle:
       "Web-based Pomodoro timer with task tracking, persistence, and automated deployment.",
     tags: ["React", "JavaScript", "APIs", "CI/CD"],
@@ -119,6 +142,13 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["React", "JavaScript", "REST APIs", "Azure CI/CD", "GitHub Actions"],
     metrics: ["Persistent sessions", "Automated deploys", "Responsive UI"],
+    image: { src: "/pomodoro.png", alt: "pomodoro" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/project-pomodoro",
+      },
+    ],
   },
   {
     id: "boomerang-refund-tracker",
@@ -134,10 +164,17 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["React Native", "Expo", "TypeScript", "Gmail API", "Figma"],
     metrics: ["Mobile UI", "Gmail integration", "Cross-platform consistency"],
+    image: { src: "/ghibli3.png", alt: "boomerang" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/nluong9600/boomerang-app",
+      },
+    ],
   },
   {
     id: "2d-open-world-game",
-    title: "2D Open-World Game",
+    title: "Into the Mind - 2D Open-World Game",
     subtitle:
       "Java-based 2D game featuring tile movement, NPC behavior, and pathfinding AI.",
     tags: ["Java", "Game Dev", "Pathfinding", "OOP"],
@@ -149,6 +186,13 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Java", "A* Pathfinding", "Object-Oriented Design"],
     metrics: ["A* navigation", "Modular engine", "NPC AI"],
+    image: { src: "/into-the-mind.png", alt: "into-the-mind" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/into-the-mind-pixelworld",
+      },
+    ],
   },
   {
     id: "table-checkin-sensor",
@@ -164,5 +208,6 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Java", "Adafruit Sensors", "Signal Filtering"],
     metrics: ["Noise reduction", "Real-time sensing", "Improved accuracy"],
+    image: { src: "/ghibli6.png", alt: "table" },
   },
 ];

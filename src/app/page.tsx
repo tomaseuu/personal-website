@@ -45,7 +45,9 @@ export default function Page() {
           <Section
             id="projects"
             title="Projects"
-            subtitle="Click on the arrows to view more projects"
+            subtitle={
+              "Use the arrows to browse. Click a project to view its GitHub or live site."
+            }
             tone="tint"
           >
             <ProjectsSection />
