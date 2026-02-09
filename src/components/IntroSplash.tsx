@@ -6,12 +6,14 @@ type Props = {
   oncePerSession?: boolean;
   loadingMs?: number;
   welcomeMs?: number;
+  onDone?: () => void;
 };
 
 export default function IntroSplash({
   oncePerSession = true,
   loadingMs = 1200,
   welcomeMs = 800,
+  onDone,
 }: Props) {
   const [visible, setVisible] = useState(true);
   const [phase, setPhase] = useState<"loading" | "welcome" | "leaving">(
@@ -23,6 +25,7 @@ export default function IntroSplash({
       const already = sessionStorage.getItem("intro_seen");
       if (already === "1") {
         setVisible(false);
+        onDone?.();
         return;
       }
       sessionStorage.setItem("intro_seen", "1");
@@ -37,7 +40,10 @@ export default function IntroSplash({
 
     const slideMs = 1300;
     const t3 = window.setTimeout(
-      () => setVisible(false),
+      () => {
+        setVisible(false);
+        onDone?.();
+      },
       loadingMs + welcomeMs + slideMs,
     );
 
@@ -46,7 +52,7 @@ export default function IntroSplash({
       clearTimeout(t2);
       clearTimeout(t3);
     };
-  }, [loadingMs, welcomeMs, oncePerSession]);
+  }, [loadingMs, welcomeMs, oncePerSession, onDone]);
 
   if (!visible) return null;
 
