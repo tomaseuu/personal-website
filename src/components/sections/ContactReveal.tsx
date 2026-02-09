@@ -85,7 +85,9 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
         <div className={styles.footer}>
           <div className={styles.rule} />
           <div className={styles.footRow}>
-            <span>© {new Date().getFullYear()} Thomas Le.</span>
+            <span>
+              © {new Date().getFullYear()} Thomas Le. All Rights Reserved
+            </span>
             <span className={styles.mini}>My personal Portfolio</span>
           </div>
         </div>

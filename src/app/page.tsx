@@ -37,7 +37,7 @@ export default function Page() {
           <Section
             id="experience"
             title="Experience"
-            subtitle="Floating cards — click to expand."
+            subtitle="Scroll for More and Click to Expand"
           >
             <ExperienceSection />
           </Section>
@@ -54,7 +54,7 @@ export default function Page() {
           <Section
             id="skills"
             title="Skills"
-            subtitle="A calm toolbox — what I ship with."
+            subtitle="The Skills I know"
             tone="tint"
           >
             <SkillsSection />

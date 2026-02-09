@@ -19,6 +19,52 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 16px 55px rgba(0, 0, 0, 0.06);
   padding: 10px;
+  max-height: 78vh;
+  overflow: auto;
+  position: relative;
+  padding-bottom: 28px;
+  scrollbar-gutter: stable;
+}
+
+.listCard::after {
+  content: "";
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  display: block;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(251, 245, 234, 0),
+    rgba(251, 245, 234, 0.92)
+  );
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.listCard::-webkit-scrollbar {
+  width: 10px;
+}
+
+.listCard::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  border: 3px solid rgba(251, 245, 234, 0.72);
+}
+
+.scrollHint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.5);
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .scrollHint {
+    display: block;
+  }
 }
 
 .item {
@@ -177,6 +223,8 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.08);
   padding: 18px;
+  position: sticky;
+  top: 18px;
 }
 
 .detailTop {
