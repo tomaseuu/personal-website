@@ -90,6 +90,14 @@ export default function HeroSection() {
           >
             Thomas Le
           </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.09 }}
+            className={styles.meta}
+          >
+            student • developer • creative at heart
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -97,10 +105,10 @@ export default function HeroSection() {
             transition={{ duration: 0.55, delay: 0.12 }}
             className={styles.subtitle}
           >
-            Rising senior in Computer Science at Cal Poly San Luis Obispo who
-            loves learning, creating, and bringing ideas to life through code. I
-            am driven by curiosity and a desire to build things that feel
-            thoughtful, personal, and fun!
+            Drawn to building software that solves real problems and impacts
+            people! There is just something deeply satisfying about working
+            through aproblem, line by line, until it finally clicks, especially
+            when creativity plays a role in the process.
           </motion.p>
 
           <motion.div

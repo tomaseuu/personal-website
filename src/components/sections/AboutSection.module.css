@@ -60,22 +60,71 @@
 }
 
 .iconBtn {
-  border: 1px solid rgba(15, 23, 42, 0.16);
-  background: transparent;
-  color: rgba(15, 23, 42, 0.75);
+  width: 46px;
+  height: 46px;
   border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 650;
-  text-decoration: none;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+
   transition:
-    transform 160ms ease,
-    background 160ms ease;
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+
+  /* float animation */
+  animation: floatIcon 4.6s ease-in-out infinite;
+}
+.iconBtn:nth-child(2) {
+  animation-delay: 0.35s;
+}
+.iconBtn:nth-child(3) {
+  animation-delay: 0.7s;
 }
 
 .iconBtn:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(122, 143, 106, 0.32);
+  background: rgba(100, 155, 76, 0.5);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.12);
+}
+
+.iconBtn:focus-visible {
+  outline: 2px solid rgba(122, 143, 106, 0.55);
+  outline-offset: 4px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 0.9;
+}
+
+/* gentle bob */
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iconBtn {
+    animation: none;
+  }
 }
 
 .right {
@@ -125,7 +174,7 @@
 
 .resumeBtn:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(100, 155, 76, 0.5);
 }
 
 .animWrap {

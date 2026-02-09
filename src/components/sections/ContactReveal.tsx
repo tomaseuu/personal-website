@@ -48,8 +48,9 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
           <div className={styles.left}>
             <h2 className={styles.h1}>Let's connect</h2>
             <p className={styles.p}>
-              I am always open to new projects, creative ideas, and building
-              things that feel thoughtful and human.
+              I am always down to talk about new ideas, side projects, or
+              anything creative. Especially the kind of things that feel
+              exciting and impactful.
             </p>
 
             <div className={styles.smallNote}>Looking forward to connect!</div>
@@ -64,7 +65,7 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
             </div>
 
             <div className={styles.block}>
-              <div className={styles.label}>Connections</div>
+              <div className={styles.label}>Links</div>
               <div className={styles.links}>
                 {links.map((l) => (
                   <a

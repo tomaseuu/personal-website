@@ -81,6 +81,7 @@ export default function Page() {
                 label: "LinkedIn",
                 href: "https://www.linkedin.com/in/thomasle998/",
               },
+              { label: "YouTube", href: "https://www.youtube.com/@tomaseuu" },
             ]}
           />
         </>

@@ -116,6 +116,15 @@
   filter: none;
 }
 
+.meta {
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: rgba(15, 23, 42, 0.55);
+  margin-left: 20px;
+}
+
 /* motion */
 @keyframes floatMain {
   0% {

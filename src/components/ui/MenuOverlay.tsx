@@ -109,11 +109,18 @@ export default function MenuOverlay({
 
                 <aside className={styles.meta} aria-label="Menu details">
                   <div>
-                    <div className={styles.smallTitle}>Quick note</div>
-                    <div className={styles.smallText}>
-                      Calm builds, product polish, and real engineering. Also a
-                      creator (YouTube / editing).
+                    <div className={styles.smallTitle}>
+                      Quick Inspirational Quotes
                     </div>
+                    <div className={styles.smallText}>
+                      - Take Every Opportunity, Ignore Every Fear
+                    </div>
+                    <div className={styles.smallText}>
+                      - How Badly Do You Want It?
+                    </div>
+                    <div className={styles.smallText}>- Trust the Process</div>
+                    <div className={styles.smallText}>- Breathe.</div>
+                    <div className={styles.smallText}>- Step by Step</div>
                   </div>
 
                   <div>

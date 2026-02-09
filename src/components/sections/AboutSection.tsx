@@ -33,24 +33,47 @@ export default function AboutSection() {
             href="https://www.linkedin.com/in/thomasle998/"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn"
+            title="LinkedIn"
           >
-            Linkedin
+            <img
+              className={styles.icon}
+              src="/linkedin.svg"
+              alt=""
+              aria-hidden="true"
+            />
           </a>
+
           <a
             className={styles.iconBtn}
             href="https://github.com/tomaseuu"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub"
+            title="GitHub"
           >
-            GitHub
+            <img
+              className={styles.icon}
+              src="/github.svg"
+              alt=""
+              aria-hidden="true"
+            />
           </a>
+
           <a
             className={styles.iconBtn}
             href="https://www.youtube.com/@tomaseuu"
             target="_blank"
             rel="noreferrer"
+            aria-label="YouTube"
+            title="YouTube"
           >
-            YouTube
+            <img
+              className={styles.icon}
+              src="/youtube.svg"
+              alt=""
+              aria-hidden="true"
+            />
           </a>
         </div>
       </div>
@@ -58,16 +81,20 @@ export default function AboutSection() {
       {/* right: story */}
       <div className={styles.right}>
         <p className={styles.p}>
-          I am a CS senior at Cal Poly SLO who enjoys building things and seeing
-          them actually work. I like taking ideas from rough sketches to real,
-          usable products.
+          I am a senior studying Computer Science at Cal Poly San Luis Obispo,
+          with a minor in Bioinformatics. Most of my time is spent building
+          things, from personal projects like this personal website to random
+          ideas that start as “what if” and turn into something real. I am
+          especially drawn to full-stack work, with a strong interest in
+          frontend where and creativity meet.
         </p>
 
         <p className={styles.p}>
-          These days, I work full-stack - wiring up backends, databases, and
-          frontends, and making sure everything feels smooth end to end. Outside
-          of code, I am into video editing and YouTube, which keeps me thinking
-          about creativity and user experience.
+          Outside of classes, I am involved with a few campus organizations and
+          usually working on something on the side. When I am not coding, I am
+          reading, watching k-dramas, editing videos, or just exploring life a
+          bit. Right now, the focus is landing a first role, learning as much as
+          possible, and building toward long-term independence.
         </p>
 
         <div className={styles.actions}>
