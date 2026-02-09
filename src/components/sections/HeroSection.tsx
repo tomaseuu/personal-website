@@ -32,21 +32,55 @@ export default function HeroSection() {
       </div>
 
       <div className={styles.inner}>
+        {/* LEFT: polaroid stack (replaces the old big image) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.55 }}
-          className={styles.photo}
+          className={styles.photoStack}
         >
-          <Image
-            src="/thomas-headshot.png"
-            alt="Thomas portrait"
-            fill
-            priority
-            className="heroImg"
-          />
+          {/* MAIN polaroid (same exact size as old photo) */}
+          <div className={[styles.polaroid, styles.polaroidMain].join(" ")}>
+            <div className={styles.polaroidImg}>
+              <Image
+                src="/thomas-headshot.png"
+                alt="Thomas portrait"
+                fill
+                priority
+                className={styles.polaroidPhoto}
+              />
+            </div>
+            <div className={styles.polaroidCaption}>Hi, I am Thomas!</div>
+          </div>
+
+          {/* SMALL polaroid #1 (floating) */}
+          <div className={[styles.polaroid, styles.polaroidFloatA].join(" ")}>
+            <div className={styles.polaroidImg}>
+              <Image
+                src="/memory-1.jpg"
+                alt="Memory 1"
+                fill
+                className={styles.polaroidPhoto}
+              />
+            </div>
+            <div className={styles.polaroidCaption}>making memories</div>
+          </div>
+
+          {/* SMALL polaroid #2 (floating) */}
+          <div className={[styles.polaroid, styles.polaroidFloatB].join(" ")}>
+            <div className={styles.polaroidImg}>
+              <Image
+                src="/memory-2.JPEG"
+                alt="Memory 2"
+                fill
+                className={styles.polaroidPhoto}
+              />
+            </div>
+            <div className={styles.polaroidCaption}>squad goals</div>
+          </div>
         </motion.div>
 
+        {/* RIGHT: your text (UNCHANGED) */}
         <div className={styles.text}>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}

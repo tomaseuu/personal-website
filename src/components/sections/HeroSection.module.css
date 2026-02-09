@@ -1,3 +1,4 @@
+/* layout */
 .wrap {
   position: relative;
   min-height: 100vh;
@@ -16,36 +17,146 @@
   margin: 0 auto;
   padding: 80px 24px 64px;
   min-height: calc(100vh - 80px);
-
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 64px;
   align-items: center;
 }
 
-.photo {
+/* polaroids */
+.photoStack {
   position: relative;
   width: 100%;
   height: 270px;
-  border-radius: 32px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.02);
-  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.1);
 }
 
-.photo::after {
-  content: "";
+.polaroid {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(0, 0, 0, 0.04)
-  );
-  pointer-events: none;
+  width: 300px;
+  max-width: 85%;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  padding: 14px 14px 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform-origin: center center;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+  will-change: transform;
 }
 
+.polaroidImg {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+
+.polaroidPhoto {
+  object-fit: cover;
+}
+
+.polaroidCaption {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.55);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.polaroidMain {
+  inset: 0;
+  z-index: 2;
+  left: 40px;
+  animation: floatMain 6.8s ease-in-out infinite;
+}
+
+.polaroidFloatA {
+  width: 190px;
+  height: 150px;
+  left: 220px;
+  top: -120px;
+  z-index: 3;
+  animation: floatA 7.6s ease-in-out infinite;
+}
+
+.polaroidFloatB {
+  width: 200px;
+  height: 155px;
+  right: -600px;
+  bottom: -180px;
+  z-index: 1;
+  opacity: 0.95;
+  animation: floatB 8.4s ease-in-out infinite;
+}
+
+.polaroid:hover {
+  animation-play-state: paused;
+  z-index: 10;
+  transform: translateY(-10px) rotate(1deg) scale(1.03);
+  box-shadow: 0 40px 110px rgba(15, 23, 42, 0.18);
+  filter: saturate(1.05);
+}
+
+/* motion */
+@keyframes floatMain {
+  0% {
+    transform: translateY(0px) rotate(-1deg) scale(1.15);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg) scale(1.15);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1deg) scale(1.15);
+  }
+}
+
+@keyframes floatA {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px) rotate(-12deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(-10deg);
+  }
+}
+
+@keyframes floatB {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-14px) translateX(-6px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroidMain,
+  .polaroidFloatA,
+  .polaroidFloatB {
+    animation: none !important;
+  }
+  .polaroid {
+    transition: none !important;
+  }
+}
+
+/* copy */
 .text {
   text-align: left;
 }
@@ -76,6 +187,7 @@
   flex-wrap: wrap;
 }
 
+/* button */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -112,6 +224,7 @@
   letter-spacing: 0.02em;
 }
 
+/* scroll */
 .scroll {
   position: absolute;
   left: 50%;
@@ -126,6 +239,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .dot {
   width: 10px;
   height: 10px;
@@ -162,6 +276,7 @@
   }
 }
 
+/* responsive */
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;
