@@ -196,3 +196,25 @@
   height: 215px;
   overflow: hidden;
 }
+
+/* mobile tweaks */
+@media (max-width: 640px) {
+  /* coffee: bring it down a bit */
+  .animWrap {
+    margin-top: -80px; /* was -120px */
+    margin-left: 170px;
+  }
+
+  /* table: slightly tighter + better fit */
+  .row {
+    padding: 14px 0;
+    grid-template-columns: 120px 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .row {
+    grid-template-columns: 110px 1fr;
+  }
+}

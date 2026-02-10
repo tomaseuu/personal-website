@@ -321,3 +321,119 @@
     justify-content: center;
   }
 }
+
+/* mobile: only show main polaroid */
+@media (max-width: 640px) {
+  /* hide the two floating polaroids */
+  .polaroidFloatA,
+  .polaroidFloatB {
+    display: none;
+  }
+
+  .title {
+    white-space: normal;
+  }
+}
+/* tablet: only show main polaroid */
+@media (max-width: 1024px) and (min-width: 641px) {
+  /* show all polaroids */
+  .polaroidFloatA,
+  .polaroidFloatB {
+    display: none;
+  }
+
+  .title {
+    white-space: normal;
+  }
+
+  /* MAIN — unchanged */
+  .polaroidMain {
+    left: 210px;
+    top: 130px;
+    transform: translateX(-50%) rotate(-1.5deg);
+    z-index: 3;
+  }
+}
+/* iPad Pro / large tablets */
+@media (min-width: 820px) and (max-width: 1366px) {
+  .polaroidMain {
+    inset: auto;
+    right: auto;
+
+    left: 250px;
+    top: 200px; /* don’t go negative */
+  }
+
+  /* reduce the huge empty bottom area */
+  .polaroidMain {
+    padding-bottom: 30px; /* was 230px via .polaroid */
+  }
+}
+.polaroidFloatA,
+.polaroidFloatB {
+  display: none;
+}
+
+.title {
+  white-space: normal;
+}
+
+@media (max-width: 540) {
+  /* show all polaroids */
+  .polaroidFloatA,
+  .polaroidFloatB {
+    display: none;
+  }
+
+  .title {
+    white-space: normal;
+  }
+
+  /* MAIN — unchanged */
+  .polaroidMain {
+    left: 100px;
+    top: -10px;
+    transform: translateX(-50%) rotate(-1.5deg);
+    z-index: 3;
+  }
+}
+
+@media (max-width: 344) {
+  /* show all polaroids */
+  .polaroidFloatA,
+  .polaroidFloatB {
+    display: none;
+  }
+
+  .title {
+    white-space: normal;
+  }
+
+  /* MAIN — unchanged */
+  .polaroidMain {
+    left: 20px;
+    top: -10px;
+    transform: translateX(-50%) rotate(-1.5deg);
+    z-index: 3;
+  }
+}
+
+@media (max-width: 1024) {
+  /* show all polaroids */
+  .polaroidFloatA,
+  .polaroidFloatB {
+    display: none;
+  }
+
+  .title {
+    white-space: normal;
+  }
+
+  /* MAIN — unchanged */
+  .polaroidMain {
+    left: 40px;
+    top: -10px;
+    transform: translateX(-50%) rotate(-1.5deg);
+    z-index: 3;
+  }
+}

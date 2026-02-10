@@ -301,3 +301,17 @@
   text-transform: uppercase;
   color: rgba(15, 23, 42, 0.5);
 }
+
+@media (max-width: 640px) {
+  .arrow {
+    z-index: 50; /* keep above polaroid/totoro only on mobile */
+  }
+
+  .left {
+    left: 10px; /* pull in from edge */
+  }
+
+  .right {
+    right: 10px;
+  }
+}
