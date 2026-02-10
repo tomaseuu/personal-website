@@ -107,7 +107,7 @@ export default function HeroSection() {
           >
             Drawn to building software that solves real problems and impacts
             people! There is just something deeply satisfying about working
-            through aproblem, line by line, until it finally clicks, especially
+            through a problem, line by line, until it finally clicks, especially
             when creativity plays a role in the process.
           </motion.p>
 
