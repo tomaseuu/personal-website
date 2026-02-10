@@ -93,3 +93,77 @@
 .active .label {
   color: rgba(15, 23, 42, 0.92);
 }
+
+.shell {
+  position: fixed;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  width: 40px; /* only the button width */
+  height: 40px;
+}
+
+/* the tiny tab button */
+.toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+/* the sliding rail */
+.rail {
+  width: 180px;
+  transform: translateX(0);
+  transition: transform 220ms ease;
+}
+
+.closed .rail {
+  transform: translateX(calc(-100% - 10px));
+}
+
+.toggle:hover {
+  transform: scale(1.06);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* panel is NOT in the layout flow */
+.panel {
+  position: absolute;
+  left: 48px; /* sits to the right of the button */
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  transition: transform 220ms ease;
+  width: 180px;
+}
+
+/* fully hide it when closed */
+.closed .panel {
+  transform: translateY(-50%) translateX(-260px); /* push far left */
+  pointer-events: none;
+}
+
+/* optional: keep it hidden on small screens unless opened */
+@media (max-width: 1100px) {
+  .shell {
+    left: 14px;
+  }
+}
+
+/* keep it available on mobile too (optional) */
+@media (max-width: 1100px) {
+  .shell {
+    left: 14px;
+  }
+
+  .rail {
+    width: 180px;
+  }
+}

@@ -26,6 +26,9 @@ export default function SectionRail() {
     height: 0,
   });
 
+  const [open, setOpen] = useState(false);
+  const shellRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     const ids = items.map((i) => i.id);
     const HEADER_OFFSET = 90;
@@ -79,42 +82,79 @@ export default function SectionRail() {
     });
   }, [active]);
 
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+
+    function onDown(e: MouseEvent) {
+      if (!open) return;
+      const shell = shellRef.current;
+      if (!shell) return;
+      if (!shell.contains(e.target as Node)) setOpen(false);
+    }
+
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("mousedown", onDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("mousedown", onDown);
+    };
+  }, [open]);
+
   function go(id: string) {
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOpen(false); // optional: auto-close after jump
   }
 
   return (
-    <nav className={styles.rail} aria-label="Section quick jump">
-      <div className={styles.card}>
-        <div className={styles.title}>Quick Jump</div>
+    <nav
+      ref={shellRef}
+      className={[styles.shell, open ? "" : styles.closed].join(" ")}
+      aria-label="Section quick jump"
+    >
+      <button
+        className={styles.toggle}
+        type="button"
+        aria-label={open ? "Close quick jump" : "Open quick jump"}
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        {open ? "‹" : "›"}
+      </button>
 
-        <div className={styles.list} ref={listRef}>
-          <div
-            className={styles.pill}
-            style={{
-              transform: `translateY(${pill.top}px)`,
-              height: pill.height,
-            }}
-            aria-hidden="true"
-          />
+      <div className={styles.panel}>
+        <div className={styles.card}>
+          <div className={styles.title}>Quick Jump</div>
 
-          {items.map((it) => (
-            <button
-              key={it.id}
-              data-id={it.id}
-              className={[
-                styles.item,
-                active === it.id ? styles.active : "",
-              ].join(" ")}
-              onClick={() => go(it.id)}
-              type="button"
-            >
-              <span className={styles.dot} aria-hidden="true" />
-              <span className={styles.label}>{it.label}</span>
-            </button>
-          ))}
+          <div className={styles.list} ref={listRef}>
+            <div
+              className={styles.pill}
+              style={{
+                transform: `translateY(${pill.top}px)`,
+                height: pill.height,
+              }}
+              aria-hidden="true"
+            />
+            {items.map((it) => (
+              <button
+                key={it.id}
+                data-id={it.id}
+                className={[
+                  styles.item,
+                  active === it.id ? styles.active : "",
+                ].join(" ")}
+                onClick={() => go(it.id)}
+                type="button"
+              >
+                <span className={styles.dot} aria-hidden="true" />
+                <span className={styles.label}>{it.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
