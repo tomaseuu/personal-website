@@ -2,11 +2,20 @@
 
 .section {
   padding: 96px 0;
+  overflow-x: clip;
+}
+
+/* safe fallback */
+@supports not (overflow: clip) {
+  .section {
+    overflow-x: hidden;
+  }
 }
 
 .inner {
-  width: 100%;
+  box-sizing: border-box;
   max-width: 980px;
+  width: min(980px, 100%);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -82,6 +91,31 @@
 }
 
 @media (max-width: 640px) {
+  .section {
+    padding: 76px 0;
+  }
+
+  .inner {
+    padding: 0 18px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .headerAnim {
+    top: 0;
+    right: 0;
+  }
+
   .section {
     padding: 76px 0;
   }
