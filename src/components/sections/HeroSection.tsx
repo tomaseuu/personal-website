@@ -76,7 +76,7 @@ export default function HeroSection() {
                 className={styles.polaroidPhoto}
               />
             </div>
-            <div className={styles.polaroidCaption}>squad goals</div>
+            <div className={styles.polaroidCaption}>better together</div>
           </div>
         </motion.div>
 
@@ -105,10 +105,12 @@ export default function HeroSection() {
             transition={{ duration: 0.55, delay: 0.12 }}
             className={styles.subtitle}
           >
-            Drawn to building software that solves real problems and impacts
-            people! There is just something deeply satisfying about working
-            through a problem, line by line, until it finally clicks, especially
-            when creativity plays a role in the process.
+            I am drawn to building software that solves real problems while
+            creating experiences that feel intuitive and immersive. I am
+            especially energized by projects that blend engineering with
+            creativity and storytelling. There is something deeply satisfying
+            about turning creative ideas into interactive systems that people
+            can feel and use.
           </motion.p>
 
           <motion.div

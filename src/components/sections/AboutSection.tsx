@@ -9,7 +9,6 @@ export default function AboutSection() {
     { label: "NAME", value: "Thomas Le" },
     { label: "PRONOUNS", value: "He/Him/His" },
     { label: "SCHOOL", value: "Cal Poly San Luis Obispo" },
-    { label: "Age", value: "21" },
     { label: "MAJOR", value: "Computer Science (B.S.) Bioinformatics minor" },
     { label: "HOMETOWN", value: "West Covina, CA" },
   ];
@@ -81,20 +80,21 @@ export default function AboutSection() {
       {/* right: story */}
       <div className={styles.right}>
         <p className={styles.p}>
-          I am a senior studying Computer Science at Cal Poly San Luis Obispo,
-          with a minor in Bioinformatics. Most of my time is spent building
-          things, from personal projects like this personal website to random
-          ideas that start as “what if” and turn into something real. I am
-          especially drawn to full-stack work, with a strong interest in
-          frontend where and creativity meet.
+          I am currently asenior studying Computer Science at Cal Poly San Luis
+          Obispo, with a minor in Bioinformatics. Most of my time is spent
+          creating, from personal projects like this website to random ideas
+          that start as “what if” and turn into something real. Especially drawn
+          to full-stack work, my interest lies in frontend, where logic and
+          creativity meet.
         </p>
 
         <p className={styles.p}>
-          Outside of classes, I am involved with a few campus organizations and
-          usually working on something on the side. When I am not coding, I am
-          reading, watching k-dramas, editing videos, or just exploring life a
-          bit. Right now, the focus is landing a first role, learning as much as
-          possible, and building toward long-term independence.
+          Outside of classes, I am involved in various campus organizations,
+          exploring different facets of computer science and engaging with
+          diverse cultures. When I am not coding, I enjoy reading, watching
+          K-dramas, editing videos, and trying new activities. Right now, my
+          focus is on learning as much as possible to grow personally and
+          professionally while preparing for my career.
         </p>
 
         <div className={styles.actions}>
