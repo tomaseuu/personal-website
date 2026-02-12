@@ -80,7 +80,7 @@ export default function AboutSection() {
       {/* right: story */}
       <div className={styles.right}>
         <p className={styles.p}>
-          I am currently asenior studying Computer Science at Cal Poly San Luis
+          I am currently a senior studying Computer Science at Cal Poly San Luis
           Obispo, with a minor in Bioinformatics. Most of my time is spent
           creating, from personal projects like this website to random ideas
           that start as “what if” and turn into something real. Especially drawn
