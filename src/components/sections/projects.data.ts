@@ -151,50 +151,6 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "boomerang-refund-tracker",
-    title: "Boomerang Refund Tracker",
-    subtitle:
-      "Mobile app that tracks refunds directly from Gmail and surfaces purchase details in one place.",
-    tags: ["React Native", "Expo", "TypeScript", "Gmail API"],
-    bullets: [
-      "Collaborated with a small team to build a mobile refund tracking app using Google’s official Gmail API.",
-      "Designed and implemented the Refunds and Item Info pages based on Figma prototypes.",
-      "Improved cross-platform UI consistency by refining typography, spacing, and layout across devices.",
-      "Contributed to dashboard integration, Git branching workflows, and version-controlled releases.",
-    ],
-    tech: ["React Native", "Expo", "TypeScript", "Gmail API", "Figma"],
-    metrics: ["Mobile UI", "Gmail integration", "Cross-platform consistency"],
-    image: { src: "/ghibli3.png", alt: "boomerang" },
-    links: [
-      {
-        label: "Github",
-        href: "https://github.com/nluong9600/boomerang-app",
-      },
-    ],
-  },
-  {
-    id: "2d-open-world-game",
-    title: "Into the Mind - 2D Open-World Game",
-    subtitle:
-      "Java-based 2D game featuring tile movement, NPC behavior, and pathfinding AI.",
-    tags: ["Java", "Game Dev", "Pathfinding", "OOP"],
-    bullets: [
-      "Engineered a 2D open-world game with tile-based movement for players and NPCs.",
-      "Refactored game logic into modular classes to improve maintainability and reuse.",
-      "Implemented A* pathfinding and collision detection for smooth NPC navigation.",
-      "Designed AI movement systems to handle obstacles and dynamic environments.",
-    ],
-    tech: ["Java", "A* Pathfinding", "Object-Oriented Design"],
-    metrics: ["A* navigation", "Modular engine", "NPC AI"],
-    image: { src: "/into-the-mind.png", alt: "into-the-mind" },
-    links: [
-      {
-        label: "Github",
-        href: "https://github.com/tomaseuu/into-the-mind-pixelworld",
-      },
-    ],
-  },
-  {
     id: "table-checkin-sensor",
     title: "Table Check-In Sensor System",
     subtitle:
