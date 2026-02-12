@@ -1,4 +1,7 @@
-/* layout */
+/* =========================
+   HERO LAYOUT
+========================= */
+
 .wrap {
   position: relative;
   min-height: 100vh;
@@ -17,87 +20,103 @@
   margin: 0 auto;
   padding: 80px 24px 64px;
   min-height: calc(100vh - 80px);
+
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 64px;
   align-items: center;
 }
 
-/* polaroids */
+/* =========================
+   POLAROIDS
+========================= */
+
 .photoStack {
   position: relative;
   width: 100%;
-  height: 270px;
+  height: 320px;
+  justify-self: center;
 }
 
 .polaroid {
   position: absolute;
   width: 300px;
-  max-width: 85%;
+  max-width: 92%;
+
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
   backdrop-filter: blur(10px);
   overflow: hidden;
-  padding: 14px 14px 230px;
+
+  border-radius: 18px;
+  padding: 14px 14px 22px;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   transform-origin: center center;
   transition:
-    transform 220ms ease,
     box-shadow 220ms ease,
-    filter 220ms ease;
+    filter 220ms ease,
+    transform 220ms ease;
   will-change: transform;
 }
 
 .polaroidImg {
-  position: relative;
   width: 100%;
   height: 180px;
+  border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 3 / 2;
   flex: 0 0 auto;
-  flex-shrink: 0;
 }
 
 .polaroidPhoto {
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
 }
 
 .polaroidCaption {
-  margin-top: 10px;
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.55);
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.6);
   letter-spacing: 0.04em;
   text-transform: lowercase;
   text-align: center;
 }
 
+/* main card */
 .polaroidMain {
-  inset: 0;
-  z-index: 2;
   left: 40px;
+  top: 40px;
+  z-index: 2;
   animation: floatMain 6.8s ease-in-out infinite;
+  transform: rotate(-1deg) scale(1.06);
 }
 
+/* small float A (top-right-ish) */
 .polaroidFloatA {
-  width: 190px;
-  height: 150px;
-  left: 220px;
-  top: -120px;
+  width: 210px;
+  top: -10px;
+  left: 240px;
   z-index: 3;
+  opacity: 0.98;
   animation: floatA 7.6s ease-in-out infinite;
+  transform: rotate(-10deg);
 }
 
+/* small float B (bottom-right-ish) */
 .polaroidFloatB {
-  width: 200px;
-  height: 155px;
-  right: -600px;
-  bottom: -180px;
+  width: 220px;
+  bottom: -10px;
+  left: 260px;
   z-index: 1;
   opacity: 0.95;
   animation: floatB 8.4s ease-in-out infinite;
+  transform: rotate(12deg);
 }
 
 .polaroidFloatA:hover,
@@ -110,31 +129,24 @@
 }
 
 .polaroidMain:hover {
-  animation-play-state: running;
-  transform: none;
-  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+  /* keep it calm */
   filter: none;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
 }
 
-.meta {
-  margin-top: 6px;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: lowercase;
-  color: rgba(15, 23, 42, 0.55);
-  margin-left: 20px;
-}
+/* =========================
+   MOTION
+========================= */
 
-/* motion */
 @keyframes floatMain {
   0% {
-    transform: translateY(0px) rotate(-1deg) scale(1.15);
+    transform: translateY(0px) rotate(-1deg) scale(1.06);
   }
   50% {
-    transform: translateY(-10px) rotate(-2deg) scale(1.15);
+    transform: translateY(-10px) rotate(-2deg) scale(1.06);
   }
   100% {
-    transform: translateY(0px) rotate(-1deg) scale(1.15);
+    transform: translateY(0px) rotate(-1deg) scale(1.06);
   }
 }
 
@@ -173,7 +185,10 @@
   }
 }
 
-/* copy */
+/* =========================
+   COPY
+========================= */
+
 .text {
   text-align: left;
 }
@@ -204,7 +219,6 @@
   flex-wrap: wrap;
 }
 
-/* button */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -241,7 +255,10 @@
   letter-spacing: 0.02em;
 }
 
-/* scroll */
+/* =========================
+   SCROLL HINT
+========================= */
+
 .scroll {
   position: absolute;
   left: 50%;
@@ -293,7 +310,10 @@
   }
 }
 
-/* responsive */
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;
@@ -306,12 +326,6 @@
     text-align: center;
   }
 
-  .photo {
-    height: 340px;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
   .subtitle {
     margin-left: auto;
     margin-right: auto;
@@ -320,20 +334,60 @@
   .actions {
     justify-content: center;
   }
+
+  .photoStack {
+    height: 340px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .polaroidMain {
+    left: 50%;
+    top: 54px;
+    transform: translateX(-50%) rotate(-1deg) scale(1.04);
+  }
+
+  .polaroidFloatA {
+    left: 68%;
+    top: 0px;
+  }
+
+  .polaroidFloatB {
+    left: 62%;
+    bottom: 0px;
+  }
 }
 
-/* Mobile: only show main, centered */
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 640px) {
+  .title {
+    white-space: normal;
+    line-height: 1.02;
+  }
+
+  .photoStack {
+    height: 280px;
+  }
+
+  /* keep it clean: only main on mobile */
   .polaroidFloatA,
   .polaroidFloatB {
     display: none;
   }
 
-  .title {
-    white-space: normal;
+  .polaroidMain {
+    width: min(360px, 92vw);
+    left: 50%;
+    top: 36px;
+    transform: translateX(-50%) rotate(-1deg) scale(1);
+    animation: none;
   }
 
-  .photoStack {
-    height: 260px;
+  .scroll {
+    bottom: 18px;
+    font-size: 11px;
   }
 }

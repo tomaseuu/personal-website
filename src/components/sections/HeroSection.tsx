@@ -53,7 +53,7 @@ export default function HeroSection() {
             <div className={styles.polaroidCaption}>Hi, I am Thomas!</div>
           </div>
 
-          {/* SMALL polaroid #1 (floating) */}
+          {/* SMALL polaroid #1 (floating)
           <div className={[styles.polaroid, styles.polaroidFloatA].join(" ")}>
             <div className={styles.polaroidImg}>
               <Image
@@ -64,10 +64,10 @@ export default function HeroSection() {
               />
             </div>
             <div className={styles.polaroidCaption}>making memories</div>
-          </div>
+          </div> */}
 
           {/* SMALL polaroid #2 (floating) */}
-          <div className={[styles.polaroid, styles.polaroidFloatB].join(" ")}>
+          {/* <div className={[styles.polaroid, styles.polaroidFloatB].join(" ")}>
             <div className={styles.polaroidImg}>
               <Image
                 src="/memory-2.JPEG"
@@ -77,7 +77,7 @@ export default function HeroSection() {
               />
             </div>
             <div className={styles.polaroidCaption}>better together</div>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* RIGHT: your text (UNCHANGED) */}

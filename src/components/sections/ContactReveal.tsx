@@ -11,7 +11,7 @@ type Props = {
 
 export default function ContactReveal({ id = "connect", email, links }: Props) {
   const sentinelRef = useRef<HTMLDivElement | null>(null);
-  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const el = sentinelRef.current;
@@ -20,11 +20,12 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
     const obs = new IntersectionObserver(
       (entries) => {
         const hit = entries[0]?.isIntersecting ?? false;
-        setShow(hit);
+        setOpen(hit);
       },
       {
         root: null,
-        rootMargin: "0px 0px -25% 0px",
+        // trigger a bit before the bottom so it feels intentional
+        rootMargin: "0px 0px -15% 0px",
         threshold: 0.01,
       },
     );
@@ -35,12 +36,13 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
 
   return (
     <>
+      {/* put this near the bottom of your page layout */}
       <div ref={sentinelRef} className={styles.sentinel} aria-hidden="true" />
 
       <section
         id={id}
-        className={[styles.wrap, show ? styles.show : ""].join(" ")}
-        aria-hidden={!show}
+        className={[styles.wrap, open ? styles.open : ""].join(" ")}
+        aria-hidden={!open}
       >
         <div className={styles.grain} aria-hidden="true" />
 
@@ -52,7 +54,6 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
               anything creative. Especially the kind of things that feel
               exciting and impactful.
             </p>
-
             <div className={styles.smallNote}>Looking forward to connect!</div>
           </div>
 
@@ -89,11 +90,10 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
             <span>
               © {new Date().getFullYear()} Thomas Le. All Rights Reserved
             </span>
-            <span className={styles.mini}>My personal Portfolio</span>
+            <span className={styles.mini}>My personal portfolio</span>
           </div>
         </div>
       </section>
-      <div ref={sentinelRef} className={styles.sentinel} aria-hidden="true" />
     </>
   );
 }

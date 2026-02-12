@@ -1,16 +1,56 @@
-.rail {
+/* ===== Shell (button + panel container) ===== */
+
+.shell {
   position: fixed;
   left: 22px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 9999;
-  width: 180px;
 }
 
-@media (max-width: 1100px) {
-  .rail {
-    display: none;
-  }
+/* ===== Toggle button ===== */
+
+.toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle:hover {
+  transform: scale(1.06);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Panel (the sliding card) ===== */
+
+.panel {
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  width: 180px;
+  transition: transform 220ms ease;
+}
+
+/* when closed, shove it left and disable clicks */
+.closed .panel {
+  transform: translateY(-50%) translateX(-260px);
+  pointer-events: none;
+}
+
+/* ===== Rail content ===== */
+
+.rail {
+  width: 180px;
 }
 
 .card {
@@ -94,76 +134,42 @@
   color: rgba(15, 23, 42, 0.92);
 }
 
-.shell {
-  position: fixed;
-  left: 22px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 9999;
-  width: 40px; /* only the button width */
-  height: 40px;
-}
+/* ===== Responsive: keep it on laptops, tighten spacing ===== */
 
-/* the tiny tab button */
-.toggle {
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-}
-/* the sliding rail */
-.rail {
-  width: 180px;
-  transform: translateX(0);
-  transition: transform 220ms ease;
-}
-
-.closed .rail {
-  transform: translateX(calc(-100% - 10px));
-}
-
-.toggle:hover {
-  transform: scale(1.06);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
-}
-
-/* panel is NOT in the layout flow */
-.panel {
-  position: absolute;
-  left: 48px; /* sits to the right of the button */
-  top: 50%;
-  transform: translateY(-50%) translateX(0);
-  transition: transform 220ms ease;
-  width: 180px;
-}
-
-/* fully hide it when closed */
-.closed .panel {
-  transform: translateY(-50%) translateX(-260px); /* push far left */
-  pointer-events: none;
-}
-
-/* optional: keep it hidden on small screens unless opened */
-@media (max-width: 1100px) {
+/* smaller laptops (13" / 1366px-ish): pull closer + shrink rail a bit */
+@media (max-width: 1400px) {
   .shell {
     left: 14px;
   }
-}
-
-/* keep it available on mobile too (optional) */
-@media (max-width: 1100px) {
-  .shell {
-    left: 14px;
+  .panel {
+    left: 44px;
+    width: 168px;
   }
-
   .rail {
-    width: 180px;
+    width: 168px;
+  }
+}
+
+/* even smaller laptops: shrink more */
+@media (max-width: 1250px) {
+  .shell {
+    left: 10px;
+  }
+  .panel {
+    left: 42px;
+    width: 156px;
+  }
+  .rail {
+    width: 156px;
+  }
+  .label {
+    font-size: 12px;
+  }
+}
+
+/* tablet/phone: hide completely */
+@media (max-width: 900px) {
+  .shell {
+    display: none;
   }
 }

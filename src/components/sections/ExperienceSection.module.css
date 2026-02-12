@@ -1,16 +1,16 @@
 /* components/sections/experience/ExperienceSection.module.css */
 
+/* ===== Layout ===== */
+
 .grid {
   display: grid;
   gap: 18px;
+  width: 100%;
+  max-width: 980px; /* tweak: 900–1100 */
+  margin: 0 auto;
 }
 
-@media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: 5fr 7fr;
-    align-items: start;
-  }
-}
+/* ===== Card ===== */
 
 .listCard {
   border-radius: 24px;
@@ -19,52 +19,17 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 16px 55px rgba(0, 0, 0, 0.06);
   padding: 10px;
-  max-height: 78vh;
-  overflow: auto;
   position: relative;
-  padding-bottom: 28px;
-  scrollbar-gutter: stable;
+
+  /* IMPORTANT: no inner scroll */
+  max-height: none;
+  overflow: visible;
 }
 
-.listCard::after {
-  content: "";
-  position: sticky;
-  bottom: 0;
-  left: 0;
+/* ===== Items ===== */
+
+.itemWrap {
   width: 100%;
-  height: 26px;
-  display: block;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(251, 245, 234, 0),
-    rgba(251, 245, 234, 0.92)
-  );
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
-}
-
-.listCard::-webkit-scrollbar {
-  width: 10px;
-}
-
-.listCard::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.12);
-  border-radius: 999px;
-  border: 3px solid rgba(251, 245, 234, 0.72);
-}
-
-.scrollHint {
-  margin-top: 8px;
-  font-size: 12px;
-  color: rgba(15, 23, 42, 0.5);
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .scrollHint {
-    display: block;
-  }
 }
 
 .item {
@@ -91,6 +56,8 @@
   background: rgba(122, 143, 106, 0.1);
   border: 1px solid rgba(122, 143, 106, 0.2);
 }
+
+/* ===== Row Structure ===== */
 
 .row {
   display: grid;
@@ -131,6 +98,8 @@
   background: rgba(15, 23, 42, 0.1);
 }
 
+/* ===== Text ===== */
+
 .companyRow {
   display: flex;
   flex-wrap: wrap;
@@ -166,22 +135,6 @@
   letter-spacing: 0.01em;
 }
 
-.detailRoleBlock {
-  margin-top: 4px;
-}
-
-.detailRole {
-  font-size: 1rem;
-  color: var(--coffee);
-}
-
-.detailMetaRow {
-  margin-left: 2px;
-  font-size: 0.85rem;
-  color: var(--muted);
-  letter-spacing: 0.01em;
-}
-
 .oneLiner {
   margin-top: 10px;
   font-size: 13px;
@@ -189,12 +142,33 @@
   color: rgba(15, 23, 42, 0.58);
 }
 
+/* ===== Chips ===== */
+
 .previewChips {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
+.bottomChips {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(15, 23, 42, 0.05);
+  color: rgba(15, 23, 42, 0.72);
+}
+
+/* ===== Arrow ===== */
 
 .arrow {
   padding-top: 2px;
@@ -210,74 +184,17 @@
   color: rgba(15, 23, 42, 0.7);
 }
 
-.hint {
-  margin-top: 10px;
-  font-size: 13px;
-  color: rgba(15, 23, 42, 0.55);
+/* ===== Inline Expand Panel ===== */
+
+.expandPanel {
+  overflow: hidden;
 }
 
-.detailCard {
-  border-radius: 24px;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  background: rgba(251, 245, 234, 0.78);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.08);
-  padding: 18px;
-  position: sticky;
-  top: 18px;
+.expandInner {
+  padding: 0 18px 16px 56px; /* aligns under text (past the timeline) */
 }
 
-.detailTop {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-@media (min-width: 768px) {
-  .detailTop {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-}
-
-.detailCompany {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: rgba(15, 23, 42, 0.92);
-}
-
-.detailMeta {
-  margin-top: 4px;
-  font-size: 13px;
-  color: rgba(15, 23, 42, 0.58);
-  line-height: 1.5;
-}
-
-.tagsRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-start;
-}
-
-@media (min-width: 768px) {
-  .tagsRow {
-    justify-content: flex-end;
-  }
-}
-
-.callout {
-  margin-top: 12px;
-  border-radius: 18px;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  background: rgba(15, 23, 42, 0.03);
-  padding: 12px;
-  color: rgba(15, 23, 42, 0.62);
-  line-height: 1.65;
-  font-size: 14px;
-}
+/* ===== Expanded Content Styles (reused) ===== */
 
 .blockTitle {
   margin-top: 16px;
@@ -300,28 +217,20 @@
   margin: 6px 0;
 }
 
-.bottomChips {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.tag {
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: 650;
-  border: 1px solid rgba(122, 143, 106, 0.22);
-  background: rgba(122, 143, 106, 0.1);
-  color: rgba(15, 23, 42, 0.75);
+/* ===== Footer Hint ===== */
+
+.hint {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.55);
 }
 
-.chip {
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  background: rgba(15, 23, 42, 0.05);
-  color: rgba(15, 23, 42, 0.72);
+/* ===== Not used in this version ===== */
+
+.detailCard {
+  display: none;
+}
+
+.tag {
+  display: none;
 }

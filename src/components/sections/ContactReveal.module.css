@@ -1,28 +1,12 @@
-/* invisible trigger */
+/* trigger */
 .sentinel {
   height: 1px;
 }
 
-/* .wrap {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 70;
-
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
-    transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
-} */
-
+/* full-screen end card that slides up */
 .wrap {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 70;
   overflow: hidden;
 
@@ -33,19 +17,20 @@
 
   pointer-events: none;
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(100%);
   transition:
     opacity 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
-    transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    transform 900ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
-/* reveal */
-.show {
+/* open state */
+.open {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
+/* overlay tint + top border feel */
 .wrap::before {
   content: "";
   position: absolute;
@@ -53,11 +38,8 @@
   background: linear-gradient(
     180deg,
     rgba(109, 128, 94, 0.18),
-    rgba(251, 245, 234, 0.92)
+    rgba(251, 245, 234, 0.94)
   );
-
-  border-top: 1px solid rgba(15, 23, 42, 0.12);
-  box-shadow: 0 -24px 70px rgba(0, 0, 0, 0.12);
 }
 
 .grain {
@@ -74,51 +56,22 @@
   filter: blur(0.2px);
 }
 
+/* center content */
 .inner {
   position: relative;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 56px 24px 28px;
+  padding: clamp(22px, 4vw, 56px) 24px 24px;
 
+  min-height: calc(100vh - 90px);
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 36px;
+
+  align-content: center;
 }
 
-@media (max-width: 900px) {
-  .inner {
-    grid-template-columns: 1fr;
-    padding: 42px 18px 24px;
-    gap: 22px;
-  }
-}
-
-.h1 {
-  margin: 0;
-  letter-spacing: -0.03em;
-  font-size: clamp(44px, 5.2vw, 72px);
-  line-height: 0.95;
-  color: rgba(15, 23, 42, 0.9);
-}
-
-.p {
-  margin: 16px 0 0;
-  font-size: 16px;
-  color: rgba(15, 23, 42, 0.78);
-  font-weight: 520;
-  line-height: 1.7;
-  max-width: 52ch;
-}
-
-.smallNote {
-  margin-top: 8px;
-  font-size: 12px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: rgba(15, 23, 42, 0.55);
-}
-
+/* left card */
 .left {
   padding: 22px 24px;
   border-radius: 22px;
@@ -132,6 +85,33 @@
   gap: 14px;
 }
 
+.h1 {
+  margin: 0;
+  letter-spacing: -0.03em;
+  font-size: clamp(42px, 5.2vw, 72px);
+  line-height: 0.95;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.p {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: rgba(15, 23, 42, 0.78);
+  font-weight: 520;
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+.smallNote {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+/* right column */
 .right {
   display: grid;
   gap: 18px;
@@ -143,7 +123,7 @@
   border: 1px solid rgba(15, 23, 42, 0.12);
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(10px);
-  padding: 16px 16px;
+  padding: 16px;
 }
 
 .label {
@@ -161,6 +141,7 @@
   color: rgba(15, 23, 42, 0.9);
   text-decoration: none;
   font-weight: 800;
+  word-break: break-word;
 }
 
 .bigLink:hover {
@@ -172,7 +153,7 @@
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
 }
 
 .link {
@@ -193,17 +174,15 @@
   border-color: rgba(122, 143, 106, 0.3);
 }
 
+/* footer pinned near bottom */
 .footer {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 24px 18px;
-}
-
-@media (max-width: 900px) {
-  .footer {
-    padding: 0 18px 16px;
-  }
+  padding: 0 24px;
 }
 
 .rule {
@@ -226,8 +205,41 @@
   opacity: 0.9;
 }
 
+/* tablet / mobile */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    min-height: calc(100vh - 120px);
+    align-content: start;
+    padding: 22px 18px 22px;
+  }
+
+  .footer {
+    position: relative;
+    bottom: auto;
+    padding: 0 18px 16px;
+  }
+
+  .h1 {
+    font-size: clamp(36px, 8vw, 52px);
+  }
+
+  .p {
+    font-size: 15px;
+  }
+
+  .footRow {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wrap {
     transition: none;
+    transform: none;
+    opacity: 1;
   }
 }

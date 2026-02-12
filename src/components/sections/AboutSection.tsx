@@ -9,7 +9,7 @@ export default function AboutSection() {
     { label: "NAME", value: "Thomas Le" },
     { label: "PRONOUNS", value: "He/Him/His" },
     { label: "SCHOOL", value: "Cal Poly San Luis Obispo" },
-    { label: "MAJOR", value: "Computer Science (B.S.) Bioinformatics minor" },
+    { label: "MAJOR", value: "Computer Science (B.S.), Bioinformatics minor" },
     { label: "HOMETOWN", value: "West Covina, CA" },
   ];
 
