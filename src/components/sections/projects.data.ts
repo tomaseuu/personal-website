@@ -19,12 +19,10 @@ export const PROJECTS: Project[] = [
     title: "Luma Leaf - Online Photobooth",
     subtitle:
       "Browser-based photobooth with camera capture, live previews, and shareable photo-strip output.",
-    tags: ["Next.js", "React", "Camera", "UX"],
+    tags: ["Next.js", "React", "TypeScript", "UX"],
     bullets: [
-      "Created a browser-based photobooth in React and Next.js with camera capture and live previews.",
-      "Handled in-browser photo workflows with session-based storage and photo-strip generation.",
-      "Enabled time-limited QR share links for secure cross-device access without accounts.",
-      "Improved client-side performance by reducing re-renders and managing media streams.",
+      "React, Next.js, TypeScript Photo Booth with real-time camera capture, session storage, and photo-strip rendering.",
+      "Secure time-limited QR sharing with performance optimizations for smooth cross-device media handling.",
     ],
     tech: ["React", "TypeScript", "Next.js", "CSS"],
     metrics: ["Client-side media", "QR sharing", "Performance tuned"],
@@ -38,14 +36,12 @@ export const PROJECTS: Project[] = [
     title: "FocusFruit: Pomodoro Productivity App",
     subtitle:
       "Web-based Pomodoro timer with task tracking, persistence, and automated deployment.",
-    tags: ["React", "JavaScript", "APIs", "CI/CD"],
+    tags: ["React", "JavaScript", "APIs", "PostgreSQL", "Tailwind CSS"],
     bullets: [
-      "Built a Pomodoro productivity web app with task tracking and timer-based workflows.",
-      "Designed interactive React components to support smooth task and session transitions.",
-      "Integrated APIs to persist user sessions and task state across refreshes.",
-      "Set up Azure CI/CD pipelines with GitHub workflows for automated testing and deployment.",
+      "React, Express.js, and PostgreSQL focus tracker supporting task persistence, session APIs, and SQL analytics.",
+      "Real-time timer sync with active session recovery and parallel API loading to maintain consistent state across refreshes.",
     ],
-    tech: ["React", "JavaScript", "REST APIs", "Azure CI/CD", "GitHub Actions"],
+    tech: ["React", "JavaScript", "REST APIs", "Tailwind CSS"],
     metrics: ["Persistent sessions", "Automated deploys", "Responsive UI"],
     image: { src: "/pomodoro.png", alt: "pomodoro" },
     links: [
@@ -62,10 +58,8 @@ export const PROJECTS: Project[] = [
       "Graph analysis pipeline to rank influential genes in protein interaction networks using diffusion methods.",
     tags: ["Python", "NetworkX", "Simulation", "Statistics"],
     bullets: [
-      "Developed a Python-based graph analysis pipeline to process protein interaction networks.",
-      "Implemented Random Walk with Restart and graph diffusion to rank influential nodes in the network.",
-      "Ran thousands of randomized simulations to validate results and measure statistical significance.",
-      "Identified 30 candidate genes based on network proximity and diffusion scores.",
+      "Python (NetworkX, NumPy, SciPy) graph analysis of protein interaction networks with Random Walk and diffusion.",
+      "Ran 1000+ of simulations for statistical validation, identifying 30 candidate genes via network scoring.",
     ],
     tech: ["Python", "NetworkX", "NumPy", "SciPy"],
     metrics: ["30 candidate genes", "Thousands of sims", "Graph diffusion"],
@@ -85,8 +79,6 @@ export const PROJECTS: Project[] = [
     tags: ["Python", "HMM", "Bioinformatics", "Statistics"],
     bullets: [
       "Built Hidden Markov Models to predict parasite life-cycle stages from gene expression data.",
-      "Implemented the Viterbi algorithm to infer the most probable sequence of biological states.",
-      "Constructed transition and emission matrices linking observations to hidden stages.",
       "Applied probabilistic modeling to interpret pathogen regulation and disease progression.",
     ],
     tech: ["Python", "NumPy", "pandas", "Statistical Modeling"],
@@ -108,8 +100,6 @@ export const PROJECTS: Project[] = [
     bullets: [
       "Shipped a mobile workout planner in React Native (Expo) optimized for quick, daily use.",
       "Implemented weekly workout planning (Mon–Sun) with exercises tracking sets, reps, weights, and notes.",
-      "Persisted workout data locally on-device to enable instant load times and offline access.",
-      "Auto-detected the current day to surface today’s workout with fast in-place edits.",
     ],
     tech: ["React Native", "Expo", "TypeScript", "Local Storage"],
     metrics: ["Offline-first", "Mobile-only UX", "Instant load"],
