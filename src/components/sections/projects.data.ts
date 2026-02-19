@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
     links: [
       {
         label: "Github",
-        href: "https://github.com/tomaseuu/project-pomodoro",
+        href: "https://focus-fruit.vercel.app/",
       },
     ],
   },
