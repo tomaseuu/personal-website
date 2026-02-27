@@ -8,8 +8,8 @@ const space = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Thomas Le — Portfolio",
-  description: "Computer science portfolio",
+  title: "Thomas Le | Personal Website",
+  description: "Personal Portfolio",
 };
 
 export default function RootLayout({
