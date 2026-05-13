@@ -24,9 +24,12 @@ export default function IntroSplash({
     if (oncePerSession) {
       const already = sessionStorage.getItem("intro_seen");
       if (already === "1") {
-        setVisible(false);
-        onDone?.();
-        return;
+        const frame = window.requestAnimationFrame(() => {
+          setVisible(false);
+          onDone?.();
+        });
+
+        return () => window.cancelAnimationFrame(frame);
       }
       sessionStorage.setItem("intro_seen", "1");
     }
@@ -61,17 +64,16 @@ export default function IntroSplash({
       <div className="intro2Center">
         {phase === "loading" ? (
           <>
-            <div className="intro2Coffee" aria-hidden="true">
-              <div className="intro2Steam">
-                <span className="intro2SteamLine" />
-                <span className="intro2SteamLine" />
-                <span className="intro2SteamLine" />
+            <div className="intro2Monogram" aria-hidden="true">
+              <div className="intro2Diamond" />
+              <div className="intro2DiamondInner" />
+              <div className="intro2Orbit">
+                <span className="intro2OrbitDot" />
+                <span className="intro2OrbitDot" />
+                <span className="intro2OrbitDot" />
+                <span className="intro2OrbitDot" />
               </div>
-
-              <div className="intro2Cup">
-                <div className="intro2CupBody" />
-                <div className="intro2CupHandle" />
-              </div>
+              <span className="intro2Letter">T</span>
             </div>
 
             <div className="intro2Line">

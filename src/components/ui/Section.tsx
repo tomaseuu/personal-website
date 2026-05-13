@@ -5,6 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 type SectionProps = {
   id: string;
   title: string;
+  number?: string;
   subtitle?: string;
   children: React.ReactNode;
   tone?: "default" | "tint";
@@ -14,6 +15,7 @@ type SectionProps = {
 export default function Section({
   id,
   title,
+  number,
   subtitle,
   children,
   tone = "default",
@@ -30,12 +32,17 @@ export default function Section({
             {kicker ? <div className={styles.kicker}>{kicker}</div> : null}
 
             <div className={styles.headerRow}>
-              <h2 className={styles.title}>{title}</h2>
+              <div className={styles.titleWrap}>
+                {number ? (
+                  <span className={styles.number}>{number}.</span>
+                ) : null}
+                <h2 className={styles.title}>{title}</h2>
+              </div>
 
               {title === "Experience" ? (
                 <div className={styles.headerAnim}>
                   <div className={styles.crop}>
-                    <img src="/cat.gif" alt="cat" className={styles.anim} />
+                    <img src="/cat2.png" alt="cat" className={styles.anim} />
                   </div>
                 </div>
               ) : null}

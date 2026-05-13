@@ -1,23 +1,20 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./ExperienceSection.module.css";
 
 type Experience = {
   id: string;
   company: string;
+  companyHref: string;
   role: string;
   dates: string;
   location?: string;
-  oneLiner: string;
+  summary: string;
   highlights: string[];
   tech: string[];
 };
-
-// function Tag({ text }: { text: string }) {
-//   return <span className={styles.tag}>{text}</span>;
-// }
 
 function Chip({ text }: { text: string }) {
   return <span className={styles.chip}>{text}</span>;
@@ -28,273 +25,209 @@ export default function ExperienceSection() {
     () => [
       {
         id: "homigo",
-        company: "Homigo (Startup)",
-        role: "Software Developer",
+        company: "Homigo",
+        companyHref: "https://homigoapp.io/",
+        role: "Software Engineer",
         dates: "Dec 2025 — Present",
         location: "Remote",
-        oneLiner:
-          "A platform that helps local contractors get jobs and paid without bidding, ads, or added friction.",
-
+        summary:
+          "Building a bilingual onboarding platform for local service providers.",
         highlights: [
-          "Built contractor onboarding in Next.js and TypeScript to support new platform users.",
-          "Implemented guarded transitions and validation to prevent incomplete submissions.",
-          "Integrated Supabase Auth and backend APIs for secure role based onboarding.",
-          "Replaced fragmented steps with a single guided signup experience.",
+          "Built a mobile-first signup flow across phone verification, service setup, and Stripe payout onboarding for 20 service categories.",
+          "Created a guided multi-step onboarding experience that keeps contractor signup clear, structured, and easier to complete.",
+          "Automated service-area and marketplace coverage mapping from ZIP codes, travel radius, and selected services.",
+          "Integrated communication and moderation workflows to support onboarding, verification, and provider-facing updates.",
         ],
         tech: [
           "Next.js",
-          "React",
           "TypeScript",
-          "Tailwind",
           "Supabase",
-          "REST APIs",
+          "Stripe",
+          "Twilio",
         ],
       },
       {
         id: "veggie",
         company: "Veggie Rescue",
-        role: "Tech Lead / SWE Intern",
+        companyHref: "https://veggierescue.org/",
+        role: "Software Engineer / Tech Lead",
         dates: "Dec 2025 — Present",
-        location: "Remote",
-        oneLiner:
-          "A nonprofit rescuing surplus fresh food from local farms and delivering it fairly to organizations serving food-insecure communities.",
+        location: "San Luis Obispo, CA",
+        summary:
+          "Helping build food distribution tooling for 70+ nonprofit organizations.",
         highlights: [
-          "Led 7 engineers to build a food distribution dashboard for 70 plus nonprofits.",
-          "Directed implementation of a priority system to optimize nonprofit food allocation.",
-          "Architected and delivered a priority based queue for smarter food distribution.",
-          "Oversaw development of a priority queue used to determine next food deliveries.",
+          "Leading development of a dashboard that replaces fragmented spreadsheet tracking with a centralized workflow.",
+          "Designed a priority-based delivery queue using history, pounds received, recipient priority, and urgency data.",
+          "Built tools that help staff move faster when coordinating deliveries across partner organizations.",
+          "Focused on making allocation decisions more transparent, fair, and operationally manageable.",
         ],
-        tech: ["React", "TypeScript", "REST APIs", "GitHub"],
+        tech: ["React", "TypeScript", "Express", "Google Sheets API"],
       },
-      {
-        id: "spreadgoodness",
-        company: "SpreadGoodness",
-        role: "Software Engineering Intern",
-        dates: "Dec 2025 — Present",
-        location: "Remote",
-        oneLiner:
-          "A student-focused platform encouraging small acts of kindness through challenges and social interaction.",
-        highlights: [
-          "Updated button styles to keep student actions clear and consistent across profiles.",
-          "Standardized hover and interaction behavior across desktop and mobile.",
-          "Tested the full accept challenge flow end to end using a student account.",
-        ],
-        tech: ["React", "TypeScript", "CSS", "UI Testing"],
-      },
-
       {
         id: "tesla",
-        company: "Systems Optimization Club (Tesla Partner Project)",
-        role: "Fullstack Developer",
-        dates: "Oct 2025 — Present",
+        company: "Tesla Collaboration",
+        companyHref: "https://www.tesla.com/",
+        role: "Software Developer Student Consultant",
+        dates: "Oct 2025 — Mar 2026",
         location: "San Luis Obispo, CA",
-        oneLiner:
-          "A centralized commute app helping Tesla employees compare transportation options and reduce parking congestion.",
+        summary:
+          "Worked on a commute-planning mobile prototype through Systems Optimization Club.",
         highlights: [
-          "Designed a centralized theming system in React Native for consistent UI.",
-          "Implemented a full screen Google Maps view for real time navigation.",
-          "Developed reusable components from Figma to keep layouts consistent.",
+          "Built a React Native prototype for comparing driving, biking, transit, and shuttle routes in one experience.",
+          "Refactored hardcoded styles into a reusable theming system and maintainable map-based components.",
+          "Improved UI consistency by moving the app toward reusable patterns instead of isolated one-off screens.",
+          "Worked on product decisions that made route comparison feel clearer and more practical for employees.",
         ],
         tech: ["React Native", "TypeScript", "Google Maps API", "Figma"],
       },
-
       {
-        id: "csu-ai-camp",
-        company: "CSU AI Summer Camp",
-        role: "AI Developer",
-        dates: "Jun 2025 — Jul 2025",
-        location: "San Luis Obispo, CA",
-        oneLiner:
-          "An academic tooling project that makes course planning easier for students and advisors through clean data and accessible interfaces.",
+        id: "spreadgoodness",
+        company: "Spread Goodness",
+        companyHref: "https://www.spreadgoodness.love/",
+        role: "Software Engineering Intern",
+        dates: "Dec 2025 — Present",
+        location: "Remote",
+        summary:
+          "Improving UI clarity for a student-centered platform built around kindness and challenges.",
         highlights: [
-          "Designed and deployed an ETL pipeline with Claude Sonnet for transcript JSON.",
-          "Built backend features for a course planning tool.",
-          "Set up DynamoDB tables and APIs for fast, reliable data access.",
-          "Improved accessibility by simplifying academic information display.",
+          "Refined student-facing UI flows and button states across profile and challenge actions.",
+          "Standardized desktop and mobile interactions to keep the accept-challenge flow clear and consistent.",
+          "Tested challenge interactions end-to-end to catch confusing states before they reached users.",
+          "Focused on product polish that made student actions feel more obvious and consistent.",
         ],
-        tech: ["Python", "ETL", "LLMs (Claude)", "AWS DynamoDB", "REST APIs"],
+        tech: ["React", "TypeScript", "CSS", "UI Testing"],
       },
       {
         id: "bio-ra",
         company: "Bioinformatics Research Lab",
+        companyHref: "https://bioinfo.calpoly.edu/research",
         role: "Bioinformatics Research Assistant",
         dates: "Jan 2025 — Jan 2026",
         location: "San Luis Obispo, CA",
-        oneLiner:
-          "A research project improving UTI testing by using patient metadata to predict likely pathogens and reduce unnecessary panels.",
+        summary:
+          "Applied data-driven modeling to support pathogen prediction and clinical testing workflows.",
         highlights: [
-          "Developed and tested decision tree models on 80,000 plus patient records.",
-          "Cleaned and organized clinical metadata to improve model accuracy.",
-          "Built multi label pipelines and automated training with Python.",
-          "Explored bioinformatics tools like Galaxy to support genomic analysis.",
+          "Trained decision-tree and multi-label pipelines on 80k+ patient records to support UTI pathogen prediction.",
+          "Cleaned and structured clinical metadata to improve modeling reliability and downstream genomic analysis.",
+          "Automated parts of the modeling workflow to make experiments easier to rerun and compare.",
+          "Used bioinformatics tooling to connect machine learning work with broader research questions.",
         ],
-        tech: ["Python", "Decision Trees", "Data Cleaning", "APIs", "Galaxy"],
+        tech: ["Python", "Decision Trees", "Data Science", "Galaxy"],
       },
       {
         id: "h4i",
         company: "Hack4Impact",
+        companyHref: "https://calpoly.hack4impact.org/",
         role: "Full Stack Developer",
         dates: "Oct 2024 — Jun 2025",
         location: "San Luis Obispo, CA",
-        oneLiner:
-          "A nonprofit project focused on managing and preserving historic tree records for the local community.",
+        summary:
+          "Built nonprofit tooling for heritage tree inventory and volunteer communication.",
         highlights: [
-          "Worked on a responsive React and Tailwind site for a heritage tree foundation.",
-          "Connected Next.js to MongoDB via REST APIs for tree management.",
-          "Added dynamic tables for browsing and editing tree records.",
-          "Collaborated on interactive maps and search features.",
+          "Shipped messaging and announcement workflows using Next.js, MongoDB, and REST API routes.",
+          "Built tree entry, inventory, and mobile-responsive volunteer interfaces for managing heritage tree records.",
+          "Connected frontend workflows to backend routes that helped admins manage updates at different user levels.",
+          "Worked on practical nonprofit-facing features that improved day-to-day record management.",
         ],
-        tech: ["React", "Next.js", "Tailwind", "MongoDB", "REST APIs"],
+        tech: ["Next.js", "MongoDB", "REST APIs", "Chakra UI"],
       },
     ],
     [],
   );
 
-  // allow collapsing by clicking active item again
   const [activeId, setActiveId] = useState<string>(items[0]?.id ?? "");
-  const active = items.find((x) => x.id === activeId) ?? items[0];
+  const active = items.find((item) => item.id === activeId) ?? items[0];
 
   return (
     <div className={styles.grid}>
-      {/* left - timeline list */}
-      <div>
-        <div className={styles.listCard}>
-          {items.map((x, idx) => {
-            const selected = x.id === activeId;
-            const panelId = `${x.id}-panel`;
+      <div className={styles.listCard}>
+        <div className={styles.listRail} aria-hidden="true" />
+        {items.map((item) => {
+          const selected = item.id === activeId;
 
-            return (
-              <div key={x.id} className={styles.itemWrap}>
-                <button
-                  onClick={() => setActiveId(selected ? "" : x.id)}
-                  className={[
-                    styles.item,
-                    selected ? styles.itemActive : "",
-                  ].join(" ")}
-                  aria-expanded={selected}
-                  aria-controls={panelId}
-                  type="button"
-                >
-                  <div className={styles.row}>
-                    <div className={styles.timeline} aria-hidden="true">
-                      <div
-                        className={[
-                          styles.dot,
-                          selected ? styles.dotActive : "",
-                        ].join(" ")}
-                      />
-                      {idx !== items.length - 1 ? (
-                        <div className={styles.line} />
-                      ) : null}
-                    </div>
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setActiveId(item.id)}
+              className={[styles.item, selected ? styles.itemActive : ""].join(
+                " ",
+              )}
+              aria-pressed={selected}
+            >
+              {selected ? (
+                <>
+                  <motion.span
+                    layoutId="experience-active-bg"
+                    className={styles.activeBg}
+                    transition={{
+                      type: "spring",
+                      stiffness: 280,
+                      damping: 26,
+                    }}
+                    aria-hidden="true"
+                  />
+                  <motion.span
+                    layoutId="experience-active-bar"
+                    className={styles.activeBar}
+                    transition={{
+                      type: "spring",
+                      stiffness: 320,
+                      damping: 28,
+                    }}
+                    aria-hidden="true"
+                  />
+                </>
+              ) : null}
 
-                    <div>
-                      <div className={styles.companyRow}>
-                        <div className={styles.company}>{x.company}</div>
-                        <div className={styles.meta}>• {x.dates}</div>
-                      </div>
-
-                      <div className={styles.roleBlock}>
-                        <div className={styles.role}>{x.role}</div>
-                        <div className={styles.metaRow}>
-                          {x.dates}
-                          {x.location ? ` • ${x.location}` : ""}
-                        </div>
-                      </div>
-
-                      <div className={styles.oneLiner}>{x.oneLiner}</div>
-
-                      <div className={styles.previewChips}>
-                        {x.tech.slice(0, 3).map((t) => (
-                          <Chip key={t} text={t} />
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className={styles.arrow} aria-hidden="true">
-                      →
-                    </div>
-                  </div>
-                </button>
-
-                {/* inline expand panel */}
-                <AnimatePresence initial={false}>
-                  {selected && (
-                    <motion.div
-                      id={panelId}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.22 }}
-                      className={styles.expandPanel}
-                    >
-                      <div className={styles.expandInner}>
-                        <div className={styles.blockTitle}>Highlights</div>
-                        <ul className={styles.bullets}>
-                          {x.highlights.map((h) => (
-                            <li key={h}>{h}</li>
-                          ))}
-                        </ul>
-
-                        <div className={styles.blockTitle}>Tech</div>
-                        <div className={styles.bottomChips}>
-                          {x.tech.map((t) => (
-                            <Chip key={t} text={t} />
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
+              <span className={styles.itemContent}>
+                <span className={styles.itemCompany}>{item.company}</span>
+                <span className={styles.itemRole}>{item.role}</span>
+              </span>
+            </button>
+          );
+        })}
       </div>
 
-      {/* right - spotlight detail card (kept as-is, but hidden via CSS) */}
-      <motion.div
+      <motion.article
         key={active.id}
-        initial={{ opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.22 }}
+        transition={{ duration: 0.2 }}
         className={styles.detailCard}
       >
-        <div className={styles.detailTop}>
-          <div>
-            <div className={styles.detailCompany}>{active.company}</div>
-            <div className={styles.detailRoleBlock}>
-              <div className={styles.detailRole}>{active.role}</div>
-              <div className={styles.detailMetaRow}>
-                {active.dates}
-                {active.location ? ` • ${active.location}` : ""}
-              </div>
-            </div>
+        <div className={styles.detailHeader}>
+          <div className={styles.detailTitleRow}>
+            <h3 className={styles.detailRole}>{active.role}</h3>
+            <a
+              className={styles.detailCompany}
+              href={active.companyHref}
+              target="_blank"
+              rel="noreferrer"
+            >
+              @ {active.company}
+            </a>
           </div>
-
-          {/* <div className={styles.tagsRow}>
-            {active.tech.slice(0, 4).map((t) => (
-              <Tag key={t} text={t} />
-            ))}
-          </div> */}
+          <div className={styles.detailMeta}>
+            {active.dates}
+            {active.location ? ` • ${active.location}` : ""}
+          </div>
         </div>
 
-        <div className={styles.callout}>{active.oneLiner}</div>
+        <p className={styles.summary}>{active.summary}</p>
 
-        <div className={styles.blockTitle}>Highlights</div>
         <ul className={styles.bullets}>
-          {active.highlights.map((h) => (
-            <li key={h}>{h}</li>
+          {active.highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
           ))}
         </ul>
 
-        <div className={styles.blockTitle}>Tech</div>
-        <div className={styles.bottomChips}>
-          {active.tech.map((t) => (
-            <Chip key={t} text={t} />
+        <div className={styles.techRow}>
+          {active.tech.map((tech) => (
+            <Chip key={tech} text={tech} />
           ))}
         </div>
-      </motion.div>
+      </motion.article>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import styles from "./ContactReveal.module.css";
 
 type Props = {
@@ -10,90 +9,38 @@ type Props = {
 };
 
 export default function ContactReveal({ id = "connect", email, links }: Props) {
-  const sentinelRef = useRef<HTMLDivElement | null>(null);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const el = sentinelRef.current;
-    if (!el) return;
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const hit = entries[0]?.isIntersecting ?? false;
-        setOpen(hit);
-      },
-      {
-        root: null,
-        // trigger a bit before the bottom so it feels intentional
-        rootMargin: "0px 0px -15% 0px",
-        threshold: 0.01,
-      },
-    );
-
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <>
-      {/* put this near the bottom of your page layout */}
-      <div ref={sentinelRef} className={styles.sentinel} aria-hidden="true" />
+    <section id={id} className={styles.wrap}>
+      <div className={styles.inner}>
+        <h2 className={styles.title}>Get in touch</h2>
 
-      <section
-        id={id}
-        className={[styles.wrap, open ? styles.open : ""].join(" ")}
-        aria-hidden={!open}
-      >
-        <div className={styles.grain} aria-hidden="true" />
+        <p className={styles.copy}>
+          I am currently looking for full-time software engineering roles for
+          2026. If you would like to connect, I would love to hear from you.
+        </p>
 
-        <div className={styles.inner}>
-          <div className={styles.left}>
-            <h2 className={styles.h1}>Let's connect</h2>
-            <p className={styles.p}>
-              I am always down to talk about new ideas, side projects, or
-              anything creative. Especially the kind of things that feel
-              exciting and impactful.
-            </p>
-            <div className={styles.smallNote}>Looking forward to connect!</div>
-          </div>
+        <a className={styles.button} href={`mailto:${email}`}>
+          Say Hello
+        </a>
 
-          <div className={styles.right}>
-            <div className={styles.block}>
-              <div className={styles.label}>Email</div>
-              <a className={styles.bigLink} href={`mailto:${email}`}>
-                {email}
-              </a>
-            </div>
+        <a className={styles.email} href={`mailto:${email}`}>
+          {email}
+        </a>
 
-            <div className={styles.block}>
-              <div className={styles.label}>Links</div>
-              <div className={styles.links}>
-                {links.map((l) => (
-                  <a
-                    key={l.href}
-                    className={styles.link}
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {l.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className={styles.links} aria-label="Social links">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              className={styles.link}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
-
-        <div className={styles.footer}>
-          <div className={styles.rule} />
-          <div className={styles.footRow}>
-            <span>
-              © {new Date().getFullYear()} Thomas Le. All Rights Reserved
-            </span>
-            <span className={styles.mini}>My personal portfolio</span>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

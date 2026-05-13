@@ -38,14 +38,23 @@
   justify-self: center;
 }
 
+.photoToggle {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+
 .polaroid {
   position: absolute;
   width: 300px;
   max-width: 92%;
 
   background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(var(--text-rgb), 0.12);
+  box-shadow: 0 28px 80px rgba(var(--text-rgb), 0.12);
   backdrop-filter: blur(10px);
   overflow: hidden;
 
@@ -82,7 +91,7 @@
 .polaroidCaption {
   margin-top: 6px;
   font-size: 14px;
-  color: rgba(15, 23, 42, 0.6);
+  color: rgba(var(--text-rgb), 0.6);
   letter-spacing: 0.04em;
   text-transform: lowercase;
   text-align: center;
@@ -97,41 +106,12 @@
   transform: rotate(-1deg) scale(1.06);
 }
 
-/* small float A (top-right-ish) */
-.polaroidFloatA {
-  width: 210px;
-  top: -10px;
-  left: 240px;
-  z-index: 3;
-  opacity: 0.98;
-  animation: floatA 7.6s ease-in-out infinite;
-  transform: rotate(-10deg);
+.photoToggle:hover .polaroidMain {
+  box-shadow: 0 36px 95px rgba(var(--text-rgb), 0.16);
 }
 
-/* small float B (bottom-right-ish) */
-.polaroidFloatB {
-  width: 220px;
-  bottom: -10px;
-  left: 260px;
-  z-index: 1;
-  opacity: 0.95;
-  animation: floatB 8.4s ease-in-out infinite;
-  transform: rotate(12deg);
-}
-
-.polaroidFloatA:hover,
-.polaroidFloatB:hover {
-  animation-play-state: paused;
-  z-index: 10;
-  transform: translateY(-10px) rotate(1deg) scale(1.03);
-  box-shadow: 0 40px 110px rgba(15, 23, 42, 0.18);
-  filter: saturate(1.05);
-}
-
-.polaroidMain:hover {
-  /* keep it calm */
-  filter: none;
-  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+.photoToggle:hover .polaroidCaption {
+  color: rgba(var(--primary-rgb), 0.9);
 }
 
 /* =========================
@@ -150,34 +130,8 @@
   }
 }
 
-@keyframes floatA {
-  0% {
-    transform: translateY(0px) translateX(0px) rotate(-10deg);
-  }
-  50% {
-    transform: translateY(-12px) translateX(6px) rotate(-12deg);
-  }
-  100% {
-    transform: translateY(0px) translateX(0px) rotate(-10deg);
-  }
-}
-
-@keyframes floatB {
-  0% {
-    transform: translateY(0px) translateX(0px) rotate(12deg);
-  }
-  50% {
-    transform: translateY(-14px) translateX(-6px) rotate(10deg);
-  }
-  100% {
-    transform: translateY(0px) translateX(0px) rotate(12deg);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .polaroidMain,
-  .polaroidFloatA,
-  .polaroidFloatB {
+  .polaroidMain {
     animation: none !important;
   }
   .polaroid {
@@ -193,6 +147,14 @@
   text-align: left;
 }
 
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .title {
   color: var(--text);
   font-weight: 650;
@@ -201,6 +163,14 @@
   margin: 0;
   font-size: clamp(44px, 5.8vw, 86px);
   white-space: nowrap;
+}
+
+.meta {
+  margin-top: 14px;
+  color: rgba(var(--text-rgb), 0.74);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 520;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
@@ -225,14 +195,14 @@
   justify-content: center;
   border-radius: 999px;
   padding: 16px 32px;
-  background: #0b0f1a;
-  color: rgba(255, 255, 255, 0.92);
+  background: var(--primary);
+  color: var(--text);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 12px;
   text-decoration: none;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 18px 40px rgba(var(--primary-rgb), 0.22);
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
@@ -241,7 +211,7 @@
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 22px 55px rgba(var(--primary-rgb), 0.28);
 }
 
 .btn:active {
@@ -249,66 +219,28 @@
   opacity: 0.9;
 }
 
+.btnGhost {
+  background: rgba(var(--surface-rgb), 0.92);
+  color: var(--text);
+  border: 1px solid rgba(var(--text-rgb), 0.14);
+  box-shadow: 0 14px 30px rgba(var(--text-rgb), 0.08);
+}
+
+.btnGhost:hover {
+  box-shadow: 0 18px 38px rgba(var(--text-rgb), 0.1);
+}
+
 .tag {
+  margin-top: 18px;
   color: var(--muted);
-  font-size: 13px;
-  letter-spacing: 0.02em;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* =========================
    SCROLL HINT
 ========================= */
-
-.scroll {
-  position: absolute;
-  left: 50%;
-  bottom: 28px;
-  transform: translateX(-50%);
-  color: rgba(15, 23, 42, 0.35);
-  letter-spacing: 0.18em;
-  font-size: 12px;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.25);
-  position: relative;
-}
-
-.dot::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 2px;
-  width: 2px;
-  height: 2px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.4);
-  animation: scrollDot 1.2s ease-in-out infinite;
-}
-
-@keyframes scrollDot {
-  0% {
-    transform: translate(-50%, 0);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translate(-50%, 4px);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, 0);
-    opacity: 0.4;
-  }
-}
 
 /* =========================
    TABLET
@@ -346,16 +278,6 @@
     top: 54px;
     transform: translateX(-50%) rotate(-1deg) scale(1.04);
   }
-
-  .polaroidFloatA {
-    left: 68%;
-    top: 0px;
-  }
-
-  .polaroidFloatB {
-    left: 62%;
-    bottom: 0px;
-  }
 }
 
 /* =========================
@@ -372,22 +294,11 @@
     height: 280px;
   }
 
-  /* keep it clean: only main on mobile */
-  .polaroidFloatA,
-  .polaroidFloatB {
-    display: none;
-  }
-
   .polaroidMain {
     width: min(360px, 92vw);
     left: 50%;
     top: 36px;
     transform: translateX(-50%) rotate(-1deg) scale(1);
     animation: none;
-  }
-
-  .scroll {
-    bottom: 18px;
-    font-size: 11px;
   }
 }

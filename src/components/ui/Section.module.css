@@ -29,7 +29,7 @@
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.55);
+  color: rgba(var(--text-rgb), 0.55);
   margin-bottom: 10px;
 }
 
@@ -40,6 +40,20 @@
   line-height: 1.1;
   margin: 0;
   color: var(--text);
+}
+
+.titleWrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.number {
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--primary);
 }
 
 .subtitle {
@@ -53,7 +67,7 @@
 .rule {
   margin-top: 18px;
   height: 1px;
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(var(--text-rgb), 0.08);
 }
 
 .body {
@@ -78,13 +92,13 @@
 }
 
 .crop {
-  width: 90px;
-  height: 72px;
+  width: 132px;
+  height: 104px;
   overflow: hidden;
 }
 
 .anim {
-  width: 90px;
+  width: 132px;
   display: block;
   opacity: 0.9;
   pointer-events: none;

@@ -10,10 +10,35 @@ export type Project = {
   image?: {
     src: string;
     alt: string;
+    variant?: "cover" | "phoneShot" | "browserShot";
   };
 };
 
 export const PROJECTS: Project[] = [
+  {
+    id: "virgil-mobile-app",
+    title: "IBD Clinical Decision Support System",
+    subtitle:
+      "Mobile-first health journaling and clinical review workflow for tracking IBD symptoms, medications, and patient context over time.",
+    tags: ["React Native", "TypeScript", "Supabase", "PostgreSQL", "Flask"],
+    bullets: [
+      "Built a React Native workflow that organizes patient symptoms, medication history, and genetics inputs through Supabase, PostgreSQL, and a Flask recommendation backend.",
+      "Prototyped LLM-powered insight features that summarize symptom trends, explain recommendation outputs, and generate doctor-facing questions from structured patient context.",
+    ],
+    tech: ["React Native", "TypeScript", "Supabase", "PostgreSQL", "Flask"],
+    metrics: ["Mobile-first UX", "Health journaling", "AI insights"],
+    image: {
+      src: "/ibd.png",
+      alt: "IBD mobile app screenshot",
+      variant: "phoneShot",
+    },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/virgil-mobile-app",
+      },
+    ],
+  },
   {
     id: "online-photobooth",
     title: "Luma Leaf - Online Photobooth",
@@ -26,9 +51,63 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["React", "TypeScript", "Next.js", "CSS"],
     metrics: ["Client-side media", "QR sharing", "Performance tuned"],
-    image: { src: "/luma-leaf.png", alt: "photobooth" },
+    image: {
+      src: "/luma-leaf.png",
+      alt: "Luma Leaf photobooth screenshot",
+      variant: "browserShot",
+    },
     links: [
       { label: "Website", href: "https://luma-leaf-photobooth.vercel.app/" },
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/project-photobooth",
+      },
+    ],
+  },
+  {
+    id: "online-scam-awareness-obby",
+    title: "Online Scam Awareness Obby",
+    subtitle:
+      "Story-driven Roblox game that teaches players how to spot scams, create stronger passwords, and recognize impersonators through interactive gameplay.",
+    tags: ["Roblox Studio", "Lua", "Game Design", "Cybersecurity"],
+    bullets: [
+      "Built a first-time Roblox project in 24 hours for LA Hacks, creating scenario-based mechanics where players learn online safety by making choices inside the game.",
+      "Designed interactive lessons around fake links, password strength, and impersonation attempts so players experience digital safety concepts instead of only reading about them.",
+    ],
+    tech: ["Roblox Studio", "Lua", "UI Scripting", "Gameplay Systems"],
+    metrics: ["24-hour build", "Interactive learning", "Hackathon project"],
+    links: [
+      {
+        label: "DevPost",
+        href: "https://devpost.com/software/don-t-get-scammed",
+      },
+      {
+        label: "Video",
+        href: "https://lnkd.in/g8zZbRvb",
+      },
+      {
+        label: "Game",
+        href: "https://lnkd.in/gKyTnG9J",
+      },
+    ],
+  },
+  {
+    id: "task-logger",
+    title: "Task Logger",
+    subtitle:
+      "AI-powered group project planner that turns messy requirements into fair task delegation, timelines, and progress tracking for student teams.",
+    tags: ["AI", "Team Collaboration", "Student Productivity", "Web App"],
+    bullets: [
+      "Analyzes project requirements, asks clarifying questions, and breaks work into structured tasks with difficulty, skill requirements, and dependencies.",
+      "Fairly assigns tasks, builds personalized timelines and dashboards, and helps college teams avoid uneven workload, missed deadlines, and poor accountability.",
+    ],
+    tech: ["AI", "Task Planning", "Dashboards", "Team Workflows"],
+    metrics: ["Skill-based delegation", "Timeline generation", "College teams"],
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/PolyPrompt/ProjectBeacon",
+      },
     ],
   },
   {
@@ -46,28 +125,44 @@ export const PROJECTS: Project[] = [
     image: { src: "/pomodoro.png", alt: "pomodoro" },
     links: [
       {
-        label: "Github",
+        label: "Website",
         href: "https://focus-fruit.vercel.app/",
       },
     ],
   },
   {
     id: "cancer-network-analysis",
-    title: "Cancer Network Analysis",
+    title: "OncoGraph: Cancer Gene Discovery Pipeline",
     subtitle:
-      "Graph analysis pipeline to rank influential genes in protein interaction networks using diffusion methods.",
-    tags: ["Python", "NetworkX", "Simulation", "Statistics"],
+      "Backend-focused bioinformatics pipeline for prioritizing candidate cancer genes with graph diffusion, validation, and optional ML ranking.",
+    tags: ["Python", "FastAPI", "Bioinformatics", "ML", "PostgreSQL"],
     bullets: [
-      "Python (NetworkX, NumPy, SciPy) graph analysis of protein interaction networks with Random Walk and diffusion.",
-      "Ran 1000+ of simulations for statistical validation, identifying 30 candidate genes via network scoring.",
+      "Turned a graph theory research prototype into a reproducible FastAPI pipeline using Random Walk with Restart, p-value simulations, and PostgreSQL-backed persistence.",
+      "Built a production-style workflow with background runs, optional scikit-learn ranking, Docker Compose, and a Next.js dashboard for exploring results.",
     ],
-    tech: ["Python", "NetworkX", "NumPy", "SciPy"],
-    metrics: ["30 candidate genes", "Thousands of sims", "Graph diffusion"],
-    image: { src: "/ghibli2.png", alt: "cancer" },
+    tech: [
+      "Python",
+      "FastAPI",
+      "NetworkX",
+      "Scikit-learn",
+      "PostgreSQL",
+      "Docker",
+      "Next.js",
+    ],
+    metrics: ["RWR pipeline", "ML ranking", "Dockerized backend"],
+    image: {
+      src: "/cancer3.png",
+      alt: "OncoGraph dashboard screenshot",
+      variant: "browserShot",
+    },
     links: [
       {
+        label: "Website",
+        href: "https://cancer-graph-theory.vercel.app/",
+      },
+      {
         label: "Github",
-        href: "https://github.com/tomaseuu/cancer-graph-theory?tab=readme-ov-file",
+        href: "https://github.com/tomaseuu/cancer-graph-theory",
       },
     ],
   },
@@ -92,6 +187,25 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    id: "yeast-diauxic-shift",
+    title: "Yeast Diauxic Shift Gene Expression Analysis",
+    subtitle:
+      "Gene expression analysis of metabolic transition in baker's yeast using clustering, enrichment, and statistical validation.",
+    tags: ["Python", "Bioinformatics", "Clustering", "Statistics"],
+    bullets: [
+      "Analyzed Saccharomyces cerevisiae gene expression across seven time points to study the diauxic shift from glucose fermentation to ethanol respiration.",
+      "Used K-Means clustering, variability filtering, GO enrichment analysis, and binomial significance testing to identify biologically meaningful gene patterns.",
+    ],
+    tech: ["Python", "pandas", "scikit-learn", "SciPy", "matplotlib"],
+    metrics: ["7 time points", "GO enrichment", "Statistical validation"],
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/yeast-diauxic-shift-analysis",
+      },
+    ],
+  },
+  {
     id: "repnote",
     title: "RepNote - Gym Tracker",
     subtitle:
@@ -108,6 +222,64 @@ export const PROJECTS: Project[] = [
       {
         label: "Github",
         href: "https://github.com/tomaseuu/repnote",
+      },
+    ],
+  },
+  {
+    id: "vacuum-robot-planner",
+    title: "Vacuum Robot Planner",
+    subtitle:
+      "Grid-based planning project that generates action sequences for cleaning dirty cells while avoiding blocked spaces.",
+    tags: ["Python", "Search", "UCS", "DFS"],
+    bullets: [
+      "Built a planner for the Vacuum World environment where a robot navigates a grid, vacuums dirty cells, and avoids walls.",
+      "Implemented Uniform-Cost Search and Depth-First Search to compare shortest-path planning against faster but non-optimal traversal.",
+    ],
+    tech: ["Python", "Uniform-Cost Search", "Depth-First Search", "Planning"],
+    metrics: ["Grid world", "Action planning", "Search algorithms"],
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/vacuum-robot-planner",
+      },
+    ],
+  },
+  {
+    id: "poker-mcts",
+    title: "Poker Win Estimator with Monte Carlo Tree Search",
+    subtitle:
+      "Pre-flop Texas Hold'em win estimator that simulates thousands of hands using Monte Carlo Tree Search and UCB1.",
+    tags: ["Python", "MCTS", "Algorithms", "Simulation"],
+    bullets: [
+      "Built a poker probability estimator that deals random opponent and community cards, simulates full showdowns, and estimates pre-flop win rate.",
+      "Implemented Monte Carlo Tree Search with UCB1 selection plus custom hand evaluation logic for comparing 7-card poker outcomes.",
+    ],
+    tech: ["Python", "MCTS", "UCB1", "Simulation"],
+    metrics: ["Thousands of sims", "Pre-flop odds", "Custom evaluator"],
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/poker-mcts",
+      },
+    ],
+  },
+  {
+    id: "into-the-mind",
+    title: "Into the Mind",
+    subtitle:
+      "A 2D pixel world game where chaotic systems, healing, and self-reflection play out through character interactions.",
+    tags: ["Java", "Processing", "Game Design", "Pixel Art"],
+    bullets: [
+      "Built a Java 2D pixel world with custom entities, click-to-spawn interactions, and evolving map transformations using Processing and object-oriented game logic.",
+      "Turned a class project into a personal storytelling piece about burnout, chaos, and growth through hand-made pixel art and symbolic gameplay systems.",
+    ],
+    tech: ["Java", "Processing", "PApplet", "Pixel Art"],
+    metrics: ["2D game world", "Custom entities", "Interactive story"],
+    image: { src: "/into-the-mind.png", alt: "Into the Mind pixel world" },
+    links: [
+      {
+        label: "Github",
+        href: "https://github.com/tomaseuu/into-the-mind-pixelworld",
       },
     ],
   },

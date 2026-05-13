@@ -3,7 +3,7 @@
 .wrap {
   position: relative;
   border-radius: 26px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(var(--text-rgb), 0.12);
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(10px);
   padding: 22px 22px 18px;
@@ -21,7 +21,7 @@
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.55);
+  color: rgba(var(--text-rgb), 0.55);
 }
 
 .menuTitle {
@@ -29,14 +29,14 @@
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: rgba(15, 23, 42, 0.92);
+  color: rgba(var(--text-rgb), 0.92);
 }
 
 .menuSub {
   margin-top: 6px;
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(15, 23, 42, 0.62);
+  color: rgba(var(--text-rgb), 0.62);
   max-width: 52ch;
 }
 
@@ -44,8 +44,8 @@
   width: 84px;
   height: 84px;
   border-radius: 18px;
-  border: 1px solid rgba(122, 143, 106, 0.3);
-  background: rgba(122, 143, 106, 0.08);
+  border: 1px solid rgba(var(--secondary-rgb), 0.32);
+  background: rgba(var(--secondary-rgb), 0.1);
   display: grid;
   place-items: center;
   text-align: center;
@@ -58,7 +58,7 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   font-weight: 800;
-  color: rgba(15, 23, 42, 0.7);
+  color: rgba(var(--text-rgb), 0.7);
 }
 
 .stampMid {
@@ -66,17 +66,17 @@
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.16em;
-  color: rgba(79, 111, 67, 0.92);
+  color: rgba(var(--secondary-rgb), 0.92);
 }
 
 .stampBot {
   margin-top: 2px;
-  color: rgba(15, 23, 42, 0.55);
+  color: rgba(var(--text-rgb), 0.55);
 }
 
 .rule {
   height: 1px;
-  background: rgba(15, 23, 42, 0.1);
+  background: rgba(var(--text-rgb), 0.1);
   margin: 16px 0 18px;
 }
 
@@ -108,8 +108,8 @@
 
 .card {
   border-radius: 22px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  background: rgba(251, 245, 234, 0.72);
+  border: 1px solid rgba(var(--text-rgb), 0.12);
+  background: rgba(var(--surface-rgb), 0.72);
   backdrop-filter: blur(8px);
   box-shadow: 0 16px 55px rgba(0, 0, 0, 0.06);
   padding: 16px;
@@ -137,14 +137,14 @@
   font-weight: 850;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.78);
+  color: rgba(var(--text-rgb), 0.78);
 }
 
 .dots {
   height: 2px;
   transform: translateY(-2px);
   background-image: radial-gradient(
-    rgba(15, 23, 42, 0.22) 1px,
+    rgba(var(--text-rgb), 0.22) 1px,
     transparent 1px
   );
   background-size: 8px 2px;
@@ -156,14 +156,14 @@
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.52);
+  color: rgba(var(--text-rgb), 0.52);
 }
 
 .groupSub {
   margin-top: 6px;
   font-size: 13px;
   line-height: 1.55;
-  color: rgba(15, 23, 42, 0.62);
+  color: rgba(var(--text-rgb), 0.62);
   max-width: 48ch;
 }
 
@@ -181,9 +181,9 @@
   padding: 7px 11px;
   font-size: 12.5px;
   font-weight: 650;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(var(--text-rgb), 0.12);
   background: rgba(255, 255, 255, 0.45);
-  color: rgba(15, 23, 42, 0.78);
+  color: rgba(var(--text-rgb), 0.78);
   transition:
     transform 160ms ease,
     border-color 160ms ease,
@@ -193,8 +193,8 @@
 
 .chip:hover {
   transform: translateY(-2px);
-  border-color: rgba(122, 143, 106, 0.28);
-  background: rgba(122, 143, 106, 0.1);
+  border-color: rgba(var(--primary-rgb), 0.28);
+  background: rgba(var(--primary-rgb), 0.1);
 }
 
 .media {
@@ -207,7 +207,7 @@
   height: 100%;
   min-height: 110px;
   border-radius: 18px;
-  border: 1px dashed rgba(15, 23, 42, 0.18);
+  border: 1px dashed rgba(var(--text-rgb), 0.18);
   background: rgba(255, 255, 255, 0.35);
   display: grid;
   place-items: center;
@@ -220,44 +220,44 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.62);
+  color: rgba(var(--text-rgb), 0.62);
 }
 
 .mediaHint {
   margin-top: 6px;
   font-size: 12px;
-  color: rgba(15, 23, 42, 0.5);
+  color: rgba(var(--text-rgb), 0.5);
 }
 
 .matcha {
-  border-color: rgba(122, 143, 106, 0.25);
+  border-color: rgba(var(--primary-rgb), 0.25);
 }
 
 .matcha .chip:hover {
-  background: rgba(122, 143, 106, 0.12);
+  background: rgba(var(--primary-rgb), 0.12);
 }
 
 .coffee {
-  border-color: rgba(107, 79, 59, 0.22);
+  border-color: rgba(var(--secondary-rgb), 0.24);
 }
 
 .coffee .chip:hover {
-  background: rgba(107, 79, 59, 0.1);
-  border-color: rgba(107, 79, 59, 0.22);
+  background: rgba(var(--secondary-rgb), 0.12);
+  border-color: rgba(var(--secondary-rgb), 0.24);
 }
 
 .latte {
-  border-color: rgba(216, 184, 146, 0.32);
+  border-color: rgba(var(--accent-rgb), 0.32);
 }
 
 .ink {
-  border-color: rgba(15, 23, 42, 0.12);
+  border-color: rgba(var(--text-rgb), 0.12);
 }
 
 .footerNote {
   margin-top: 14px;
   padding-top: 12px;
-  border-top: 1px solid rgba(15, 23, 42, 0.1);
-  color: rgba(15, 23, 42, 0.56);
+  border-top: 1px solid rgba(var(--text-rgb), 0.1);
+  color: rgba(var(--text-rgb), 0.56);
   font-size: 13px;
 }

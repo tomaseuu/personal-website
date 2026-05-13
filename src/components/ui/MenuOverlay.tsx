@@ -2,7 +2,9 @@
 
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import styles from "./MenuOverlay.module.css";
+import ThemeToggle from "./ThemeToggle";
 
 type LinkItem = { label: string; href: string };
 
@@ -46,7 +48,7 @@ export default function MenuOverlay({
     }
 
     onClose();
-    window.location.href = href;
+    window.location.assign(href);
   }
 
   const menuLinks: LinkItem[] = [
@@ -80,14 +82,25 @@ export default function MenuOverlay({
           >
             <div className={styles.panelInner}>
               <div className={styles.header}>
-                <div className={styles.brand}>TL</div>
+                <div className={styles.brand}>
+                  <span className={styles.brandAvatar}>
+                    <Image
+                      src="/me.png"
+                      alt="Thomas avatar"
+                      width={28}
+                      height={28}
+                      className={styles.brandAvatarImg}
+                    />
+                  </span>
+                  <span className={styles.brandText}>Thomas</span>
+                </div>
 
                 <button
                   onClick={onClose}
                   className={styles.closeBtn}
                   type="button"
                 >
-                  Close
+                  ×
                 </button>
               </div>
 
@@ -150,6 +163,13 @@ export default function MenuOverlay({
                       >
                         Resume
                       </a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className={styles.smallTitle}>Theme</div>
+                    <div className={styles.themeRow}>
+                      <ThemeToggle />
                     </div>
                   </div>
                 </aside>

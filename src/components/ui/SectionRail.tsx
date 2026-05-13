@@ -13,7 +13,6 @@ export default function SectionRail() {
       { id: "experience", label: "Experience" },
       { id: "projects", label: "Projects" },
       { id: "skills", label: "Skills" },
-      { id: "hobbies", label: "Hobbies" },
     ],
     [],
   );

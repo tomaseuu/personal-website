@@ -1,115 +1,115 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./AboutSection.module.css";
 
-type Row = { label: string; value: string };
-
 export default function AboutSection() {
-  const rows: Row[] = [
-    { label: "NAME", value: "Thomas Le" },
-    { label: "PRONOUNS", value: "He/Him/His" },
-    { label: "SCHOOL", value: "Cal Poly San Luis Obispo" },
-    { label: "MAJOR", value: "Computer Science (B.S.), Bioinformatics minor" },
-    { label: "HOMETOWN", value: "West Covina, CA" },
+  const technologies = [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "Supabase",
+    "SQL",
   ];
 
   return (
     <div className={styles.wrap}>
-      {/* LEFT: facts */}
-      <div className={styles.left}>
-        <div className={styles.table}>
-          {rows.map((r) => (
-            <div key={r.label} className={styles.row}>
-              <div className={styles.k}>{r.label}:</div>
-              <div className={styles.v}>{r.value}</div>
-            </div>
-          ))}
-        </div>
+      <div className={styles.copy}>
+        <p className={styles.p}>
+          Hello! My name is Thomas and I enjoy building things that live on the
+          internet. I am currently a senior studying Computer Science at Cal
+          Poly San Luis Obispo with a minor in Bioinformatics. A lot of my
+          projects start as a harmless “what if” and somehow turn into a full
+          build, which is probably how this website happened too.
+        </p>
 
-        <div className={styles.socials} aria-label="Social links">
+        <p className={styles.p}>
+          Fast-forward a bit, and I have had the chance to collaborate with a
           <a
-            className={styles.iconBtn}
-            href="https://www.linkedin.com/in/thomasle998/"
+            className={styles.inlineLink}
+            href="https://www.tesla.com/"
             target="_blank"
             rel="noreferrer"
-            aria-label="LinkedIn"
-            title="LinkedIn"
           >
-            <img
-              className={styles.icon}
-              src="/linkedin.svg"
-              alt=""
-              aria-hidden="true"
-            />
+            huge corporation
           </a>
-
+          , build with a{" "}
           <a
-            className={styles.iconBtn}
-            href="https://github.com/tomaseuu"
+            className={styles.inlineLink}
+            href="https://homigoapp.io/"
             target="_blank"
             rel="noreferrer"
-            aria-label="GitHub"
-            title="GitHub"
           >
-            <img
-              className={styles.icon}
-              src="/github.svg"
-              alt=""
-              aria-hidden="true"
-            />
+            startup
           </a>
-
+          , support a{" "}
           <a
-            className={styles.iconBtn}
-            href="https://www.youtube.com/@tomaseuu"
+            className={styles.inlineLink}
+            href="https://centralcoastheritagetreefoundation.org/"
             target="_blank"
             rel="noreferrer"
-            aria-label="YouTube"
-            title="YouTube"
           >
-            <img
-              className={styles.icon}
-              src="/youtube.svg"
-              alt=""
-              aria-hidden="true"
-            />
+            nonprofit organization
           </a>
+          , and most recently throw myself into the fast-paced energy of a{" "}
+          <a
+            className={styles.inlineLink}
+            href="https://lahacks.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            hackathon
+          </a>
+          . I was also featured in{" "}
+          <a
+            className={styles.inlineLink}
+            href="https://www.nytimes.com/2025/10/26/technology/cal-state-ai-amazon-openai.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            The New York Times
+          </a>{" "}
+          for a recent article on A.I. education. Those experiences have pushed
+          me toward software that feels useful, thoughtful, and genuinely worth
+          building well.
+        </p>
+
+        <div className={styles.techBlock}>
+          <div className={styles.techTitle}>
+            Technologies I keep reaching for lately
+          </div>
+          <div className={styles.techGrid}>
+            {technologies.map((tech) => (
+              <div key={tech} className={styles.techItem}>
+                <span className={styles.techMarker} aria-hidden="true">
+                  ▹
+                </span>
+                <span>{tech}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* right: story */}
-      <div className={styles.right}>
-        <p className={styles.p}>
-          I am currently a senior studying Computer Science at Cal Poly San Luis
-          Obispo, with a minor in Bioinformatics. Most of my time is spent
-          creating, from personal projects like this website to random ideas
-          that start as “what if” and turn into something real. Especially drawn
-          to full-stack work, my interest lies in frontend, where logic and
-          creativity meet.
-        </p>
-
-        <p className={styles.p}>
-          Outside of classes, I am involved in various campus organizations,
-          exploring different facets of computer science and engaging with
-          diverse cultures. When I am not coding, I enjoy reading, watching
-          K-dramas, editing videos, and trying new activities. Right now, my
-          focus is on learning as much as possible to grow personally and
-          professionally while preparing for my career.
-        </p>
-
-        <div className={styles.actions}>
-          <a
-            className={styles.resumeBtn}
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            DOWNLOAD RESUME
-          </a>
-        </div>
-        <div className={styles.animWrap}>
-          <div className={styles.crop}>
-            <img src="/coffee.gif" alt="coffee" className={styles.anim} />
+      <div className={styles.media}>
+        <div className={styles.photoFrame} aria-hidden="true" />
+        <div className={styles.photoCard}>
+          <div className={styles.photoWrap}>
+            <Image
+              src="/study-thomas-3.png"
+              alt="Thomas studying"
+              fill
+              className={[styles.photo, styles.photoLight].join(" ")}
+            />
+            <Image
+              src="/dark-mode3.png"
+              alt="Thomas studying in dark mode"
+              fill
+              className={[styles.photo, styles.photoDark].join(" ")}
+            />
           </div>
         </div>
       </div>
