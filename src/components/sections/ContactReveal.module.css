@@ -1,5 +1,5 @@
 .wrap {
-  padding: 28px 24px 32px;
+  padding: 40px 24px 48px;
 }
 
 .inner {
@@ -8,6 +8,17 @@
   text-align: center;
   display: grid;
   gap: 12px;
+  padding: 28px;
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(var(--primary-rgb), 0.12),
+      transparent 36%
+    ),
+    rgba(var(--surface-rgb), 0.72);
+  border: 1px solid rgba(var(--text-rgb), 0.08);
+  box-shadow: 0 18px 48px rgba(var(--text-rgb), 0.06);
 }
 
 .title {
@@ -101,15 +112,27 @@
 
 @media (max-width: 720px) {
   .wrap {
-    padding: 20px 20px 24px;
+    padding: 18px 18px 32px;
   }
 
   .inner {
     gap: 10px;
+    padding: 22px 18px;
+    border-radius: 22px;
   }
 
   .copy {
     font-size: 14px;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .email {
+    font-size: 13px;
+    word-break: break-word;
   }
 }
 

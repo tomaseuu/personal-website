@@ -197,11 +197,21 @@
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .listCard {
-    padding-left: 0;
+    display: flex;
+    gap: 12px;
+    padding: 4px 2px 8px;
+    margin: 0 -2px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .listCard::-webkit-scrollbar {
+    display: none;
   }
 
   .listRail {
@@ -209,10 +219,68 @@
   }
 
   .item {
-    padding-left: 16px;
+    flex: 0 0 240px;
+    min-height: 84px;
+    padding: 14px 16px 14px 18px;
+    border: 1px solid rgba(var(--text-rgb), 0.08);
+    background: rgba(var(--surface-rgb), 0.66);
+    box-shadow: 0 10px 24px rgba(var(--text-rgb), 0.05);
+    scroll-snap-align: start;
+  }
+
+  .itemActive {
+    border-color: rgba(var(--primary-rgb), 0.18);
   }
 
   .activeBar {
-    left: 0;
+    left: 10px;
+    right: 10px;
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: 3px;
+  }
+
+  .detailCard {
+    padding: 22px 20px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    gap: 16px;
+  }
+
+  .listCard {
+    gap: 10px;
+  }
+
+  .item {
+    flex-basis: min(82vw, 228px);
+    min-height: 78px;
+    border-radius: 14px;
+  }
+
+  .detailCard {
+    border-radius: 20px;
+    padding: 18px 16px 18px;
+  }
+
+  .detailTitleRow {
+    gap: 6px;
+  }
+
+  .detailMeta {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .summary,
+  .bullets li {
+    font-size: 14px;
+  }
+
+  .bullets {
+    gap: 10px;
   }
 }

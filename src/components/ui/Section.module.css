@@ -104,9 +104,27 @@
   pointer-events: none;
 }
 
+@media (max-width: 900px) {
+  .section {
+    padding: 84px 0;
+  }
+
+  .inner {
+    padding: 0 20px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+  }
+
+  .body {
+    margin-top: 22px;
+  }
+}
+
 @media (max-width: 640px) {
   .section {
-    padding: 76px 0;
+    padding: 72px 0;
   }
 
   .inner {
@@ -115,6 +133,7 @@
 
   .subtitle {
     font-size: 15px;
+    line-height: 1.65;
   }
 }
 
@@ -130,15 +149,8 @@
     right: 0;
   }
 
-  .section {
-    padding: 76px 0;
-  }
-
-  .inner {
-    padding: 0 18px;
-  }
-
-  .subtitle {
-    font-size: 15px;
+  .crop {
+    width: 98px;
+    height: 76px;
   }
 }

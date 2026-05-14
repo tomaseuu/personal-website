@@ -19,7 +19,7 @@
 .inner {
   width: 100%;
   margin: 0 auto;
-  padding: 18px 42px;
+  padding: 14px 32px;
 
   display: flex;
   align-items: center;
@@ -40,8 +40,8 @@
 }
 
 .wrap[data-scrolled="true"] .inner {
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 11px;
+  padding-bottom: 11px;
 }
 
 .brand {
@@ -51,8 +51,8 @@
 }
 
 .brandMark {
-  width: 42px;
-  height: 48px;
+  width: 38px;
+  height: 44px;
   display: grid;
   place-items: center;
   clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
@@ -76,7 +76,7 @@
 }
 
 .brandLetter {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--primary);
@@ -140,8 +140,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 20px;
+  min-height: 42px;
+  padding: 0 18px;
   border-radius: 12px;
   border: 1px solid rgba(var(--primary-rgb), 0.35);
   background: rgba(var(--surface-rgb), 0.96);
@@ -187,6 +187,7 @@
 .menuBtn {
   display: none;
   border-radius: 999px;
+  min-height: 44px;
   padding: 10px 18px;
 
   font-size: 13px;
@@ -217,7 +218,7 @@
 
 @media (max-width: 980px) {
   .inner {
-    padding: 16px 22px;
+    padding: 12px 18px;
   }
 
   .desktopNav {
@@ -228,5 +229,24 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 11px 14px;
+    gap: 16px;
+  }
+
+  .brandMark {
+    width: 34px;
+    height: 40px;
+  }
+
+  .menuBtn {
+    min-height: 40px;
+    padding: 9px 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
   }
 }

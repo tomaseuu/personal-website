@@ -27,7 +27,7 @@ export default function AboutSection() {
         </p>
 
         <p className={styles.p}>
-          Fast-forward a bit, and I have had the chance to collaborate with a
+          Fast-forward a bit, and I have had the chance to collaborate with a{" "}
           <a
             className={styles.inlineLink}
             href="https://www.tesla.com/"

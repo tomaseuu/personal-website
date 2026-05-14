@@ -205,6 +205,15 @@
 .featuredContent {
   display: grid;
   gap: 14px;
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--surface-rgb), 0.78),
+    rgba(var(--surface-rgb), 0.6)
+  );
+  border: 1px solid rgba(var(--text-rgb), 0.08);
+  box-shadow: 0 16px 40px rgba(var(--text-rgb), 0.05);
 }
 
 .featuredLabel {
@@ -423,7 +432,7 @@
 
 .archiveMetrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 6px;
 }
 
@@ -471,6 +480,10 @@
     min-height: 260px;
   }
 
+  .featuredContent {
+    padding: 20px;
+  }
+
   .browserShotFrame {
     inset: 16px;
     border-radius: 20px;
@@ -497,7 +510,14 @@
   }
 
   .featuredMedia {
-    min-height: 220px;
+    min-height: 210px;
+    border-radius: 22px;
+  }
+
+  .featuredContent {
+    gap: 12px;
+    padding: 16px;
+    border-radius: 20px;
   }
 
   .browserShotFrame {
@@ -526,7 +546,11 @@
     padding: 14px;
   }
 
+  .featuredLinks {
+    gap: 10px;
+  }
+
   .archiveMetrics {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   }
 }

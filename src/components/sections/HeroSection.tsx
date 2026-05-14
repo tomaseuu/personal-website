@@ -17,7 +17,6 @@ export default function HeroSection() {
       { label: "About", href: "#about" },
       { label: "Experience", href: "#experience" },
       { label: "Projects", href: "#projects" },
-      { label: "Skills", href: "#skills" },
       { label: "Contact", href: "#connect" },
     ],
     [],
@@ -54,7 +53,6 @@ export default function HeroSection() {
       </div>
 
       <div className={styles.inner}>
-        {/* LEFT: polaroid stack (replaces the old big image) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -89,7 +87,6 @@ export default function HeroSection() {
           </button>
         </motion.div>
 
-        {/* RIGHT: your text (UNCHANGED) */}
         <div className={styles.text}>
           <motion.div
             initial={{ opacity: 0, y: 8 }}
