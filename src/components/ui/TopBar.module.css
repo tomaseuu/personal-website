@@ -51,17 +51,14 @@
 }
 
 .brandMark {
-  width: 38px;
+  width: 44px;
   height: 44px;
   display: grid;
   place-items: center;
-  clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
-  border: 1px solid rgba(var(--primary-rgb), 0.42);
-  background: linear-gradient(
-    180deg,
-    rgba(var(--surface-rgb), 0.96),
-    rgba(var(--background-rgb), 0.96)
-  );
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--primary-rgb), 0.28);
+  background: rgba(var(--surface-rgb), 0.96);
   box-shadow: 0 10px 28px rgba(var(--text-rgb), 0.07);
   transition:
     transform 180ms ease,
@@ -75,11 +72,11 @@
   border-color: rgba(var(--primary-rgb), 0.58);
 }
 
-.brandLetter {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--primary);
+.brandAvatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .desktopNav {
@@ -216,6 +213,17 @@
   opacity: 0.85;
 }
 
+:global(html[data-theme="dark"]) .menuBtn {
+  background: rgba(var(--primary-rgb), 0.14);
+  color: rgba(var(--text-rgb), 0.94);
+  border-color: rgba(var(--primary-rgb), 0.28);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+:global(html[data-theme="dark"]) .menuBtn:hover {
+  background: rgba(var(--primary-rgb), 0.2);
+}
+
 @media (max-width: 980px) {
   .inner {
     padding: 12px 18px;
@@ -239,8 +247,8 @@
   }
 
   .brandMark {
-    width: 34px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
 
   .menuBtn {

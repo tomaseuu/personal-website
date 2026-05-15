@@ -121,21 +121,6 @@ export default function MenuOverlay({
                 </nav>
 
                 <aside className={styles.meta} aria-label="Menu details">
-                  <div className={[styles.metaGroup, styles.quotesGroup].join(" ")}>
-                    <div className={styles.smallTitle}>
-                      Quick Inspirational Quotes
-                    </div>
-                    <div className={styles.smallText}>
-                      - Take Every Opportunity, Ignore Every Fear
-                    </div>
-                    <div className={styles.smallText}>
-                      - How Badly Do You Want It?
-                    </div>
-                    <div className={styles.smallText}>- Trust the Process</div>
-                    <div className={styles.smallText}>- Breathe.</div>
-                    <div className={styles.smallText}>- Step by Step</div>
-                  </div>
-
                   <div className={styles.metaGroup}>
                     <div className={styles.smallTitle}>Links</div>
                     <div className={styles.socials}>

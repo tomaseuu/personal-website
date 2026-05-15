@@ -139,18 +139,11 @@
 
 @media (max-width: 640px) {
   .headerRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 8px;
   }
 
   .headerAnim {
-    top: 0;
-    right: 0;
-  }
-
-  .crop {
-    width: 98px;
-    height: 76px;
+    display: none;
   }
 }

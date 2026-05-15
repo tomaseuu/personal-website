@@ -265,49 +265,49 @@
   .panel {
     left: 0;
     right: 0;
-    top: auto;
-    bottom: 0;
+    top: 10px;
+    bottom: auto;
     transform: none;
 
-    width: calc(100vw - 20px);
-    margin: 0 10px 10px;
-    border-radius: 24px;
+    width: calc(100vw - 28px);
+    margin: 0 14px;
+    border-radius: 22px;
 
-    max-height: min(72vh, 620px);
+    max-height: min(60vh, 520px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
   .panelInner {
-    padding: 12px 14px 16px;
+    padding: 10px 12px 14px;
   }
 
   .header {
     position: sticky;
     top: 0;
     z-index: 2;
-    margin: -12px -14px 0;
-    padding: 12px 14px 8px;
+    margin: -10px -12px 0;
+    padding: 10px 12px 8px;
     background: rgba(var(--surface-rgb), 0.94);
     backdrop-filter: blur(10px);
   }
 
   .divider {
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .body {
     grid-template-columns: 1fr;
-    padding: 10px 0 2px;
-    gap: 10px;
+    padding: 8px 0 2px;
+    gap: 8px;
   }
 
   .meta {
     border-left: none;
     padding-left: 0;
     border-top: 1px solid rgba(var(--text-rgb), 0.08);
-    padding-top: 10px;
-    gap: 10px;
+    padding-top: 8px;
+    gap: 8px;
   }
 
   .nav {
@@ -315,8 +315,8 @@
   }
 
   .linkBtn {
-    font-size: 18px;
-    padding: 9px 2px;
+    font-size: 16px;
+    padding: 7px 2px;
   }
 
   .closeBtn {
@@ -331,20 +331,11 @@
   }
 
   .brandText {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .smallTitle {
     font-size: 10px;
-  }
-
-  .smallText {
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  .quotesGroup {
-    display: none;
   }
 
   .socials {

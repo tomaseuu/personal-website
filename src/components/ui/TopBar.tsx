@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./TopBar.module.css";
 import ThemeToggle from "./ThemeToggle";
 
@@ -65,7 +66,13 @@ export default function TopBar({
       <div className={styles.inner}>
         <a href="#home" className={styles.brand} aria-label="Back to top">
           <span className={styles.brandMark} aria-hidden="true">
-            <span className={styles.brandLetter}>T</span>
+            <Image
+              src="/me.png"
+              alt="Thomas avatar"
+              width={36}
+              height={36}
+              className={styles.brandAvatar}
+            />
           </span>
         </a>
 
