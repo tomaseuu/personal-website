@@ -8,6 +8,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import IntroSplash from "@/components/IntroSplash";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactReveal from "@/components/sections/ContactReveal";
+import SkillsSection from "@/components/sections/SkillsSection";
 import SideRails from "@/components/ui/SideRails";
 
 export default function Page() {
@@ -75,6 +76,14 @@ export default function Page() {
             tone="tint"
           >
             <ProjectsSection />
+          </Section>
+
+          <Section
+            id="skills"
+            number="04"
+            title="Skills"
+          >
+            <SkillsSection />
           </Section>
 
           <ContactReveal

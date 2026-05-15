@@ -3,173 +3,70 @@
 import { motion } from "framer-motion";
 import styles from "./SkillsSection.module.css";
 
-type Group = {
-  title: string;
-  subtitle: string;
-  items: string[];
-  accent: "matcha" | "coffee" | "ink" | "latte";
-  imageSrc: string;
-  imageSize?: number;
-  imageX?: number;
-  imageY?: number;
+type Skill = {
+  name: string;
+  x: number;
+  y: number;
+  tone: "matcha" | "ink" | "coffee" | "latte";
+  drift: "floatA" | "floatB" | "floatC";
 };
 
-function Chip({ text }: { text: string }) {
-  return (
-    <motion.span
-      className={styles.chip}
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.15 }}
-    >
-      {text}
-    </motion.span>
-  );
-}
+const skills: Skill[] = [
+  { name: "React", x: 13, y: 16, tone: "matcha", drift: "floatA" },
+  { name: "Next.js", x: 37, y: 20, tone: "matcha", drift: "floatB" },
+  { name: "TypeScript", x: 61, y: 16, tone: "ink", drift: "floatC" },
+  { name: "JavaScript", x: 84, y: 20, tone: "ink", drift: "floatA" },
+  { name: "Python", x: 16, y: 34, tone: "coffee", drift: "floatB" },
+  { name: "Java", x: 39, y: 38, tone: "ink", drift: "floatC" },
+  { name: "SQL", x: 61, y: 34, tone: "latte", drift: "floatA" },
+  { name: "PostgreSQL", x: 84, y: 38, tone: "latte", drift: "floatB" },
+  { name: "Node.js", x: 13, y: 52, tone: "matcha", drift: "floatC" },
+  { name: "FastAPI", x: 36, y: 56, tone: "coffee", drift: "floatA" },
+  { name: "Flask", x: 58, y: 52, tone: "coffee", drift: "floatB" },
+  { name: "MongoDB", x: 83, y: 56, tone: "latte", drift: "floatC" },
+  { name: "React Native", x: 18, y: 72, tone: "matcha", drift: "floatA" },
+  { name: "Supabase", x: 42, y: 68, tone: "matcha", drift: "floatB" },
+  { name: "Firebase", x: 64, y: 72, tone: "latte", drift: "floatC" },
+  { name: "Git", x: 84, y: 68, tone: "ink", drift: "floatA" },
+  { name: "Docker", x: 18, y: 88, tone: "coffee", drift: "floatB" },
+  { name: "AWS", x: 42, y: 84, tone: "latte", drift: "floatC" },
+  { name: "Vercel", x: 64, y: 88, tone: "latte", drift: "floatA" },
+  { name: "HTML/CSS", x: 84, y: 84, tone: "ink", drift: "floatB" },
+];
 
 export default function SkillsSection() {
-  const groups: Group[] = [
-    {
-      title: "Languages",
-      subtitle: "Foundations I reach for daily",
-      items: [
-        "Python",
-        "TypeScript",
-        "JavaScript",
-        "Java",
-        "SQL",
-        "C",
-        "HTML5",
-      ],
-      accent: "ink",
-      imageSrc: "/coffee.png",
-      imageSize: 120,
-      imageX: -20,
-      imageY: 10,
-    },
-    {
-      title: "Frameworks & Libraries",
-      subtitle: "Where I build UI + product systems",
-      items: [
-        "React",
-        "Next.js",
-        "Node.js",
-        "Tailwind CSS",
-        "pandas",
-        "scikit-learn",
-        "React Native",
-      ],
-      accent: "matcha",
-      imageSrc: "/matcha.png",
-      imageSize: 120,
-      imageX: -20,
-      imageY: -4,
-    },
-    {
-      title: "Tools & Databases",
-      subtitle: "Shipping + data plumbing",
-      items: [
-        "PostgreSQL",
-        "MongoDB",
-        "GitHub",
-        "Kaggle",
-        "Google Colab",
-        "Supabase",
-        "Firebase",
-        "Git",
-        "AWS",
-        "Figma",
-        "CI/CD",
-      ],
-      accent: "coffee",
-      imageSrc: "/latte.png",
-      imageSize: 80,
-      imageX: -20,
-      imageY: 20,
-    },
-    {
-      title: "Product / Systems",
-      subtitle: "How I think when I ship",
-      items: [
-        "UX polish",
-        "Product design",
-        "Usability testing",
-        "API design",
-        "Sprint planning",
-        "Roadmapping",
-        "Systems thinking",
-        "User flows",
-      ],
-      accent: "latte",
-      imageSrc: "/pastry.png",
-      imageSize: 115,
-      imageX: -15,
-      imageY: 20,
-    },
-  ];
-
   return (
     <div className={styles.wrap}>
-      <div className={styles.menuTop}>
-        <div>
-          <div className={styles.kicker}>Today’s</div>
-          <div className={styles.menuTitle}>Skills Menu</div>
-          <div className={styles.menuSub}>
-            A calm toolbox — served warm. Hover over the ingredients.
-          </div>
-        </div>
-
-        <div className={styles.stamp}>
-          <div className={styles.stampTop}>HOUSE</div>
-          <div className={styles.stampMid}>SPECIAL</div>
-          <div className={styles.stampBot}>✦</div>
-        </div>
+      <div className={styles.copy}>
+        <div className={styles.kicker}>Core Stack</div>
+        <h3 className={styles.title}>A few tools I keep in motion.</h3>
+        <p className={styles.subtitle}>
+          Pulled from my resume and spread out like a small floating field instead
+          of a giant skills dump.
+        </p>
       </div>
 
-      <div className={styles.rule} />
+      <div className={styles.board}>
+        <div className={styles.glowA} aria-hidden="true" />
+        <div className={styles.glowB} aria-hidden="true" />
+        <div className={styles.grid} aria-hidden="true" />
 
-      <div className={styles.grid}>
-        {groups.map((g, gi) => (
-          <motion.article
-            key={g.title}
-            className={`${styles.card} ${styles[g.accent]}`}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        {skills.map((skill, index) => (
+          <motion.div
+            key={skill.name}
+            className={`${styles.skill} ${styles[skill.tone]} ${styles[skill.drift]}`}
+            style={{
+              left: `${skill.x}%`,
+              top: `${skill.y}%`,
+            }}
+            initial={{ opacity: 0, scale: 0.96, y: 10 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.35, delay: gi * 0.05 }}
+            transition={{ duration: 0.32, delay: index * 0.03 }}
           >
-            <div className={styles.left}>
-              <div className={styles.rowTop}>
-                <div className={styles.groupTitle}>{g.title}</div>
-                <div className={styles.dots} aria-hidden="true" />
-                <div className={styles.price}>{g.items.length} items</div>
-              </div>
-
-              <div className={styles.groupSub}>{g.subtitle}</div>
-
-              <div className={styles.ingredients}>
-                {g.items.map((t) => (
-                  <Chip key={t} text={t} />
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.media}>
-              <img
-                src={g.imageSrc}
-                alt={`${g.title} illustration`}
-                className={styles.mediaImg}
-                style={{
-                  width: g.imageSize ? `${g.imageSize}px` : "110px",
-                  transform: `translate(${g.imageX ?? 0}px, ${g.imageY ?? 0}px)`,
-                }}
-              />
-            </div>
-          </motion.article>
+            {skill.name}
+          </motion.div>
         ))}
-      </div>
-
-      <div className={styles.footerNote}>
-        Tip: keep this menu tight — fewer items, higher signal.
       </div>
     </div>
   );

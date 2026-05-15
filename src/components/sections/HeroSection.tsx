@@ -16,6 +16,7 @@ export default function HeroSection() {
       { label: "About", href: "#about" },
       { label: "Experience", href: "#experience" },
       { label: "Projects", href: "#projects" },
+      { label: "Skills", href: "#skills" },
       { label: "Contact", href: "#connect" },
     ],
     [],
@@ -26,7 +27,8 @@ export default function HeroSection() {
       { label: "About", href: "#about", step: "01" },
       { label: "Experience", href: "#experience", step: "02" },
       { label: "Work", href: "#projects", step: "03" },
-      { label: "Contact", href: "#connect", step: "04" },
+      { label: "Skills", href: "#skills", step: "04" },
+      { label: "Contact", href: "#connect", step: "05" },
     ],
     [],
   );
