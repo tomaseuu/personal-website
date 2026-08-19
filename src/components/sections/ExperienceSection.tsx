@@ -28,7 +28,7 @@ export default function ExperienceSection() {
         company: "Homigo",
         companyHref: "https://homigoapp.io/",
         role: "Software Engineer",
-        dates: "Dec 2025 — Present",
+        dates: "Dec 2025 — May 2026",
         location: "Remote",
         summary:
           "Building a bilingual onboarding platform for local service providers.",
@@ -51,7 +51,7 @@ export default function ExperienceSection() {
         company: "Veggie Rescue",
         companyHref: "https://veggierescue.org/",
         role: "Software Engineer / Tech Lead",
-        dates: "Dec 2025 — Present",
+        dates: "Dec 2025 — Jun 2026",
         location: "San Luis Obispo, CA",
         summary:
           "Helping build food distribution tooling for 70+ nonprofit organizations.",
@@ -85,7 +85,7 @@ export default function ExperienceSection() {
         company: "Spread Goodness",
         companyHref: "https://www.spreadgoodness.love/",
         role: "Software Engineering Intern",
-        dates: "Dec 2025 — Present",
+        dates: "Dec 2025 — May 2026",
         location: "Remote",
         summary:
           "Improving UI clarity for a student-centered platform built around kindness and challenges.",

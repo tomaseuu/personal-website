@@ -18,17 +18,14 @@ const themeInitScript = `
     try {
       var key = "theme-preference";
       var saved = localStorage.getItem(key);
-      var mode = saved === "light" || saved === "dark" || saved === "auto"
+      var mode = saved === "light" || saved === "dark"
         ? saved
-        : "auto";
-      var hour = new Date().getHours();
-      var autoTheme = hour >= 18 || hour < 6 ? "dark" : "light";
-      var theme = mode === "auto" ? autoTheme : mode;
+        : "light";
       var root = document.documentElement;
       root.dataset.themeMode = mode;
-      root.dataset.theme = theme;
+      root.dataset.theme = mode;
     } catch (error) {
-      document.documentElement.dataset.themeMode = "auto";
+      document.documentElement.dataset.themeMode = "light";
       document.documentElement.dataset.theme = "light";
     }
   })();

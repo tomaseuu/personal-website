@@ -9,7 +9,6 @@ import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
   const [open, setOpen] = useState(false);
-  const [showAnimatedHeadshot, setShowAnimatedHeadshot] = useState(false);
 
   const links = useMemo(
     () => [
@@ -60,32 +59,18 @@ export default function HeroSection() {
           transition={{ duration: 0.55 }}
           className={styles.photoStack}
         >
-          <button
-            type="button"
-            className={styles.photoToggle}
-            onClick={() => setShowAnimatedHeadshot((value) => !value)}
-            aria-label="Toggle hero headshot"
-            aria-pressed={showAnimatedHeadshot}
-          >
-            <div className={[styles.polaroid, styles.polaroidMain].join(" ")}>
-              <div className={styles.polaroidImg}>
-                <Image
-                  src={
-                    showAnimatedHeadshot
-                      ? "/animate-headshot.png"
-                      : "/thomas-headshot.png"
-                  }
-                  alt="Thomas portrait"
-                  fill
-                  priority
-                  className={styles.polaroidPhoto}
-                />
-              </div>
-              <div className={styles.polaroidCaption}>
-                {showAnimatedHeadshot ? "click to switch back" : "Hi, I am Thomas!"}
-              </div>
+          <div className={[styles.polaroid, styles.polaroidMain].join(" ")}>
+            <div className={styles.polaroidImg}>
+              <Image
+                src="/grad.jpg"
+                alt="Thomas graduation portrait"
+                fill
+                priority
+                className={styles.polaroidPhoto}
+              />
             </div>
-          </button>
+            <div className={styles.polaroidCaption}>Hi, I am Thomas!</div>
+          </div>
         </motion.div>
 
         <div className={styles.text}>
@@ -159,7 +144,7 @@ export default function HeroSection() {
             transition={{ duration: 0.45, delay: 0.22 }}
             className={styles.tag}
           >
-            Los Angeles Metropolitan Area • Open to 2026 new-grad roles
+            Los Angeles Metropolitan Area • Open to full-time software engineering roles
           </motion.div>
         </div>
       </div>

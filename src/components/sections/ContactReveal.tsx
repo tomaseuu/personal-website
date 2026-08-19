@@ -15,8 +15,8 @@ export default function ContactReveal({ id = "connect", email, links }: Props) {
         <h2 className={styles.title}>Get in touch</h2>
 
         <p className={styles.copy}>
-          I am currently looking for full-time software engineering roles for
-          2026. If you would like to connect, I would love to hear from you.
+          I am currently looking for full-time software engineering roles. If
+          you would like to connect, I would love to hear from you.
         </p>
 
         <a className={styles.button} href={`mailto:${email}`}>

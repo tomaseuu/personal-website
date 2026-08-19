@@ -20,10 +20,10 @@ export default function AboutSection() {
       <div className={styles.copy}>
         <p className={styles.p}>
           Hello! My name is Thomas and I enjoy building things that live on the
-          internet. I am currently a senior studying Computer Science at Cal
-          Poly San Luis Obispo with a minor in Bioinformatics. A lot of my
-          projects start as a harmless “what if” and somehow turn into a full
-          build, which is probably how this website happened too.
+          internet. I graduated from Cal Poly San Luis Obispo in June 2026 with
+          a degree in Computer Science and a minor in Bioinformatics. A lot of
+          my projects start as a harmless “what if” and somehow turn into a
+          full build, which is probably how this website happened too.
         </p>
 
         <p className={styles.p}>

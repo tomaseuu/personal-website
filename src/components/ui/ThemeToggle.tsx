@@ -3,30 +3,24 @@
 import { useEffect, useState } from "react";
 import styles from "./ThemeToggle.module.css";
 
-type ThemeMode = "auto" | "light" | "dark";
+type ThemeMode = "light" | "dark";
 
 const STORAGE_KEY = "theme-preference";
-const MODE_ORDER: ThemeMode[] = ["auto", "dark", "light"];
-
-function getAutoTheme(): "light" | "dark" {
-  const hour = new Date().getHours();
-  return hour >= 18 || hour < 6 ? "dark" : "light";
-}
+const MODE_ORDER: ThemeMode[] = ["light", "dark"];
 
 function readThemeMode(): ThemeMode {
-  if (typeof document === "undefined") return "auto";
+  if (typeof document === "undefined") return "light";
 
   const mode = document.documentElement.dataset.themeMode;
-  if (mode === "light" || mode === "dark" || mode === "auto") return mode;
-  return "auto";
+  if (mode === "light" || mode === "dark") return mode;
+  return "light";
 }
 
 function applyThemeMode(mode: ThemeMode) {
   const root = document.documentElement;
-  const resolvedTheme = mode === "auto" ? getAutoTheme() : mode;
 
   root.dataset.themeMode = mode;
-  root.dataset.theme = resolvedTheme;
+  root.dataset.theme = mode;
 
   try {
     localStorage.setItem(STORAGE_KEY, mode);
@@ -37,7 +31,7 @@ function applyThemeMode(mode: ThemeMode) {
 
 function nextThemeMode(mode: ThemeMode): ThemeMode {
   const index = MODE_ORDER.indexOf(mode);
-  return MODE_ORDER[(index + 1) % MODE_ORDER.length] ?? "auto";
+  return MODE_ORDER[(index + 1) % MODE_ORDER.length] ?? "light";
 }
 
 export default function ThemeToggle({
@@ -45,7 +39,7 @@ export default function ThemeToggle({
 }: {
   className?: string;
 }) {
-  const [mode, setMode] = useState<ThemeMode>("auto");
+  const [mode, setMode] = useState<ThemeMode>("light");
 
   useEffect(() => {
     const syncMode = () => setMode(readThemeMode());
@@ -54,24 +48,14 @@ export default function ThemeToggle({
     window.addEventListener("themechange", syncMode);
     window.addEventListener("storage", syncMode);
 
-    const intervalId = window.setInterval(() => {
-      if (readThemeMode() === "auto") {
-        applyThemeMode("auto");
-        syncMode();
-      }
-    }, 60_000);
-
     return () => {
       window.removeEventListener("themechange", syncMode);
       window.removeEventListener("storage", syncMode);
-      window.clearInterval(intervalId);
     };
   }, []);
 
-  const label =
-    mode === "auto" ? "Auto" : mode === "dark" ? "Dark" : "Light";
-
-  const icon = mode === "auto" ? "A" : mode === "dark" ? "D" : "L";
+  const label = mode === "dark" ? "Dark" : "Light";
+  const icon = mode === "dark" ? "D" : "L";
 
   return (
     <button
