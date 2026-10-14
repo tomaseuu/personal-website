@@ -1,0 +1,72 @@
+.caseStudy { --section-accent: #577348; max-width: 860px; margin-inline: auto; }
+.caseStudy.homigo { --section-accent: #6495bd; }
+.caseStudy.spreadGoodness { --section-accent: #b76587; }
+.caseStudy.venturaFoods { --section-accent: #41558a; }
+.caseStudy.virgil { --section-accent: #8156a5; }
+.caseStudy.oncograph { --section-accent: #407564; }
+.brandVisual { display: grid; place-items: center; aspect-ratio: 16 / 9; padding: 40px; border-radius: 8px; background: #f8f8f8; }
+.brandVisual img { display: block; width: 80%; max-width: 640px; height: auto; }
+.caseStudy section > h2 {
+  margin-bottom: 32px;
+  color: var(--section-accent);
+  font: 600 clamp(30px, 2.8vw, 38px)/1.2 Georgia, "Times New Roman", serif;
+  letter-spacing: -0.03em;
+}
+.caseStudy section { margin-top: 88px; }
+.caseStudy section > div:not(.feature) {
+  padding: 36px 40px;
+  border-color: #ddd;
+  border-radius: 8px;
+  background: #f8f8f8;
+}
+.caseStudy section > div:not(.feature) + div:not(.feature) { margin-top: 28px; }
+.caseStudy p { font-size: 16px; line-height: 1.75; }
+.caseStudy p strong { font-weight: 600; }
+.roleList { margin: 24px 0; padding-left: 20px; font-size: 16px; line-height: 1.75; }
+.roleList li + li { margin-top: 14px; }
+.roleList strong { font-weight: 600; }
+.label { margin-bottom: 14px; font-size: 14px; }
+.contextSummary { display: grid; grid-template-columns: minmax(0, 0.8fr) 40px minmax(0, 1.2fr); align-items: center; gap: 40px; min-height: 160px; }
+.contextSummary > strong { font-size: 20px; font-weight: 600; text-align: center; }
+.summaryArrow { font-size: 32px; text-align: center; }
+.feature { margin-top: 48px; }
+.feature > h3 { margin: 0 0 24px; font-size: 21px; font-weight: 600; letter-spacing: -0.025em; }
+.feature > div { padding: 32px 40px; border-color: #ddd; border-radius: 8px; background: #f8f8f8; }
+.feature .screenshot { margin-top: 28px; }
+.screenshot { min-width: 0; margin: 0; }
+.recommendationImage { display: block; width: 100%; height: auto; border-radius: 4px; }
+.imageFrame { display: block; overflow: hidden; padding: 24px; border-radius: 8px; background: #f8f8f8; }
+.imageFrame img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.screenshot figcaption { margin-top: 14px; color: #777; font-size: 13px; line-height: 1.6; }
+.pipeline { display: flex; justify-content: space-between; align-items: center; gap: 28px; margin: 32px 0; padding: 24px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; list-style: none; }
+.pipeline li { position: relative; font-size: 15px; font-weight: 500; }
+.pipeline li:not(:last-child)::after { position: absolute; top: 50%; left: calc(100% + 12px); content: "→"; transform: translateY(-50%); color: #777; }
+.scoreFactors { margin: 20px 0 28px; }
+.scoreFactors > div { display: flex; justify-content: space-between; gap: 24px; padding: 14px 0; border-bottom: 1px solid #ddd; font-size: 15px; line-height: 1.5; }
+.scoreFactors dd { margin: 0; font-weight: 500; }
+.scopeNote { margin: 20px 0 0; color: #777; font-size: 13px !important; line-height: 1.7; }
+.testimonial { margin: 0; }
+.testimonial footer { display: grid; gap: 4px; margin-top: 24px; font-size: 14px; line-height: 1.6; }
+.testimonial footer strong { font-weight: 600; }
+.testimonial footer span { color: #777; font-size: 13px; }
+
+@media (max-width: 1100px) {
+  .contextSummary { grid-template-columns: minmax(0, 0.8fr) 24px minmax(0, 1.2fr); gap: 24px; }
+  .caseStudy section > div:not(.feature), .feature > div { padding: 32px; }
+  .pipeline { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .pipeline li:not(:last-child)::after { top: calc(100% + 3px); left: 0; content: "↓"; transform: none; }
+}
+
+@media (max-width: 760px) {
+  .caseStudy section { margin-top: 56px; }
+  .caseStudy section > h2 { margin-bottom: 24px; font-size: 30px; }
+  .caseStudy section > div:not(.feature), .feature > div { padding: 28px 24px; }
+  .caseStudy p { font-size: 15px; }
+  .roleList { font-size: 15px; }
+  .contextSummary { grid-template-columns: 1fr; gap: 16px; }
+  .contextSummary > strong { text-align: left; font-size: 19px; }
+  .summaryArrow { text-align: left; font-size: 28px; rotate: 90deg; width: 24px; }
+  .feature { margin-top: 36px; }
+  .feature > h3 { font-size: 20px; }
+  .imageFrame { padding: 12px; }
+}

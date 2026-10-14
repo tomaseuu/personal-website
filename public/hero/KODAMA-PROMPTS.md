@@ -1,0 +1,33 @@
+# Kodama pose illustrations
+
+Generated with the built-in image_gen tool using `kodama-watercolor.png` as the character and watercolor style reference. All five generated PNGs were copied into this directory with their original alpha preserved. The original standing Kodama remains in use.
+
+## kodama-sitting-watercolor.png
+
+Final prompt:
+
+Use case: illustration-story. Asset type: individual transparent PNG illustration for a personal portfolio hero. Input image 1 is a style and character reference, not a background to retain. Create exactly ONE Kodama forest spirit from Princess Mononoke in the requested new pose. Match the reference's delicate hand-drawn watercolor style: warm ivory/off-white tiny body, large irregular round head, two dark asymmetrical circular eye holes and one small dark mouth, thin muted warm-gray outlines, translucent soft watercolor washes and subtle paper texture confined to the painted character. Keep a simple softly rounded Kodama anatomy and quiet playful expression. Show the full body without clipping, centered and tightly framed with a small transparent margin. Background must be truly transparent alpha; no black or white rectangle, no visible paper sheet, no glow or fuzzy halo around the cutout, no ground, scenery, extra characters, text, logos, or watermark. Change the pose rather than simply rotating the standing reference. Pose: Sitting on the ground with knees apart, short legs stretched forward, little hands resting beside the knees, head gently tilted with a curious expression.
+
+## kodama-upside-down-watercolor.png
+
+Final prompt:
+
+Use case: illustration-story. Asset type: individual transparent PNG illustration for a personal portfolio hero. Input image 1 is a style and character reference, not a background to retain. Create exactly ONE Kodama forest spirit from Princess Mononoke in the requested new pose. Match the reference's delicate hand-drawn watercolor style: warm ivory/off-white tiny body, large irregular round head, two dark asymmetrical circular eye holes and one small dark mouth, thin muted warm-gray outlines, translucent soft watercolor washes and subtle paper texture confined to the painted character. Keep a simple softly rounded Kodama anatomy and quiet playful expression. Show the full body without clipping, centered and tightly framed with a small transparent margin. Background must be truly transparent alpha; no black or white rectangle, no visible paper sheet, no glow or fuzzy halo around the cutout, no ground, scenery, extra characters, text, logos, or watermark. Change the pose rather than simply rotating the standing reference. Pose: Fully upside down in a playful suspended tumble: head at the bottom, feet at the top, both arms loosely reaching outward. The face is clearly upside down too. No branch, ropes, or objects.
+
+## kodama-jumping-watercolor.png
+
+Final prompt:
+
+Use case: illustration-story. Asset type: individual transparent PNG illustration for a personal portfolio hero. Input image 1 is a style and character reference, not a background to retain. Create exactly ONE Kodama forest spirit from Princess Mononoke in the requested new pose. Match the reference's delicate hand-drawn watercolor style: warm ivory/off-white tiny body, large irregular round head, two dark asymmetrical circular eye holes and one small dark mouth, thin muted warm-gray outlines, translucent soft watercolor washes and subtle paper texture confined to the painted character. Keep a simple softly rounded Kodama anatomy and quiet playful expression. Show the full body without clipping, centered and tightly framed with a small transparent margin. Background must be truly transparent alpha; no black or white rectangle, no visible paper sheet, no glow or fuzzy halo around the cutout, no ground, scenery, extra characters, text, logos, or watermark. Change the pose rather than simply rotating the standing reference. Pose: Mid-jump with both little arms lifted, feet bent and tucked apart, head slightly tipped sideways. A lively but gentle airborne pose, no motion lines or ground shadow.
+
+## kodama-waving-watercolor.png
+
+Final prompt:
+
+Use case: illustration-story. Asset type: individual transparent PNG illustration for a personal portfolio hero. Input image 1 is a style and character reference, not a background to retain. Create exactly ONE Kodama forest spirit from Princess Mononoke in the requested new pose. Match the reference's delicate hand-drawn watercolor style: warm ivory/off-white tiny body, large irregular round head, two dark asymmetrical circular eye holes and one small dark mouth, thin muted warm-gray outlines, translucent soft watercolor washes and subtle paper texture confined to the painted character. Keep a simple softly rounded Kodama anatomy and quiet playful expression. Show the full body without clipping, centered and tightly framed with a small transparent margin. Background must be truly transparent alpha; no black or white rectangle, no visible paper sheet, no glow or fuzzy halo around the cutout, no ground, scenery, extra characters, text, logos, or watermark. Change the pose rather than simply rotating the standing reference. Pose: Standing in a three-quarter pose with one arm raised in a friendly wave, the other relaxed, a small side lean and an asymmetrically tilted head.
+
+## kodama-peeking-watercolor.png
+
+Final prompt:
+
+Use case: illustration-story. Asset type: individual transparent PNG illustration for a personal portfolio hero. Input image 1 is a style and character reference, not a background to retain. Create exactly ONE Kodama forest spirit from Princess Mononoke in the requested new pose. Match the reference's delicate hand-drawn watercolor style: warm ivory/off-white tiny body, large irregular round head, two dark asymmetrical circular eye holes and one small dark mouth, thin muted warm-gray outlines, translucent soft watercolor washes and subtle paper texture confined to the painted character. Keep a simple softly rounded Kodama anatomy and quiet playful expression. Show the full body without clipping, centered and tightly framed with a small transparent margin. Background must be truly transparent alpha; no black or white rectangle, no visible paper sheet, no glow or fuzzy halo around the cutout, no ground, scenery, extra characters, text, logos, or watermark. Change the pose rather than simply rotating the standing reference. Pose: Crouching low with knees bent, hands tucked near the chest, neck craning and large head leaning sideways as if shyly peeking around an invisible corner. Do not include a wall or any props.

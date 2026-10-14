@@ -3,7 +3,7 @@
 /* base */
 :root {
   --text: #08181a;
-  --background: #fafdfe;
+  --background: #ffffff;
   --primary: #3cb5c7;
   --secondary: #e199b3;
   --accent: #d6a572;
@@ -69,8 +69,8 @@
   --accent-950: #140d06;
 
   --text-rgb: 8, 24, 26;
-  --background-rgb: 250, 253, 254;
-  --bg-rgb: 250, 253, 254;
+  --background-rgb: 255, 255, 255;
+  --bg-rgb: 255, 255, 255;
   --surface-rgb: 255, 255, 255;
   --primary-rgb: 60, 181, 199;
   --secondary-rgb: 225, 153, 179;
@@ -109,9 +109,12 @@ html[data-theme="dark"] {
   --border: rgba(var(--text-rgb), 0.14);
 }
 
-html,
-body {
+html {
   height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 
 html {
@@ -127,7 +130,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-sans, "Inter", sans-serif);
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 15px;
   transition:
     background-color 220ms ease,
     color 220ms ease;
@@ -185,7 +189,7 @@ textarea:disabled {
 }
 
 .intro2Text {
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-size: clamp(16px, 1.936vw, 19px);
   letter-spacing: 0.02em;
   color: rgba(var(--text-rgb), 0.55);
   font-weight: 600;
@@ -193,7 +197,7 @@ textarea:disabled {
 }
 
 .intro2Welcome {
-  font-size: clamp(20px, 2.6vw, 26px);
+  font-size: clamp(16px, 2.08vw, 21px);
   letter-spacing: -0.02em;
   color: rgba(var(--text-rgb), 0.72);
   font-weight: 700;
@@ -245,6 +249,10 @@ textarea:disabled {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .intro2 {
     transition: none;
   }
@@ -295,7 +303,7 @@ textarea:disabled {
 .intro2Letter {
   position: relative;
   z-index: 1;
-  font-size: 34px;
+  font-size: 27px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 0.04em;

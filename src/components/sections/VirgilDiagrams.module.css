@@ -1,0 +1,44 @@
+.figure { margin: 28px 0 0; }
+.canvas { padding: 20px 12px; border: 1px solid #ddd; border-radius: 8px; background: #fff; }
+.diagram { display: block; width: 100%; height: auto; overflow: visible; }
+.diagram text { font-family: Arial, sans-serif; fill: #222; font-size: 15px; }
+.diagram .detail { fill: #737373; font-size: 12px; }
+.diagram .heading { fill: #8156a5; font-size: 13px; font-weight: 600; }
+.node { fill: #fff; stroke: #d6d6d6; stroke-width: 1.2; }
+.highlight { fill: #faf7fc; stroke: #b9a0cd; stroke-width: 1.2; }
+.group { fill: #fafafa; stroke: #ddd; stroke-width: 1; }
+.line { fill: none; stroke: #8b8b8b; stroke-width: 1.3; }
+.optional { stroke-dasharray: 5 4; }
+.figure figcaption { margin-top: 14px; color: #777; font-size: 13px; line-height: 1.6; }
+.mobile { display: none; }
+.scopeChart { display: grid; gap: 20px; }
+.barRow { display: grid; grid-template-columns: 180px minmax(0, 1fr) 28px; align-items: center; gap: 16px; font-size: 14px; }
+.track { height: 14px; background: #f0edf2; }
+.bar { display: block; height: 100%; background: #ad8cc5; }
+.barRow strong { font-size: 14px; font-weight: 500; text-align: right; }
+.axis { display: flex; justify-content: space-between; margin-left: 196px; margin-right: 44px; color: #888; font-size: 12px; }
+.tableWrap { overflow-x: auto; margin-top: 24px; }
+.table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; line-height: 1.6; }
+.table th, .table td { padding: 15px 14px 15px 0; border-bottom: 1px solid #ddd; vertical-align: top; }
+.table th { color: #777; font-weight: 500; }
+.table th:first-child { width: 42%; }
+.table th:last-child, .table td:last-child { padding-right: 0; }
+.beforeAfter { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 24px; }
+.beforeAfter h4 { margin: 0 0 20px; font-size: 14px; font-weight: 500; color: #777; }
+.steps { display: grid; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.steps li { position: relative; font-size: 14px; line-height: 1.5; }
+.steps li:not(:last-child)::after { content: "↓"; position: absolute; top: calc(100% + 4px); left: 0; color: #888; }
+.sources { margin-top: 24px; font-size: 13px !important; color: #777; }
+.sources a { color: inherit; text-underline-offset: 3px; }
+.sources a + a { margin-left: 16px; }
+
+@media (max-width: 760px) {
+  .desktop { display: none; }
+  .mobile { display: block; }
+  .canvas { padding: 16px 8px; }
+  .barRow { grid-template-columns: 1fr 28px; gap: 10px; }
+  .barRow > span:first-child { grid-column: 1 / -1; }
+  .axis { margin-left: 0; margin-right: 38px; }
+  .beforeAfter { grid-template-columns: 1fr; gap: 40px; }
+  .table { font-size: 13px; }
+}

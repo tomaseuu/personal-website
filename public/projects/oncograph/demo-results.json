@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-14",
+  "settings": {
+    "restart_probability": 0.3,
+    "num_steps": 1000,
+    "num_random_sets": 20,
+    "top_n": 10,
+    "use_ml_ranking": false
+  },
+  "graph": {
+    "num_nodes": 9039,
+    "num_edges": 24350,
+    "num_oncogenes": 7,
+    "oncogenes_found_in_graph": [
+      "ARID1A",
+      "KIF1B",
+      "DST",
+      "PKHD1",
+      "TP53",
+      "COL5A3",
+      "SMARCA4"
+    ],
+    "oncogenes_missing_from_graph": [],
+    "connected_components": 158
+  },
+  "result": {
+    "status": "completed",
+    "seed_genes": [
+      "ARID1A",
+      "KIF1B",
+      "DST",
+      "PKHD1",
+      "TP53",
+      "COL5A3",
+      "SMARCA4"
+    ],
+    "rwr_score": 0.0033095238095238095,
+    "p_value": 0.05,
+    "top_genes": [
+      {
+        "gene_name": "CAMLG",
+        "score": 0.045142857142857144,
+        "rank": 1,
+        "rwr_score": 0.045142857142857144,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "TNFRSF13B",
+        "score": 0.017857142857142856,
+        "rank": 2,
+        "rwr_score": 0.017857142857142856,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "COL1A2",
+        "score": 0.017714285714285714,
+        "rank": 3,
+        "rwr_score": 0.017714285714285714,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "MLLT1",
+        "score": 0.017,
+        "rank": 4,
+        "rwr_score": 0.017,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "COL5A1",
+        "score": 0.016714285714285716,
+        "rank": 5,
+        "rwr_score": 0.016714285714285716,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "KRT14",
+        "score": 0.016571428571428574,
+        "rank": 6,
+        "rwr_score": 0.016571428571428574,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "KRT5",
+        "score": 0.016428571428571428,
+        "rank": 7,
+        "rwr_score": 0.016428571428571428,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "COL17A1",
+        "score": 0.012857142857142857,
+        "rank": 8,
+        "rwr_score": 0.012857142857142857,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "DLG4",
+        "score": 0.009142857142857144,
+        "rank": 9,
+        "rwr_score": 0.009142857142857144,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      },
+      {
+        "gene_name": "DLG2",
+        "score": 0.006571428571428571,
+        "rank": 10,
+        "rwr_score": 0.006571428571428571,
+        "ml_probability": null,
+        "final_score": null,
+        "degree": null,
+        "pagerank": null,
+        "betweenness_centrality": null,
+        "closeness_centrality": null,
+        "shortest_path_to_nearest_seed": null,
+        "oncogene_neighbor_count": null
+      }
+    ],
+    "message": "Analysis completed successfully.",
+    "error_message": null
+  },
+  "scope": "Local low-budget demonstration; ranking scores are not cancer probabilities.",
+  "figure_subgraph": {
+    "nodes": 34,
+    "edges": 37,
+    "anchor": "TP53",
+    "description": "Induced subgraph on bundled seeds, top-six demo candidates, and their shortest connector paths."
+  }
+}

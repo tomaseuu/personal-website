@@ -1,0 +1,249 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 32px;
+}
+
+.grid[data-layout="about"] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin-top: 24px;
+}
+
+.grid[data-layout="about"] .companyTile {
+  aspect-ratio: 2 / 1;
+  padding: 16px;
+}
+
+.grid[data-layout="about"] .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(88%, 184px);
+}
+
+.grid[data-layout="about"] [data-company="spreadgoodness"] .logo {
+  width: min(78%, 164px);
+}
+
+.grid[data-layout="about"] .card h3 {
+  margin: 14px 0 6px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.grid[data-layout="about"] .card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card {
+  min-width: 0;
+  color: #111;
+  cursor: default;
+}
+
+.workLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.companyTile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 9 / 4;
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #f8f8f7;
+  color: #855d42;
+  text-align: center;
+  font-size: clamp(21px, 2vw, 29px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.logo {
+  width: min(84%, 360px);
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.companyTile[data-company="spreadgoodness"] .logo {
+  width: min(78%, 340px);
+}
+
+.companyTile[data-company="spreadgoodness"] img {
+  border-radius: 8px;
+}
+
+.grid[data-layout="work"] .companyTile {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  font-size: clamp(24px, 3vw, 38px);
+}
+
+.grid[data-layout="work"] .logo {
+  animation: logoBreathe 3s ease-in-out infinite;
+}
+
+.grid[data-layout="work"] [data-company="homigo"] .logo {
+  animation-name: logoBounce;
+  animation-duration: 2.8s;
+}
+
+.grid[data-layout="work"] [data-company="veggie"] .logo {
+  animation-name: logoSway;
+  animation-duration: 3.4s;
+}
+
+.grid[data-layout="work"] [data-company="spreadgoodness"] .logo {
+  animation-name: logoHeartbeat;
+  animation-duration: 2.6s;
+}
+
+.details {
+  margin-top: 20px;
+  color: #111;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  letter-spacing: normal;
+}
+
+.card .details h3 {
+  margin: 0 0 6px;
+}
+
+.workLink:focus-visible {
+  outline: 2px solid #855d42;
+  outline-offset: 5px;
+  border-radius: 16px;
+}
+
+.card:focus-within .details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:focus-within .logo {
+  animation-play-state: paused;
+}
+
+@media (hover: hover) {
+  .card:hover .details {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card:hover .logo {
+    animation-play-state: paused;
+  }
+}
+
+@media (hover: none) {
+  .details {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes logoBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.045); }
+}
+
+@keyframes logoBounce {
+  0%, 55%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-8px); }
+  35% { transform: translateY(2px); }
+}
+
+@keyframes logoSway {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(-2deg); }
+  70% { transform: rotate(2deg); }
+}
+
+@keyframes logoHeartbeat {
+  0%, 45%, 100% { transform: scale(1); }
+  15% { transform: scale(1.05); }
+  30% { transform: scale(1.025); }
+}
+
+.card h3 {
+  margin: 22px 0 10px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.card p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+@media (max-width: 1100px) {
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid[data-layout="work"] {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid[data-layout="about"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .companyTile {
+    padding: 20px;
+  }
+
+  .card .details h3 {
+    font-size: 16px;
+  }
+
+  .card .details p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid[data-layout="work"] .logo {
+    animation: none;
+  }
+
+  .details {
+    transition: none;
+  }
+}

@@ -1,401 +1,162 @@
-/* =========================
-   HERO LAYOUT
-========================= */
-
-.wrap {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(var(--primary-rgb), 0.08),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 88% 12%,
-      rgba(var(--secondary-rgb), 0.08),
-      transparent 26%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(var(--surface-rgb), 0.72),
-      rgba(var(--background-rgb), 0.96)
-    );
-}
-
-.bg {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-}
-
-.inner {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 72px 24px 72px;
-  min-height: calc(100vh - 72px);
-
+.hero {
+  --current-caption-size: clamp(18px, 1.5vw, 22px);
   display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: clamp(36px, 5vw, 72px);
-  align-items: center;
-}
-
-/* =========================
-   POLAROIDS
-========================= */
-
-.photoStack {
-  position: relative;
-  width: 100%;
-  height: 360px;
-  justify-self: center;
-}
-
-.polaroid {
-  position: absolute;
-  width: 300px;
-  max-width: 92%;
-
-  background: rgba(var(--surface-rgb), 0.82);
-  border: 1px solid rgba(var(--text-rgb), 0.12);
-  box-shadow: 0 28px 80px rgba(var(--text-rgb), 0.12);
-  backdrop-filter: blur(10px);
-  overflow: hidden;
-
-  border-radius: 18px;
-  padding: 14px 14px 22px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  transform-origin: center center;
-  transition:
-    box-shadow 220ms ease,
-    filter 220ms ease,
-    transform 220ms ease;
-  will-change: transform;
-}
-
-.polaroidImg {
-  width: 100%;
-  height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  flex: 0 0 auto;
-}
-
-.polaroidPhoto {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.polaroidCaption {
-  margin-top: 6px;
-  font-size: 14px;
-  color: rgba(var(--text-rgb), 0.6);
-  letter-spacing: 0.03em;
+  grid-template-columns: minmax(0, 260px) minmax(0, 480px) minmax(0, 260px);
+  align-items: end;
+  justify-content: center;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 64px 24px 56px;
+  color: #111;
   text-align: center;
 }
 
-/* main card */
-.polaroidMain {
-  left: 40px;
-  top: 40px;
-  z-index: 2;
-  animation: floatMain 6.8s ease-in-out infinite;
-  transform: rotate(-1deg) scale(1.06);
+.copy {
+  min-width: 0;
 }
 
-.polaroidMain:hover {
-  box-shadow: 0 36px 95px rgba(var(--text-rgb), 0.16);
+.characters {
+  position: relative;
+  bottom: calc(var(--current-caption-size) * 1.5 + 8px);
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  height: 200px;
+  min-width: 0;
 }
 
-.polaroidMain:hover .polaroidCaption {
-  color: rgba(var(--primary-rgb), 0.9);
+.character {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 10 / 13;
 }
 
-/* =========================
-   MOTION
-========================= */
+.character[data-character="kodama-upside-down"] {
+  top: -24px;
+}
 
-@keyframes floatMain {
-  0% {
-    transform: translateY(0px) rotate(-1deg) scale(1.06);
+.character[data-character="kodama-jumping"] {
+  top: -16px;
+}
+
+.character[data-character="kodama-peeking"] {
+  top: 6px;
+}
+
+.character img {
+  position: absolute;
+  left: 50%;
+  bottom: var(--artwork-bottom);
+  display: block;
+  height: var(--artwork-height);
+  width: auto;
+  max-width: none;
+  translate: var(--artwork-center) 0;
+  transform-origin: 50% 90%;
+  transition: transform 260ms ease;
+}
+
+@media (hover: hover) {
+  .character:hover img {
+    transform: rotate(-6deg);
   }
-  50% {
-    transform: translateY(-10px) rotate(-2deg) scale(1.06);
+
+  .character:nth-child(2):hover img {
+    transform: rotate(6deg);
   }
-  100% {
-    transform: translateY(0px) rotate(-1deg) scale(1.06);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 3.8vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.tagline {
+  margin: 24px 0 0;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.tagline em {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.current {
+  margin: 8px 0 0;
+  color: #888;
+  font-size: var(--current-caption-size);
+  line-height: 1.5;
+}
+
+.current span {
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: repeat(2, minmax(0, 208px));
+    gap: 16px 32px;
+    padding: 64px 24px 56px;
+  }
+
+  .copy {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .characters {
+    bottom: 0;
+    grid-row: 2;
+    height: 160px;
+    gap: 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .polaroidMain {
-    animation: none !important;
-  }
-  .polaroid {
-    transition: none !important;
-  }
-}
-
-/* =========================
-   COPY
-========================= */
-
-.text {
-  text-align: left;
-  max-width: 620px;
-}
-
-.eyebrow {
-  color: var(--primary);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.title {
-  color: var(--text);
-  font-weight: 650;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  margin: 0;
-  font-size: clamp(44px, 5.8vw, 86px);
-  white-space: nowrap;
-}
-
-.meta {
-  margin-top: 14px;
-  color: rgba(var(--text-rgb), 0.74);
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 520;
-  letter-spacing: -0.02em;
-  max-width: 26ch;
-}
-
-.subtitle {
-  margin-top: 18px;
-  max-width: 560px;
-  color: var(--muted);
-  font-size: clamp(16px, 1.6vw, 20px);
-  line-height: 1.65;
-}
-
-.actions {
-  margin-top: 34px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 16px 32px;
-  background: var(--primary);
-  color: var(--text);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 12px;
-  text-decoration: none;
-  box-shadow: 0 18px 40px rgba(var(--primary-rgb), 0.22);
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    opacity 160ms ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 22px 55px rgba(var(--primary-rgb), 0.28);
-}
-
-.btn:active {
-  transform: translateY(0px);
-  opacity: 0.9;
-}
-
-.btnGhost {
-  background: rgba(var(--surface-rgb), 0.92);
-  color: var(--text);
-  border: 1px solid rgba(var(--text-rgb), 0.14);
-  box-shadow: 0 14px 30px rgba(var(--text-rgb), 0.08);
-}
-
-.btnGhost:hover {
-  box-shadow: 0 18px 38px rgba(var(--text-rgb), 0.1);
-}
-
-.tag {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.tag::before {
-  content: "";
-  width: 40px;
-  height: 1px;
-  background: rgba(var(--primary-rgb), 0.4);
-}
-
-/* =========================
-   SCROLL HINT
-========================= */
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-  .inner {
-    grid-template-columns: 1fr;
-    gap: 34px;
-    padding-top: 44px;
-    padding-bottom: 64px;
-    text-align: center;
-    min-height: auto;
+  .character img {
+    transition: none;
   }
 
-  .text {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .meta,
-  .subtitle {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .actions {
-    justify-content: center;
-  }
-
-  .photoStack {
-    order: -1;
-    height: 320px;
-    max-width: 440px;
-    margin: 0 auto;
-  }
-
-  .polaroidMain {
-    left: 50%;
-    top: 28px;
-    transform: translateX(-50%) rotate(-1deg) scale(1.04);
-    animation: none;
-  }
-
-  .tag {
-    justify-content: center;
+  .character:hover img,
+  .character:nth-child(2):hover img {
+    transform: none;
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 640px) {
-  .wrap {
-    min-height: auto;
+@media (max-width: 760px) {
+  .hero {
+    padding: 48px 24px;
   }
 
-  .inner {
-    padding: 28px 18px 48px;
-    gap: 26px;
+  .hero h1 {
+    font-size: clamp(40px, 8vw, 54px);
   }
 
-  .title {
-    white-space: normal;
-    line-height: 1.02;
+  .tagline {
+    font-size: 18px;
   }
 
-  .meta {
-    font-size: 17px;
-  }
-
-  .subtitle {
-    font-size: 15px;
-    line-height: 1.72;
-  }
-
-  .photoStack {
-    height: 262px;
-    max-width: 100%;
-  }
-
-  .polaroidMain {
-    width: min(320px, 100%);
-    left: 50%;
-    top: 10px;
-    transform: translateX(-50%) rotate(-1deg) scale(1);
-    animation: none;
-  }
-
-  .polaroid {
-    padding: 12px 12px 18px;
-    border-radius: 16px;
-  }
-
-  .polaroidImg {
-    height: 174px;
-  }
-
-  .actions {
-    width: 100%;
-    gap: 12px;
-  }
-
-  .btn {
-    width: 100%;
-    min-height: 52px;
-    padding: 14px 20px;
-  }
-
-  .tag {
-    display: grid;
-    gap: 8px;
-    letter-spacing: 0.07em;
-  }
-
-  .tag::before {
-    width: 52px;
-    justify-self: center;
+  .current {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 420px) {
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.15em;
+@media (max-width: 480px) {
+  .hero {
+    gap: 16px;
+    padding: 40px 24px;
   }
 
-  .title {
-    font-size: clamp(38px, 12vw, 52px);
+  .tagline {
+    max-width: 28ch;
+    margin: 16px auto 0;
   }
 
-  .photoStack {
-    height: 244px;
-  }
-
-  .polaroidImg {
-    height: 158px;
-  }
 }

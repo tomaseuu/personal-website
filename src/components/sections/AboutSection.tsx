@@ -99,16 +99,10 @@ export default function AboutSection() {
         <div className={styles.photoCard}>
           <div className={styles.photoWrap}>
             <Image
-              src="/study-thomas-3.png"
-              alt="Thomas studying"
+              src="/grad.jpg"
+              alt="Thomas graduation portrait"
               fill
-              className={[styles.photo, styles.photoLight].join(" ")}
-            />
-            <Image
-              src="/dark-mode3.png"
-              alt="Thomas studying in dark mode"
-              fill
-              className={[styles.photo, styles.photoDark].join(" ")}
+              className={styles.photo}
             />
           </div>
         </div>

@@ -1,0 +1,22 @@
+.gallery { min-width: 0; margin: 28px 0 0; }
+.hero { margin-top: 0; }
+.frame { padding: 28px; border-radius: 8px; background: #f8f8f8; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 28px; }
+.item { display: grid; justify-items: center; gap: 14px; min-width: 0; }
+.item img { display: block; width: 100%; max-width: 244px; height: auto; border-radius: 4px; }
+.item span { color: #666; font-size: 13px; line-height: 1.5; text-align: center; }
+.grid[data-count="1"] { grid-template-columns: 1fr; }
+.grid[data-count="1"] .item img, .grid[data-count="2"] .item img { max-width: 300px; }
+.grid[data-count="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid[data-kind="web"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid[data-kind="web"] .item:first-child { grid-column: 1 / -1; }
+.grid[data-kind="web"] .item img { max-width: 720px; }
+.gallery > figcaption { margin-top: 14px; color: #777; font-size: 13px; line-height: 1.6; }
+
+@media (max-width: 760px) {
+  .frame { padding: 16px; }
+  .grid[data-kind="mobile"]:not([data-count="1"]) { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 12px; }
+  .grid[data-kind="mobile"]:not([data-count="1"]) .item { flex: 0 0 min(280px, 100%); scroll-snap-align: start; }
+  .grid[data-kind="mobile"] .item img { max-width: 280px; }
+  .grid[data-kind="web"] { grid-template-columns: 1fr; gap: 28px; }
+}

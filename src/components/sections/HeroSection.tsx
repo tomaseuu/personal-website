@@ -1,154 +1,54 @@
-"use client";
-
-import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import TopBar from "@/components/ui/TopBar";
-import MenuOverlay from "@/components/ui/MenuOverlay";
 import styles from "./HeroSection.module.css";
+import PageTitle from "@/components/ui/PageTitle";
+import Image from "next/image";
+import type { CSSProperties } from "react";
+
+const characterGroups = {
+  left: [
+    { id: "kodama-sitting", src: "/hero/kodama-sitting-watercolor.png", bounds: [142, 161, 927, 1410] },
+    { id: "kodama-upside-down", src: "/hero/kodama-upside-down-watercolor.png", bounds: [96, 48, 938, 1460] },
+    { id: "kodama-jumping", src: "/hero/kodama-jumping-watercolor.png", bounds: [104, 109, 920, 1429] },
+  ],
+  right: [
+    { id: "kodama", src: "/hero/kodama-watercolor.png", bounds: [278, 244, 783, 1398] },
+    { id: "kodama-waving", src: "/hero/kodama-waving-watercolor.png", bounds: [142, 76, 890, 1482] },
+    { id: "kodama-peeking", src: "/hero/kodama-peeking-watercolor.png", bounds: [89, 142, 967, 1459] },
+  ],
+};
+
+function Characters({ side }: { side: keyof typeof characterGroups }) {
+  return (
+    <div className={styles.characters} aria-hidden="true">
+      {characterGroups[side].map((character) => {
+        // Normalize the visible artwork, rather than the transparent image canvas.
+        const [left, top, right, bottom] = character.bounds;
+        const artworkHeight = bottom - top;
+        const artworkStyle = {
+          "--artwork-height": `${1536 / artworkHeight * 100}%`,
+          "--artwork-bottom": `${-(1536 - bottom) / artworkHeight * 100}%`,
+          "--artwork-center": `${-(left + right) / 2 / 1024 * 100}%`,
+        } as CSSProperties;
+
+        return (
+          <span key={character.id} className={styles.character} data-character={character.id} style={artworkStyle}>
+            <Image src={character.src} alt="" width={1024} height={1536} sizes="(max-width: 900px) 80px, 100px" />
+          </span>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function HeroSection() {
-  const [open, setOpen] = useState(false);
-
-  const links = useMemo(
-    () => [
-      { label: "About", href: "#about" },
-      { label: "Experience", href: "#experience" },
-      { label: "Projects", href: "#projects" },
-      { label: "Skills", href: "#skills" },
-      { label: "Contact", href: "#connect" },
-    ],
-    [],
-  );
-
-  const topBarLinks = useMemo(
-    () => [
-      { label: "About", href: "#about", step: "01" },
-      { label: "Experience", href: "#experience", step: "02" },
-      { label: "Work", href: "#projects", step: "03" },
-      { label: "Skills", href: "#skills", step: "04" },
-      { label: "Contact", href: "#connect", step: "05" },
-    ],
-    [],
-  );
-
   return (
-    <section id="home" className={styles.wrap}>
-      <TopBar
-        onMenu={() => setOpen(true)}
-        links={topBarLinks}
-        resumeHref="/resume.pdf"
-      />
-      <MenuOverlay open={open} onClose={() => setOpen(false)} links={links} />
-
-      <div className={styles.bg}>
-        <div
-          className="absolute -left-40 -top-40 h-[560px] w-[560px] rounded-full"
-          style={{ background: "rgba(60, 181, 199, 0.08)" }}
-        />
-        <div
-          className="absolute -right-40 top-10 h-[560px] w-[560px] rounded-full"
-          style={{ background: "rgba(225, 153, 179, 0.08)" }}
-        />
+    <section id="home" className={styles.hero} aria-labelledby="home-title">
+      <Characters side="left" />
+      <div className={styles.copy}>
+        <PageTitle id="home-title">thomas le</PageTitle>
+        <p className={styles.tagline}>a <em>software engineer</em> and opportunity chaser</p>
+        <p className={styles.current}>currently at <span>ventura foods</span></p>
       </div>
-
-      <div className={styles.inner}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.55 }}
-          className={styles.photoStack}
-        >
-          <div className={[styles.polaroid, styles.polaroidMain].join(" ")}>
-            <div className={styles.polaroidImg}>
-              <Image
-                src="/grad.jpg"
-                alt="Thomas graduation portrait"
-                fill
-                priority
-                className={styles.polaroidPhoto}
-              />
-            </div>
-            <div className={styles.polaroidCaption}>Hi, I am Thomas!</div>
-          </div>
-        </motion.div>
-
-        <div className={styles.text}>
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.03 }}
-            className={styles.eyebrow}
-          >
-            Computer Science @ Cal Poly SLO
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.05 }}
-            className={styles.title}
-          >
-            Thomas Le
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.09 }}
-            className={styles.meta}
-          >
-            Software engineer building full-stack and AI-powered products
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.12 }}
-            className={styles.subtitle}
-          >
-            I am a software engineer focused on building thoughtful,
-            human-centered digital products across onboarding, healthcare, and
-            nonprofit systems.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.18 }}
-            className={styles.actions}
-          >
-            <button
-              type="button"
-              className={styles.btn}
-              onClick={() => {
-                const el = document.querySelector("#about");
-                el?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-            >
-              Discover More
-            </button>
-
-            <a
-              className={[styles.btn, styles.btnGhost].join(" ")}
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Resume
-            </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.22 }}
-            className={styles.tag}
-          >
-            Los Angeles Metropolitan Area • Open to full-time software engineering roles
-          </motion.div>
-        </div>
-      </div>
-
+      <Characters side="right" />
     </section>
   );
 }

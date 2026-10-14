@@ -1,113 +1,89 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./TopBar.module.css";
-import ThemeToggle from "./ThemeToggle";
+import { PRIMARY_NAVIGATION } from "./site.data";
+import { scrollHomeToTop } from "./home-navigation";
 
-type LinkItem = {
-  label: string;
-  href: string;
-  step: string;
-};
+type LinkItem = { label: string; href: string };
 
 export default function TopBar({
-  onMenu,
-  links,
-  resumeHref,
+  links = PRIMARY_NAVIGATION,
+  activePage,
 }: {
-  onMenu: () => void;
-  links: LinkItem[];
-  resumeHref: string;
+  links?: LinkItem[];
+  activePage?: string;
 }) {
-  const [activeHref, setActiveHref] = useState<string>("");
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [activeSectionHref, setActiveHref] = useState(links[0]?.href ?? "");
+  const activeHref = activePage ?? activeSectionHref;
 
   useEffect(() => {
-    const syncHash = () => setActiveHref(window.location.hash || "#home");
+    if (activePage) return;
 
-    syncHash();
-    window.addEventListener("hashchange", syncHash);
+    const syncActive = () => {
+      const currentSection = links
+        .filter((link) => link.href.startsWith("/#") || link.href.startsWith("#"))
+        .map((link) => ({
+          href: link.href,
+          top: document
+            .getElementById(link.href.split("#")[1])
+            ?.getBoundingClientRect().top,
+        }))
+        .filter((section) => section.top !== undefined && section.top <= 160)
+        .sort((a, b) => (b.top ?? 0) - (a.top ?? 0))[0];
 
-    return () => window.removeEventListener("hashchange", syncHash);
-  }, []);
-
-  useEffect(() => {
-    let lastY = window.scrollY;
-
-    const syncScroll = () => {
-      const currentY = window.scrollY;
-      setScrolled(currentY > 24);
-
-      if (currentY <= 24) {
-        setHidden(false);
-      } else if (currentY > lastY + 6) {
-        setHidden(true);
-      } else if (currentY < lastY - 6) {
-        setHidden(false);
-      }
-
-      lastY = currentY;
+      setActiveHref(currentSection?.href ?? links[0]?.href ?? "");
     };
 
-    syncScroll();
-    window.addEventListener("scroll", syncScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", syncScroll);
-  }, []);
+    syncActive();
+    window.addEventListener("scroll", syncActive, { passive: true });
+    window.addEventListener("resize", syncActive);
+    return () => {
+      window.removeEventListener("scroll", syncActive);
+      window.removeEventListener("resize", syncActive);
+    };
+  }, [links, activePage]);
 
   return (
-    <header
-      className={styles.wrap}
-      data-scrolled={scrolled ? "true" : "false"}
-      data-hidden={hidden ? "true" : "false"}
-    >
+    <header className={styles.wrap}>
       <div className={styles.inner}>
-        <a href="#home" className={styles.brand} aria-label="Back to top">
+        <Link href="/" onClick={scrollHomeToTop} className={styles.brand} aria-label="Thomas Le — home (work)">
           <span className={styles.brandMark} aria-hidden="true">
-            <Image
-              src="/me.png"
-              alt="Thomas avatar"
-              width={36}
-              height={36}
-              className={styles.brandAvatar}
-            />
+            <svg className={styles.monogram} viewBox="0 0 40 40" fill="none">
+              <path
+                d="M8 12.5C14 10.3 23 9.8 32 10.8"
+                stroke="currentColor"
+                strokeWidth="4.2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M22 11.5C20.9 17.4 20 23.3 20.2 29.5C20.3 31 21 31.6 22.6 30.8"
+                stroke="currentColor"
+                strokeWidth="4.5"
+                strokeLinecap="round"
+              />
+            </svg>
           </span>
-        </a>
+        </Link>
 
-        <div className={styles.desktopNav}>
-          <nav className={styles.nav} aria-label="Primary">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={styles.navLink}
-                data-active={activeHref === link.href ? "true" : "false"}
-                aria-current={activeHref === link.href ? "page" : undefined}
-                onClick={() => setActiveHref(link.href)}
-              >
-                <span className={styles.navStep}>{link.step}.</span>
-                <span className={styles.navLabel}>{link.label}</span>
-              </a>
-            ))}
-          </nav>
-
-          <ThemeToggle />
-
-          <a
-            href={resumeHref}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.resumeBtn}
-          >
-            Resume
-          </a>
-        </div>
-
-        <button onClick={onMenu} className={styles.menuBtn} type="button">
-          Menu
-        </button>
+        <nav className={styles.nav} aria-label="Primary">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={styles.navLink}
+              data-active={activeHref === link.href ? "true" : "false"}
+              aria-current={activeHref === link.href ? (activePage ? "page" : "location") : undefined}
+              onClick={(event) => {
+                setActiveHref(link.href);
+                if (link.href === "/") scrollHomeToTop(event);
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   );
