@@ -8,7 +8,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Thomas Le | Personal Website",
+  title: "Thomas Le",
   description: "Personal Portfolio",
 };
 
