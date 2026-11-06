@@ -28,8 +28,8 @@ const studyDetails: Record<string, Pick<WorkStudy, "slug" | "headline" | "focus"
     slug: "veggie-rescue",
     duration: "6 months",
     teamSize: 6,
-    headline: "Developing a dashboard that enables staff to effortlessly track deliveries and plan food distribution.",
-    focus: "Delivery dashboard & recommendations",
+    headline: "Helping lead a delivery dashboard project and proposing a priority queue to support food distribution planning.",
+    focus: "Technical coordination & delivery queue proposal",
     href: "https://veggierescue.org/",
   },
   homigo: {

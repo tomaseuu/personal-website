@@ -184,7 +184,7 @@ export default function WorkCaseStudy({ study }: { study: WorkStudy }) {
               <PageTitle>{study.company.toLowerCase()}</PageTitle>
               {story.status ? <p className={styles.status}>{story.status}</p> : null}
               <p className={styles.headline}>{study.id === "veggie" ? (
-                <>Developing a dashboard that enables staff to<br className={styles.headlineBreak} /> <em>effortlessly</em> <span className={styles.headlineUnderline}>track deliveries</span> and plan food distribution.</>
+                <>Helping lead a delivery dashboard project and proposing a<br className={styles.headlineBreak} /> <span className={styles.headlineUnderline}>priority queue</span> to support food distribution planning.</>
               ) : study.id === "homigo" ? (
                 <>Building a home services marketplace with<br className={styles.headlineBreak} /> <em>clear</em> <span className={styles.headlineUnderline}>onboarding</span> for consumers and providers.</>
               ) : study.id === "spreadgoodness" ? (
@@ -194,7 +194,7 @@ export default function WorkCaseStudy({ study }: { study: WorkStudy }) {
             </div>
             <dl className={styles.metadata}>
               <div><dt>Role</dt><dd>{study.role}</dd></div>
-              <div><dt>Tools</dt><dd>{study.id === "veggie" ? "Next.js, TypeScript, Google Sheets API" : study.id === "homigo" ? "Next.js, TypeScript, Supabase" : study.id === "spreadgoodness" ? "React, JavaScript, Firebase" : study.id === "ventura-foods" ? "TBD" : study.tech.length ? study.tech.join(", ") : "To be confirmed"}</dd></div>
+              <div><dt>{study.id === "veggie" ? "Team stack" : "Tools"}</dt><dd>{study.id === "veggie" ? "Next.js, TypeScript, Express, Google Sheets API" : study.id === "homigo" ? "Next.js, TypeScript, Supabase" : study.id === "spreadgoodness" ? "React, JavaScript, Firebase" : study.id === "ventura-foods" ? "TBD" : study.tech.length ? study.tech.join(", ") : "To be confirmed"}</dd></div>
               <div><dt>Duration</dt><dd>{study.duration ?? study.dates}</dd></div>
               <div><dt>{study.teamSize ? "Team" : "Scope"}</dt><dd>{study.teamSize ? `${study.teamSize} members` : study.focus}</dd></div>
             </dl>
