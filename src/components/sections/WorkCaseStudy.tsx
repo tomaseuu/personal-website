@@ -184,7 +184,7 @@ export default function WorkCaseStudy({ study }: { study: WorkStudy }) {
               <PageTitle>{study.company.toLowerCase()}</PageTitle>
               {story.status ? <p className={styles.status}>{story.status}</p> : null}
               <p className={styles.headline}>{study.id === "veggie" ? (
-                <>Helping lead a delivery dashboard project and proposing a<br className={styles.headlineBreak} /> <span className={styles.headlineUnderline}>priority queue</span> to support food distribution planning.</>
+                <>Developing a dashboard that enables staff to<br className={styles.headlineBreak} /> <em>effortlessly</em> <span className={styles.headlineUnderline}>track deliveries</span> and plan food distribution.</>
               ) : study.id === "homigo" ? (
                 <>Building a home services marketplace with<br className={styles.headlineBreak} /> <em>clear</em> <span className={styles.headlineUnderline}>onboarding</span> for consumers and providers.</>
               ) : study.id === "spreadgoodness" ? (
